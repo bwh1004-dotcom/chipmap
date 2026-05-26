@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#080f1e">
+<title>CHIPMAP 칩맵</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#080f1e;--bg2:#0d1628;--bg3:#162035;--card:#1a2640;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --text:#e8edf5;--text2:#7a8fa8;--text3:#4a5f78;
+  --blue:#4f8ef7;--purple:#9b6ef7;--cyan:#26c9e8;
+  --green:#2dd98a;--amber:#f5a623;--red:#f46b6b;--pink:#e86fa8;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden;max-width:540px;margin:0 auto}
+.header{padding:13px 16px 11px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:linear-gradient(135deg,#0d1628 0%,#101e38 100%)}
+.logo{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:linear-gradient(135deg,#4f8ef7,#9b6ef7)}
+.logo-text{font-size:16px;font-weight:800;letter-spacing:-.3px}
+.logo-sub{font-size:10px;color:var(--text3);letter-spacing:.2px;margin-top:1px}
+.pureun-toggle{margin-left:auto;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:20px;padding:5px 10px;cursor:pointer;transition:all .25s;user-select:none}
+.pureun-toggle.on{background:rgba(232,111,168,.15);border-color:rgba(232,111,168,.4)}
+.pureun-toggle-dot{width:18px;height:18px;border-radius:50%;background:var(--text3);transition:all .25s;display:flex;align-items:center;justify-content:center;font-size:11px}
+.pureun-toggle.on .pureun-toggle-dot{background:var(--pink)}
+.pureun-toggle-label{font-size:11px;font-weight:600;color:var(--text2);transition:color .25s}
+.pureun-toggle.on .pureun-toggle-label{color:var(--pink)}
+.pureun-banner{background:linear-gradient(135deg,rgba(232,111,168,.12),rgba(155,110,247,.08));border-bottom:1px solid rgba(232,111,168,.2);padding:7px 16px;font-size:11px;color:var(--pink);display:flex;align-items:center;gap:6px;flex-shrink:0;animation:slideDown .3s ease}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.section{padding:14px 15px 24px;display:none}
+.section.active{display:block}
+.sec-label{font-size:11px;color:var(--text3);margin-bottom:10px;letter-spacing:.3px;font-weight:600;text-transform:uppercase}
+.card{background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:8px;border:1px solid var(--border)}
+.card.open{border-color:rgba(79,142,247,.4)}
+.card.open.pureun-open{border-color:rgba(232,111,168,.4)}
+.card-header{display:flex;align-items:center;gap:10px;cursor:pointer}
+.card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.card-title{font-size:14px;font-weight:700;flex:1}
+.card-chevron{font-size:11px;color:var(--text3);transition:transform .2s}
+.card.open .card-chevron{transform:rotate(180deg)}
+.card-body{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.card.open .card-body{display:block}
+.body-text{font-size:12px;color:var(--text2);line-height:1.75;white-space:pre-wrap}
+.pureun-text{font-size:13px;color:var(--text);line-height:1.85;background:rgba(232,111,168,.08);border-radius:10px;padding:10px 12px;border:1px solid rgba(232,111,168,.2)}
+.point{display:flex;gap:6px;font-size:11px;color:var(--text2);margin-top:5px;align-items:flex-start;line-height:1.5}
+.point-dot{flex-shrink:0;margin-top:1px}
+table.info{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:8px}
+table.info tr{border-bottom:1px solid var(--border)}
+table.info td{padding:5px 7px}
+table.info td:first-child{color:var(--text3);font-weight:600;white-space:nowrap}
+table.info td.mem{color:var(--cyan);text-align:center}
+table.info td.logic{color:var(--purple);text-align:center}
+.cycle-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.cycle-bar{width:4px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:14px}
+.geo-row{padding:7px 0;border-bottom:1px solid var(--border)}
+.geo-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.chip{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+.chain-scroll{overflow-x:auto;padding-bottom:4px;margin-bottom:10px}
+.chain-flow{display:flex;gap:5px;align-items:center;min-width:max-content}
+.chain-node{background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:8px 10px;cursor:pointer;min-width:68px;transition:all .2s}
+.chain-node.sel{border-width:2px}
+.chain-node-label{font-size:11px;font-weight:700;margin-bottom:2px}
+.chain-node-sub{font-size:9px;color:var(--text3)}
+.chain-arrow{color:var(--text3);font-size:12px;flex-shrink:0}
+.chain-detail{border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.proc-toggle{display:flex;gap:6px;margin-bottom:10px}
+.proc-pill{font-size:11px;padding:5px 14px;border-radius:20px;cursor:pointer;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-weight:600;transition:all .2s}
+.proc-step{border-radius:10px;margin-bottom:6px;overflow:hidden;transition:all .2s;border:1px solid var(--border)}
+.proc-step.sel{border-width:1.5px}
+.proc-header{display:flex;align-items:center;gap:9px;padding:10px 12px;cursor:pointer}
+.proc-no{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.proc-body{padding:0 12px 12px;border-top:1px solid var(--border)}
+.proc-desc{font-size:12px;color:var(--text2);line-height:1.65;padding:8px 0 10px}
+.proc-pureun{font-size:12px;color:var(--text);background:rgba(232,111,168,.08);border-radius:8px;padding:8px 10px;margin-bottom:10px;border:1px solid rgba(232,111,168,.18);line-height:1.65}
+.co-section{margin-bottom:14px}
+.co-section-title{font-size:11px;font-weight:700;color:var(--text3);padding:6px 0 6px;letter-spacing:.4px;border-bottom:1px solid var(--border);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.co-section-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.co-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px}
+.co-card{background:var(--bg2);border-radius:10px;padding:9px 10px;border:1px solid var(--border);border-left-width:2.5px}
+.co-ticker{font-size:9px;font-weight:700;font-family:monospace;margin-bottom:2px}
+.mkt-badge{font-size:8px;padding:1px 5px;border-radius:5px;font-weight:700;display:inline-block;margin-bottom:3px}
+.co-name{font-size:12px;font-weight:700;margin-bottom:1px}
+.co-role{font-size:10px;color:var(--text3)}
+.co-mc{font-size:9px;color:var(--text3);margin-top:3px}
+.market-toggle{display:flex;gap:5px;margin-bottom:10px}
+.mkt-btn{flex:1;padding:7px 4px;border-radius:9px;cursor:pointer;border:1px solid var(--border);background:var(--bg2);color:var(--text2);font-size:11px;font-weight:600;text-align:center;transition:all .2s}
+.seg-scroll{overflow-x:auto;margin-bottom:10px}
+.seg-row{display:flex;gap:5px;min-width:max-content}
+.seg-btn{font-size:10px;padding:4px 9px;border-radius:15px;cursor:pointer;background:var(--bg2);color:var(--text2);border:1px solid var(--border);white-space:nowrap;transition:all .2s}
+.seg-btn.active{background:rgba(79,142,247,.15);color:var(--blue);border-color:rgba(79,142,247,.4)}
+.co-count{font-size:10px;color:var(--text3);margin-bottom:10px}
+.codes-box{background:var(--bg2);border-radius:10px;padding:12px;border:1px solid var(--border);margin-top:8px}
+.codes-toggle{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:12px;font-weight:600;color:var(--text2)}
+.code-list{font-size:10px;font-family:monospace;color:var(--text2);line-height:1.9;margin-top:10px;background:var(--bg3);border-radius:8px;padding:10px;overflow-x:auto;white-space:pre}
+/* ── STEP LEARNING ── */
+.learn-wrap{display:flex;flex-direction:column;height:100%;overflow:hidden}
+.learn-prog-row{padding:12px 16px 8px;display:flex;align-items:center;gap:10px;flex-shrink:0;border-bottom:1px solid var(--border)}
+.learn-prog-bar{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.learn-prog-fill{height:100%;border-radius:2px;transition:width .5s ease}
+.learn-prog-txt{font-size:11px;font-weight:700;white-space:nowrap}
+.learn-step-map{display:flex;gap:5px;padding:10px 16px;overflow-x:auto;flex-shrink:0;border-bottom:1px solid var(--border)}
+.learn-dot{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;flex-shrink:0;border:1.5px solid var(--border)}
+.learn-dot.done{background:rgba(45,217,138,.15);border-color:rgba(45,217,138,.4);color:var(--green)}
+.learn-dot.curr{border-width:2px;color:#fff}
+.learn-dot.todo{color:var(--text3)}
+.learn-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.learn-hero{padding:18px 16px 14px}
+.learn-hero-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.learn-hero-emoji{font-size:34px;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.learn-hero-title{font-size:19px;font-weight:800;line-height:1.2;margin-bottom:3px}
+.learn-hero-sub{font-size:11px;color:var(--text3)}
+.learn-cards{padding:0 16px;display:flex;flex-direction:column;gap:8px}
+.learn-card{background:var(--card);border-radius:12px;padding:12px 14px;border:1px solid var(--border)}
+.learn-card-top{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.learn-card-ico{font-size:20px;width:30px;text-align:center;flex-shrink:0}
+.learn-card-title{font-size:13px;font-weight:700}
+.learn-card-body{font-size:12px;color:var(--text2);line-height:1.75}
+.learn-pureun-body{font-size:12px;background:rgba(232,111,168,.08);border-radius:8px;padding:8px 10px;line-height:1.75;border:1px solid rgba(232,111,168,.15)}
+.learn-takeaway{margin:10px 16px 16px;padding:11px 14px;border-radius:12px;border-left:3px solid;font-size:12px;line-height:1.6}
+.learn-takeaway strong{font-size:13px;font-weight:800;display:block;margin-bottom:3px}
+.learn-nav{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0}
+.learn-btn{flex:1;padding:13px;border-radius:12px;border:1px solid var(--border);cursor:pointer;font-size:13px;font-weight:700;transition:all .2s}
+.learn-btn-prev{background:var(--bg2);color:var(--text2)}
+.learn-btn-next{color:#fff}
+.learn-btn:disabled{opacity:.25;cursor:default}
+.learn-done-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center;flex:1}
+.learn-done-emoji{font-size:56px;margin-bottom:16px}
+.learn-done-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.learn-done-sub{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:24px}
+.learn-restart-btn{padding:12px 28px;border-radius:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer}
+/* ── ONBOARDING ── */
+.ob-wrap{height:100dvh;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.ob-screen{flex:1;display:flex;flex-direction:column;padding:0 24px;animation:obIn .35s ease}
+@keyframes obIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.ob-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
+.ob-logo-big{width:76px;height:76px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:38px;background:linear-gradient(135deg,#4f8ef7,#9b6ef7);margin-bottom:18px;box-shadow:0 8px 32px rgba(79,142,247,.25)}
+.ob-app-name{font-size:30px;font-weight:800;letter-spacing:-.8px;margin-bottom:4px}
+.ob-app-sub{font-size:11px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:18px}
+.ob-tagline{font-size:15px;color:var(--text2);line-height:1.7;max-width:280px}
+.ob-tagline strong{color:var(--text);font-weight:700}
+.ob-features{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:8px 0}
+.ob-feat{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--card);border-radius:12px;border:1px solid var(--border);animation:obIn .35s ease both}
+.ob-feat-icon{font-size:22px;width:36px;text-align:center;flex-shrink:0}
+.ob-feat-title{font-size:13px;font-weight:700;margin-bottom:2px}
+.ob-feat-desc{font-size:11px;color:var(--text2)}
+.ob-modes{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:8px 0}
+.ob-mode-card{padding:20px 16px;border-radius:14px;border:2px solid var(--border);cursor:pointer;text-align:center;transition:all .2s;background:var(--card)}
+.ob-mode-card.sel-normal{border-color:var(--blue);background:rgba(79,142,247,.1)}
+.ob-mode-card.sel-pureun{border-color:var(--pink);background:rgba(232,111,168,.1)}
+.ob-mode-icon{font-size:32px;margin-bottom:8px}
+.ob-mode-title{font-size:15px;font-weight:800;margin-bottom:4px}
+.ob-mode-desc{font-size:11px;color:var(--text2);line-height:1.6}
+.ob-mode-badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700;display:inline-block;margin-top:6px}
+.ob-footer{padding:16px 0 calc(16px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:6px}
+.ob-dots{display:flex;gap:5px;justify-content:center;margin-bottom:10px}
+.ob-dot{height:6px;border-radius:3px;background:var(--text3);transition:all .3s}
+.ob-dot.act{width:20px;background:var(--blue)}
+.ob-dot:not(.act){width:6px}
+.ob-btn-main{width:100%;padding:15px;border-radius:14px;border:none;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:-.2px;transition:all .2s}
+.ob-btn-primary{background:linear-gradient(135deg,#4f8ef7,#9b6ef7);color:#fff}
+.ob-btn-pureun{background:linear-gradient(135deg,#e86fa8,#9b6ef7);color:#fff}
+.ob-btn-skip{background:none;border:none;color:var(--text3);font-size:12px;cursor:pointer;padding:4px;text-align:center;width:100%}
+.ob-step-label{text-align:center;font-size:12px;color:var(--text3);margin-bottom:4px}
+.term-toggle{display:flex;gap:5px;margin-bottom:12px;background:var(--bg2);padding:4px;border-radius:10px}
+.term-mode-btn{flex:1;text-align:center;padding:7px;border-radius:7px;cursor:pointer;font-size:12px;font-weight:700;transition:all .25s;color:var(--text3)}
+.term-mode-btn.active-normal{background:var(--blue);color:#fff}
+.term-mode-btn.active-pureun{background:var(--pink);color:#fff}
+.search-wrap{position:relative;margin-bottom:10px}
+.search-wrap .search-ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--text3)}
+.search-input{width:100%;padding:9px 9px 9px 30px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:13px;outline:none}
+.search-input:focus{border-color:var(--blue)}
+.term-card{background:var(--bg2);border-radius:10px;margin-bottom:5px;border:1px solid var(--border);overflow:hidden}
+.term-header{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;cursor:pointer}
+.term-left{display:flex;align-items:center;gap:7px;flex:1;min-width:0}
+.term-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.term-card.open .term-name{color:var(--blue)}
+.term-card.open.pureun-mode .term-name{color:var(--pink)}
+.term-cat{font-size:9px;padding:1px 6px;border-radius:8px;background:var(--bg3);color:var(--text3);border:1px solid var(--border);flex-shrink:0}
+.term-short{font-size:11px;color:var(--text2);padding:0 12px 8px}
+.term-body{padding:0 12px 10px;border-top:1px solid var(--border)}
+.term-detail{font-size:12px;color:var(--text);line-height:1.75;padding-top:8px}
+.term-pureun-box{background:rgba(232,111,168,.07);border-radius:9px;padding:10px 12px;border:1px solid rgba(232,111,168,.2);font-size:13px;color:var(--text);line-height:1.85;padding-top:8px;margin-top:8px}
+.metric-card{border-radius:12px;padding:12px 14px;margin-bottom:9px;border-left:3px solid;border-right:1px solid var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:8px 0}
+.metric-box{background:var(--bg);border-radius:8px;padding:7px 8px}
+.metric-box-label{font-size:9px;color:var(--text3);margin-bottom:2px}
+.metric-box-val{font-size:11px;font-weight:700}
+.metric-note{font-size:11px;color:var(--text2);line-height:1.55}
+.history-row{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.history-year{min-width:48px;text-align:center;flex-shrink:0}
+.history-phase{font-size:9px;color:var(--text3);margin-top:1px}
+.history-bar{width:3px;border-radius:2px;flex-shrink:0;align-self:stretch;min-height:14px}
+.history-event{font-size:11px;color:var(--text2);line-height:1.5}
+.check-item{display:flex;gap:7px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--text2);align-items:flex-start;line-height:1.5}
+.check-icon{flex-shrink:0;margin-top:1px;font-size:13px}
+.bottom-nav{display:flex;border-top:1px solid var(--border);background:var(--bg2);flex-shrink:0;padding-bottom:env(safe-area-inset-bottom)}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 3px 8px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:9px;transition:color .2s}
+.nav-btn.active{color:var(--blue)}
+.nav-btn.active.pureun-nav{color:var(--pink)}
+.nav-icon{font-size:19px}
+.co-tag{font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600}
+.divider{height:1px;background:var(--border);margin:12px 0}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+const{useState}=React;
+const C={bg:'#080f1e',bg2:'#0d1628',bg3:'#162035',card:'#1a2640',border:'rgba(255,255,255,.07)',text:'#e8edf5',text2:'#7a8fa8',text3:'#4a5f78',blue:'#4f8ef7',purple:'#9b6ef7',cyan:'#26c9e8',green:'#2dd98a',amber:'#f5a623',red:'#f46b6b',pink:'#e86fa8'};
+
+// ═══════════════ DATA ═══════════════
+
+const BASICS=[
+  {id:'what',icon:'⚡',title:'반도체란?',color:C.cyan,
+   content:'전기가 흐르기도 하고, 안 흐르기도 하는 물질. 실리콘(Si)이 대표 소재.\n\n0과 1로 모든 연산을 처리할 수 있어 디지털 세계의 핵심 기반.\n\n트랜지스터 수십억 개를 손톱만한 칩에 집적한 것이 반도체 IC.',
+   pureun:'⚡ 푸른아, 전기가 지나가는 길을 열었다 닫았다 할 수 있는 아주 작은 스위치야!\n\n그 스위치가 수십억 개 모이면 스마트폰이 되는 거야. 아빠 폰 안에도 엄청 많아! 📱\n\n모래(실리콘)로 만드는데, 아주 특별한 방법으로 정제하면 돼.',
+   points:['실리콘: 지구에서 두 번째로 풍부한 원소. 모래 성분이에요','14nm = 머리카락 굵기의 1/5,000 수준','NVIDIA H100 칩 = 트랜지스터 800억 개']},
+  {id:'mem',icon:'🧠',title:'메모리 vs 비메모리',color:C.purple,
+   content:'반도체는 크게 저장(메모리)과 연산·제어(비메모리)로 나뉨.',
+   pureun:'🧠 반도체에는 두 가지 친구가 있어!\n\n기억하는 친구(메모리): DRAM·NAND — 사진이랑 앱을 저장해 줘.\n생각하는 친구(비메모리): CPU·GPU — 계산하고 그림을 그려 줘.\n\n한국은 기억하는 친구를 제일 잘 만들어! 삼성이랑 SK하이닉스가 세계 1·2위야 🏆',
+   table:[{cat:'구분',mem:'메모리',logic:'비메모리(로직)'},{cat:'기능',mem:'데이터 저장',logic:'연산·제어·통신'},{cat:'제품',mem:'DRAM, NAND',logic:'CPU, GPU, AP, SoC'},{cat:'특징',mem:'가격 사이클 극심',logic:'설계 역량이 핵심'},{cat:'국내',mem:'삼성·SK하이닉스',logic:'팹리스 육성 중'}],
+   points:['글로벌 반도체 시장 중 메모리 비중 약 25~30%','한국은 메모리 강국 → 비메모리 확대가 장기 과제']},
+  {id:'cycle',icon:'🔄',title:'반도체 사이클',color:C.amber,
+   content:'반도체는 수요·공급 불균형으로 가격이 크게 출렁이는 사이클 산업.',
+   pureun:'🎢 반도체 가격은 롤러코스터처럼 오르락내리락 해!\n\n많이 필요하면 가격이 올라가고(호황) → 공장을 너무 많이 지으면 넘쳐서 가격이 떨어져(불황).\n\n투자할 때는 가격이 바닥일 때 사서, 꼭대기일 때 파는 게 핵심이야! 📈',
+   cycle:[{phase:'호황 진입',sign:'재고 감소 + ASP 상승 + Book-to-Bill > 1',color:C.green},{phase:'피크',sign:'CAPEX 급증 + 공급 확대 발표',color:C.amber},{phase:'불황 진입',sign:'재고 증가 + 가격 하락 + 감산 검토',color:C.red},{phase:'저점',sign:'PBR 1배 이하 + 감산 실행 + 수요 회복 기대',color:C.cyan}],
+   points:['저점 매수 신호: 삼성·SK하이닉스 PBR 1배 미만','CAPEX 급증 후 2~3년 뒤 공급과잉 반복 패턴']},
+  {id:'geo',icon:'🌍',title:'국가별 경쟁 구도',color:C.pink,
+   content:'반도체는 경제 무기이자 지정학 핵심. 국가마다 강점이 다름.',
+   pureun:'🌍 반도체는 나라마다 잘하는 게 달라!\n\n미국 → 설계를 제일 잘해 (NVIDIA, 퀄컴)\n한국 → 저장 칩을 제일 잘 만들어 (삼성, SK)\n대만 → 위탁 제조를 제일 잘해 (TSMC)\n일본 → 재료를 제일 잘 만들어\n네덜란드 → 특별한 기계(EUV)를 혼자만 만들 수 있어 🇳🇱',
+   geoTable:[{country:'🇺🇸 미국',strength:'설계·EDA·장비',key:'NVIDIA, Qualcomm, AMAT, KLA, Synopsys'},{country:'🇰🇷 한국',strength:'메모리·파운드리',key:'삼성전자, SK하이닉스'},{country:'🇹🇼 대만',strength:'파운드리·OSAT',key:'TSMC, ASE, MediaTek'},{country:'🇯🇵 일본',strength:'소재·부품·장비',key:'신에쓰화학, TEL, JSR'},{country:'🇳🇱 네덜란드',strength:'EUV 노광장비 독점',key:'ASML'},{country:'🇨🇳 중국',strength:'성숙공정 내재화',key:'SMIC, 화웨이 HiSilicon'}],
+   points:['미국 수출통제 = ASML EUV 차단 → 중국 선단공정 진입 봉쇄','대만 리스크 = 파운드리 60%+ TSMC에 집중']},
+];
+
+const CHAIN=[
+  {id:'d',label:'설계',sub:'Fabless/IDM',color:C.purple,icon:'✏️',companies:['NVIDIA','AMD','Qualcomm','ARM','삼성LSI','MediaTek','가온칩스','텔레칩스'],desc:'IC 설계 전문. 팹리스(설계만)와 IDM(설계+제조)로 구분. 설계 역량이 핵심 경쟁력.',pureun:'✏️ 칩의 설계도를 그리는 친구들이야! 공장은 없어도 설계도만 잘 그리면 엄청 돈을 많이 버는 거야.'},
+  {id:'e',label:'EDA/IP',sub:'Design Tools',color:C.pink,icon:'🖥️',companies:['Synopsys','Cadence','Siemens EDA','ANSYS'],desc:'설계 자동화 소프트웨어. 수십억 트랜지스터 설계를 자동화. Synopsys·Cadence 양강 과점.',pureun:'🖥️ 설계도 그리는 걸 도와주는 특별한 컴퓨터 프로그램이야! 이게 없으면 칩 설계가 불가능해.'},
+  {id:'m',label:'소재',sub:'Materials',color:C.cyan,icon:'🧪',companies:['신에쓰화학','JSR','솔브레인','동진쎄미켐','후성','한솔케미칼'],desc:'웨이퍼·포토레지스트·특수가스 등 원소재 공급. 일본기업 강세, 국내 국산화 진행 중.',pureun:'🧪 칩을 만드는 재료를 파는 친구들이야! 특별한 모래(웨이퍼), 특별한 가스, 특별한 약품이 필요해.'},
+  {id:'q',label:'장비',sub:'Equipment',color:C.amber,icon:'🔧',companies:['ASML','Applied Materials','Lam Research','KLA','한미반도체','원익IPS'],desc:'EUV 노광·증착·식각·검사 장비 공급. ASML EUV 독점(대당 3,500억원+).',pureun:'🔧 칩을 만드는 기계를 파는 친구들이야! ASML이 만드는 EUV 기계는 전 세계에서 얘네만 만들어서 엄청 비싸.'},
+  {id:'f',label:'파운드리',sub:'Fab',color:C.green,icon:'🏭',companies:['TSMC','삼성전자','SK하이닉스','DB하이텍','Intel Foundry'],desc:'위탁 제조 전문. TSMC 선단공정 60%+ 점유. 수십조 CAPEX 필요한 자본집약 산업.',pureun:'🏭 다른 친구가 그린 설계도대로 실제로 만들어주는 공장이야! 전 세계 스마트폰 칩이 대부분 TSMC에서 나와.'},
+  {id:'p',label:'패키징',sub:'OSAT',color:C.red,icon:'📦',companies:['하나마이크론','네패스','ASE Group','Amkor','두산테스나'],desc:'후공정 전문. AI 시대 HBM·CoWoS 첨단패키징 중요도 급상승.',pureun:'📦 완성된 칩을 포장하고 테스트하는 친구들이야! AI 시대에 포장 방법이 훨씬 중요해졌어.'},
+  {id:'x',label:'수요처',sub:'End Market',color:'#7a8fa8',icon:'📱',companies:['AI/데이터센터','스마트폰','자동차','PC/서버','IoT'],desc:'AI 데이터센터가 최대 성장 동력. 자동차 전장화, 스마트폰 회복세.',pureun:'📱 반도체를 사서 쓰는 곳들이야! 아빠 폰, AI 컴퓨터, 자동차 안에도 다 반도체가 들어가 있어.'},
+];
+
+const PROCESS=[
+  {no:'①②',name:'웨이퍼·산화',key:'실리콘 기판 준비',type:'front',color:C.purple,
+   desc:'고순도 실리콘 단결정을 얇게 잘라 웨이퍼를 만들고 산화막(SiO₂)을 형성. 기판 품질이 모든 후속 공정의 기반.',
+   pureun:'🌾 실리콘 모래로 만든 동그란 판이야! 여기에 칩을 새기는 거야. 아주 깨끗하게 만들어야 해.',
+   cos:[{n:'신에쓰화학',t:'4063.T',r:'웨이퍼 글로벌 1위',kr:false},{n:'SUMCO',t:'3436.T',r:'웨이퍼 글로벌 2위',kr:false},{n:'Siltronic',t:'WAF.DE',r:'웨이퍼 글로벌 3위',kr:false},{n:'SK실트론',t:'비상장',r:'국내 유일 300mm',kr:true},{n:'원익QnC',t:'074600',r:'쿼츠·세라믹 부품',kr:true},{n:'하나머티리얼즈',t:'166090',r:'실리콘 파트',kr:true},{n:'코미코',t:'183300',r:'부품 세정·코팅',kr:true},{n:'티씨케이',t:'064760',r:'SiC Ring 부품',kr:true},{n:'후성',t:'093370',r:'산화공정 특수가스',kr:true},{n:'SK머티리얼즈',t:'036490',r:'특수가스',kr:true}]},
+  {no:'③',name:'포토리소그래피',key:'빛으로 패턴 인쇄',type:'front',color:C.blue,
+   desc:'포토레지스트에 빛(EUV/ArF)을 쏘아 회로 패턴 전사. 공정 중 가장 정밀·반복 횟수 多.',
+   pureun:'📷 특별한 빛으로 웨이퍼에 아주 작은 그림을 찍는 거야! 도장 찍듯이 회로를 새기는 거야.',
+   cos:[{n:'ASML',t:'ASML',r:'EUV 독점 공급',kr:false},{n:'Nikon',t:'7731.T',r:'ArF 노광장비',kr:false},{n:'Canon',t:'7751.T',r:'i-line 장비',kr:false},{n:'도쿄일렉트론',t:'8035.T',r:'코터·트랙장비',kr:false},{n:'JSR',t:'4897.T',r:'포토레지스트',kr:false},{n:'동진쎄미켐',t:'005290',r:'포토레지스트',kr:true},{n:'에스앤에스텍',t:'101490',r:'EUV 블랭크마스크',kr:true},{n:'에프에스티',t:'036810',r:'EUV 펠리클',kr:true},{n:'케이씨텍',t:'281820',r:'세정장비',kr:true},{n:'솔브레인',t:'357780',r:'세정 소재',kr:true},{n:'이엔에프테크',t:'102710',r:'PR 소재·세정액',kr:true}]},
+  {no:'④',name:'식각 (Etching)',key:'불필요 부분 제거',type:'front',color:C.cyan,
+   desc:'패턴 노광 후 불필요한 막을 화학약품(습식) 또는 플라즈마(건식)로 제거. Lam Research·TEL 과점.',
+   pureun:'✂️ 필요없는 부분을 특별한 약으로 지우는 거야! 지우개로 지우듯이 딱 원하는 부분만 없애.',
+   cos:[{n:'Lam Research',t:'LRCX',r:'식각장비 글로벌 1위',kr:false},{n:'도쿄일렉트론',t:'8035.T',r:'식각장비',kr:false},{n:'Applied Materials',t:'AMAT',r:'식각장비',kr:false},{n:'Hitachi HT',t:'6756.T',r:'식각장비',kr:false},{n:'피에스케이',t:'319660',r:'드라이클리닝 장비',kr:true},{n:'피에스케이홀딩스',t:'031980',r:'PSK 지주',kr:true},{n:'솔브레인',t:'357780',r:'식각액·세정액',kr:true},{n:'후성',t:'093370',r:'불화수소 소재',kr:true},{n:'이엔에프테크',t:'102710',r:'식각소재',kr:true},{n:'원익머트리얼즈',t:'104830',r:'특수가스',kr:true},{n:'동진쎄미켐',t:'005290',r:'세정액',kr:true},{n:'한솔케미칼',t:'014680',r:'과산화수소',kr:true}]},
+  {no:'⑤',name:'이온 주입',key:'전기 특성 부여',type:'front',color:C.green,
+   desc:'실리콘에 불순물 이온(붕소·인·비소)을 고속 주입해 P형/N형 반도체 특성 형성.',
+   pureun:'💉 실리콘에 특별한 가루를 넣어서 전기가 흐르게 해주는 거야! 주사 놓는 것처럼.',
+   cos:[{n:'Applied Materials',t:'AMAT',r:'이온주입장비 1위',kr:false},{n:'Axcelis',t:'ACLS',r:'이온주입 전문',kr:false},{n:'Nissin Ion',t:'6514.T',r:'이온주입장비',kr:false},{n:'원익IPS',t:'240810',r:'관련 공정장비',kr:true},{n:'SK머티리얼즈',t:'036490',r:'도핑 특수가스',kr:true},{n:'후성',t:'093370',r:'도핑 소재',kr:true}]},
+  {no:'⑥',name:'증착 CVD/ALD',key:'새 막 쌓기',type:'front',color:C.amber,
+   desc:'CVD·ALD 방식으로 절연막·금속막·산화막 등 박막을 층층이 형성. 미세화로 ALD 비중 급증.',
+   pureun:'🧁 케이크에 크림을 한 층씩 바르는 것처럼 얇은 막을 쌓는 거야! ALD는 원자 1개 두께로 아주 얇게 바르는 거야.',
+   cos:[{n:'Applied Materials',t:'AMAT',r:'CVD 글로벌 1위',kr:false},{n:'Lam Research',t:'LRCX',r:'CVD/ALD',kr:false},{n:'도쿄일렉트론',t:'8035.T',r:'CVD 장비',kr:false},{n:'ASM International',t:'ASM.AS',r:'ALD 전문',kr:false},{n:'원익IPS',t:'240810',r:'CVD/ALD 국내 1위',kr:true},{n:'주성엔지니어링',t:'036930',r:'ALD 장비',kr:true},{n:'유진테크',t:'084370',r:'ALD·열처리',kr:true},{n:'테스',t:'095610',r:'CVD 장비',kr:true},{n:'비아트론',t:'141000',r:'열처리장비',kr:true},{n:'디엔에프',t:'092070',r:'ALD 전구체',kr:true},{n:'레이크머티리얼즈',t:'281740',r:'ALD 전구체',kr:true},{n:'SK머티리얼즈',t:'036490',r:'공정가스',kr:true},{n:'한솔케미칼',t:'014680',r:'High-k 소재',kr:true},{n:'후성',t:'093370',r:'NF3·특수가스',kr:true}]},
+  {no:'⑦',name:'CMP (연마)',key:'표면 평탄화',type:'front',color:C.red,
+   desc:'화학연마제(슬러리)와 패드로 웨이퍼 표면을 나노미터 수준으로 갈아 평탄화.',
+   pureun:'💅 울퉁불퉁한 웨이퍼 표면을 매끈하게 갈아주는 거야! 손톱 줄로 다듬는 것처럼.',
+   cos:[{n:'Applied Materials',t:'AMAT',r:'CMP 장비 1위',kr:false},{n:'Entegris',t:'ENTG',r:'CMP 슬러리',kr:false},{n:'CMC Materials',t:'CCMP',r:'CMP 슬러리',kr:false},{n:'3M',t:'MMM',r:'CMP 패드',kr:false},{n:'케이씨텍',t:'281820',r:'CMP 장비·슬러리',kr:true},{n:'나노신소재',t:'121600',r:'CMP 슬러리',kr:true},{n:'솔브레인',t:'357780',r:'CMP 소재',kr:true},{n:'코미코',t:'183300',r:'CMP 패드',kr:true}]},
+  {no:'⑧',name:'금속 배선',key:'회로 연결',type:'front',color:C.pink,
+   desc:'트랜지스터들을 구리(Cu) 배선으로 연결. 수십 층의 배선이 쌓여 복잡한 회로 형성.',
+   pureun:'🔌 전기가 다니는 아주 작은 길을 만드는 거야! 구리로 만든 엄청 작은 전선이야.',
+   cos:[{n:'Applied Materials',t:'AMAT',r:'PVD/CVD 배선장비',kr:false},{n:'Lam Research',t:'LRCX',r:'구리도금·식각',kr:false},{n:'도쿄일렉트론',t:'8035.T',r:'배선 공정장비',kr:false},{n:'솔브레인',t:'357780',r:'구리 도금액',kr:true},{n:'후성',t:'093370',r:'WF6 특수가스',kr:true},{n:'이엔에프테크',t:'102710',r:'배선 소재',kr:true},{n:'SK머티리얼즈',t:'036490',r:'공정가스',kr:true}]},
+  {no:'⑨',name:'EDS (전기검사)',key:'불량 선별',type:'front',color:'#7a8fa8',
+   desc:'완성 웨이퍼 전체에 전기 신호를 주입해 불량 다이를 선별·표시. 수율 관리 핵심.',
+   pureun:'🔍 만든 칩이 잘 작동하는지 하나하나 검사하는 거야! 불량 칩은 여기서 걸러내.',
+   cos:[{n:'KLA',t:'KLAC',r:'웨이퍼 검사 1위',kr:false},{n:'Onto Innovation',t:'ONTO',r:'광학 계측',kr:false},{n:'Hitachi HT',t:'6756.T',r:'전자빔 검사',kr:false},{n:'Teradyne',t:'TER',r:'웨이퍼 테스트',kr:false},{n:'넥스틴',t:'085310',r:'웨이퍼 검사',kr:true},{n:'파크시스템스',t:'140860',r:'AFM 계측',kr:true},{n:'오로스테크',t:'322310',r:'광학 계측',kr:true},{n:'인텍플러스',t:'064290',r:'광학 검사',kr:true},{n:'에스티아이',t:'039440',r:'세정·검사장비',kr:true},{n:'리노공업',t:'058470',r:'테스트 소켓',kr:true},{n:'아이에스시',t:'095340',r:'테스트 소켓',kr:true}]},
+  {no:'⑩',name:'다이싱',key:'웨이퍼 자르기',type:'back',color:C.amber,
+   desc:'완성 웨이퍼를 다이아몬드 블레이드 또는 레이저로 절단해 개별 칩(다이) 분리.',
+   pureun:'✂️ 웨이퍼를 칩 하나씩 잘라내는 거야! 쿠키 판에서 쿠키를 하나씩 자르는 것처럼.',
+   cos:[{n:'DISCO',t:'6146.T',r:'다이싱소 글로벌 1위',kr:false},{n:'Ultrasonic',t:'USGE',r:'다이싱장비',kr:false},{n:'이오테크닉스',t:'039030',r:'레이저 다이싱',kr:true},{n:'제우스',t:'079370',r:'세정·다이싱 연관',kr:true}]},
+  {no:'⑪',name:'패키징',key:'칩 보호·연결',type:'back',color:C.red,
+   desc:'다이를 기판에 연결하고 봉지. HBM·CoWoS 첨단패키징이 AI 시대 핵심 공정.',
+   pureun:'🎁 칩을 예쁘게 포장해서 안전하게 지켜주는 거야! AI 시대엔 칩을 층층이 쌓아서 포장해.',
+   cos:[{n:'ASE Group',t:'ASX',r:'OSAT 글로벌 1위',kr:false},{n:'Amkor',t:'AMKR',r:'OSAT 글로벌 2위',kr:false},{n:'JCET',t:'600584.SS',r:'OSAT 글로벌 3위',kr:false},{n:'TSMC',t:'TSM',r:'CoWoS 첨단패키징',kr:false},{n:'하나마이크론',t:'067310',r:'HBM 패키징',kr:true},{n:'네패스',t:'033640',r:'팬아웃 패키징',kr:true},{n:'SFA반도체',t:'036540',r:'OSAT',kr:true},{n:'에이티세미콘',t:'089020',r:'OSAT',kr:true},{n:'한미반도체',t:'042700',r:'TC본더 독점',kr:true},{n:'심텍',t:'222800',r:'PKG 기판',kr:true},{n:'이수페타시스',t:'007660',r:'고다층 PCB',kr:true},{n:'삼성전기',t:'009150',r:'FC-BGA 기판',kr:true},{n:'LG이노텍',t:'011070',r:'FC-BGA 기판',kr:true},{n:'대덕전자',t:'353200',r:'반도체 기판',kr:true},{n:'이녹스첨단소재',t:'272290',r:'EMI차폐·봉지재',kr:true}]},
+  {no:'⑫',name:'최종 테스트',key:'등급 분류·출하',type:'back',color:C.green,
+   desc:'전기·온도·속도 테스트로 등급 분류 후 불량 최종 선별·출하.',
+   pureun:'🏆 다 만든 칩이 얼마나 좋은지 마지막으로 확인하는 거야! 좋은 건 비싸게, 그냥인 건 싸게 파는 거야.',
+   cos:[{n:'Teradyne',t:'TER',r:'테스트장비 글로벌 1위',kr:false},{n:'Advantest',t:'6857.T',r:'테스트장비 2위',kr:false},{n:'Cohu',t:'COHU',r:'핸들러·테스트',kr:false},{n:'FormFactor',t:'FORM',r:'프로브카드',kr:false},{n:'두산테스나',t:'131970',r:'반도체 테스트',kr:true},{n:'네패스아크',t:'330860',r:'반도체 테스트',kr:true},{n:'와이씨',t:'232140',r:'번인 테스터',kr:true},{n:'테크윙',t:'089030',r:'핸들러 장비',kr:true},{n:'미래산업',t:'025560',r:'핸들러 장비',kr:true},{n:'리노공업',t:'058470',r:'테스트 소켓',kr:true},{n:'아이에스시',t:'095340',r:'테스트 소켓',kr:true},{n:'인텍플러스',t:'064290',r:'외관 검사',kr:true}]},
+];
+
+const COMPANIES=[
+  {country:'🇺🇸 미국',color:C.blue,strength:'설계·EDA·장비 생태계 지배',
+   cos:[{n:'NVIDIA',t:'NVDA',r:'GPU/AI 절대강자',kr:false,mc:'$3.2T+'},{n:'Qualcomm',t:'QCOM',r:'모바일AP',kr:false,mc:'$0.18T'},{n:'AMD',t:'AMD',r:'CPU/GPU',kr:false,mc:'$0.2T'},{n:'Intel',t:'INTC',r:'CPU·파운드리',kr:false,mc:'$0.1T'},{n:'Micron',t:'MU',r:'DRAM/HBM',kr:false,mc:'$0.12T'},{n:'Applied Mat.',t:'AMAT',r:'증착/식각장비',kr:false,mc:'$0.15T'},{n:'Lam Research',t:'LRCX',r:'식각장비',kr:false,mc:'$0.1T'},{n:'KLA',t:'KLAC',r:'검사·계측',kr:false,mc:'$0.09T'},{n:'Synopsys',t:'SNPS',r:'EDA SW',kr:false,mc:'$0.08T'},{n:'Cadence',t:'CDNS',r:'EDA SW',kr:false,mc:'$0.07T'},{n:'Entegris',t:'ENTG',r:'소재·케미컬',kr:false,mc:'$0.015T'}]},
+  {country:'🇬🇧 영국',color:C.purple,strength:'CPU IP 라이선스 독점',
+   cos:[{n:'ARM Holdings',t:'ARM',r:'CPU IP',kr:false,mc:'$0.15T'}]},
+  {country:'🇳🇱 네덜란드',color:C.purple,strength:'EUV 노광장비 전 세계 독점',
+   cos:[{n:'ASML',t:'ASML',r:'EUV 독점',kr:false,mc:'$0.35T'}]},
+  {country:'🇹🇼 대만',color:C.red,strength:'파운드리 60%+ 독점. OSAT 글로벌 1위',
+   cos:[{n:'TSMC',t:'TSM',r:'선단공정 독점',kr:false,mc:'$0.9T'},{n:'MediaTek',t:'2454.TW',r:'모바일AP',kr:false,mc:'$0.05T'},{n:'ASE Group',t:'ASX',r:'OSAT 1위',kr:false,mc:'$0.014T'},{n:'UMC',t:'UMC',r:'성숙공정',kr:false,mc:'$0.016T'}]},
+  {country:'🇯🇵 일본',color:C.amber,strength:'소재·부품·장비 세계 최고 수준',
+   cos:[{n:'신에쓰화학',t:'4063.T',r:'웨이퍼 1위',kr:false,mc:'¥7조'},{n:'도쿄일렉트론',t:'8035.T',r:'증착·세정장비',kr:false,mc:'¥18조'},{n:'JSR',t:'4897.T',r:'포토레지스트',kr:false,mc:'¥1.2조'},{n:'SUMCO',t:'3436.T',r:'웨이퍼 2위',kr:false,mc:'¥0.8조'},{n:'Advantest',t:'6857.T',r:'테스트장비',kr:false,mc:'¥3조'},{n:'Shin-Etsu MV',t:'4186.T',r:'포토레지스트',kr:false,mc:'¥0.5조'}]},
+  {country:'🇰🇷 한국 — IDM',color:C.cyan,strength:'메모리 세계 1·2위',
+   cos:[{n:'삼성전자',t:'005930',r:'DRAM·낸드·파운드리',kr:true,mc:'₩370조'},{n:'SK하이닉스',t:'000660',r:'DRAM/HBM 1위',kr:true,mc:'₩130조'},{n:'DB하이텍',t:'000990',r:'8인치 파운드리',kr:true,mc:'₩2.2조'}]},
+  {country:'🇰🇷 한국 — 팹리스',color:C.blue,strength:'AI칩·차량용·IP 분야 성장 중',
+   cos:[{n:'가온칩스',t:'399720',r:'AI·데이터센터 칩',kr:true,mc:'₩0.4조'},{n:'파두',t:'440110',r:'SSD 컨트롤러',kr:true,mc:'₩0.2조'},{n:'오픈엣지테크',t:'394280',r:'AI 가속기 IP',kr:true,mc:'₩0.3조'},{n:'퀄리타스반도체',t:'432720',r:'SRAM IP',kr:true,mc:'₩0.15조'},{n:'칩스앤미디어',t:'094360',r:'비디오 IP',kr:true,mc:'₩0.2조'},{n:'어보브반도체',t:'102120',r:'MCU',kr:true,mc:'₩0.15조'},{n:'텔레칩스',t:'054450',r:'차량용 SoC',kr:true,mc:'₩0.2조'},{n:'에이디테크',t:'200710',r:'ASIC 설계',kr:true,mc:'₩0.1조'},{n:'에이직랜드',t:'393210',r:'ASIC',kr:true,mc:'₩0.1조'}]},
+  {country:'🇰🇷 한국 — 장비',color:C.amber,strength:'증착·세정·검사·패키징 장비 경쟁력',
+   cos:[{n:'한미반도체',t:'042700',r:'TC본더 독점',kr:true,mc:'₩5조'},{n:'원익IPS',t:'240810',r:'CVD/ALD 국내 1위',kr:true,mc:'₩1.2조'},{n:'주성엔지니어링',t:'036930',r:'ALD 장비',kr:true,mc:'₩0.5조'},{n:'피에스케이',t:'319660',r:'드라이클리닝',kr:true,mc:'₩0.4조'},{n:'유진테크',t:'084370',r:'ALD·열처리',kr:true,mc:'₩0.4조'},{n:'이오테크닉스',t:'039030',r:'레이저장비',kr:true,mc:'₩0.6조'},{n:'케이씨텍',t:'281820',r:'CMP 장비·슬러리',kr:true,mc:'₩0.4조'},{n:'리노공업',t:'058470',r:'테스트 소켓',kr:true,mc:'₩1조'},{n:'넥스틴',t:'085310',r:'웨이퍼 검사',kr:true,mc:'₩0.4조'},{n:'파크시스템스',t:'140860',r:'AFM 계측',kr:true,mc:'₩0.5조'},{n:'테스',t:'095610',r:'CVD 장비',kr:true,mc:'₩0.3조'},{n:'비아트론',t:'141000',r:'열처리장비',kr:true,mc:'₩0.15조'},{n:'와이씨',t:'232140',r:'번인 테스터',kr:true,mc:'₩0.2조'},{n:'테크윙',t:'089030',r:'핸들러 장비',kr:true,mc:'₩0.3조'},{n:'에프에스티',t:'036810',r:'EUV 펠리클',kr:true,mc:'₩0.3조'},{n:'인텍플러스',t:'064290',r:'광학 검사',kr:true,mc:'₩0.15조'},{n:'오로스테크',t:'322310',r:'광학 계측',kr:true,mc:'₩0.2조'},{n:'신성이엔지',t:'011930',r:'클린룸·FFU',kr:true,mc:'₩0.15조'},{n:'미래산업',t:'025560',r:'핸들러',kr:true,mc:'₩0.15조'},{n:'아이에스시',t:'095340',r:'테스트 소켓',kr:true,mc:'₩0.2조'},{n:'에스에프에이',t:'056190',r:'자동화 시스템',kr:true,mc:'₩0.5조'}]},
+  {country:'🇰🇷 한국 — 소재',color:C.cyan,strength:'국산화 수혜. 식각액·특수가스·소재',
+   cos:[{n:'솔브레인',t:'357780',r:'식각액·세정액',kr:true,mc:'₩1.5조'},{n:'동진쎄미켐',t:'005290',r:'포토레지스트',kr:true,mc:'₩0.8조'},{n:'SK머티리얼즈',t:'036490',r:'특수가스',kr:true,mc:'₩1조'},{n:'원익머트리얼즈',t:'104830',r:'특수가스',kr:true,mc:'₩0.3조'},{n:'티씨케이',t:'064760',r:'SiC Ring',kr:true,mc:'₩0.6조'},{n:'디엔에프',t:'092070',r:'ALD 전구체',kr:true,mc:'₩0.2조'},{n:'코미코',t:'183300',r:'부품 세정·코팅',kr:true,mc:'₩0.3조'},{n:'후성',t:'093370',r:'불화수소·NF3',kr:true,mc:'₩0.5조'},{n:'한솔케미칼',t:'014680',r:'과산화수소·SOD',kr:true,mc:'₩0.8조'},{n:'원익QnC',t:'074600',r:'쿼츠·세라믹',kr:true,mc:'₩0.4조'},{n:'하나머티리얼즈',t:'166090',r:'실리콘 파트',kr:true,mc:'₩0.5조'},{n:'에스앤에스텍',t:'101490',r:'EUV 블랭크마스크',kr:true,mc:'₩0.3조'},{n:'나노신소재',t:'121600',r:'CMP 슬러리',kr:true,mc:'₩0.3조'},{n:'레이크머티리얼즈',t:'281740',r:'ALD 전구체',kr:true,mc:'₩0.1조'},{n:'이녹스첨단소재',t:'272290',r:'EMI차폐·봉지재',kr:true,mc:'₩0.4조'}]},
+  {country:'🇰🇷 한국 — 패키징·기판',color:C.red,strength:'HBM 패키징·FC-BGA 기판 수혜',
+   cos:[{n:'하나마이크론',t:'067310',r:'HBM 패키징',kr:true,mc:'₩1.2조'},{n:'네패스',t:'033640',r:'팬아웃 패키징',kr:true,mc:'₩0.3조'},{n:'SFA반도체',t:'036540',r:'OSAT',kr:true,mc:'₩0.2조'},{n:'에이티세미콘',t:'089020',r:'OSAT',kr:true,mc:'₩0.15조'},{n:'두산테스나',t:'131970',r:'반도체 테스트',kr:true,mc:'₩0.4조'},{n:'네패스아크',t:'330860',r:'반도체 테스트',kr:true,mc:'₩0.2조'},{n:'심텍',t:'222800',r:'PKG 기판',kr:true,mc:'₩0.5조'},{n:'이수페타시스',t:'007660',r:'MLB·고다층 PCB',kr:true,mc:'₩0.6조'},{n:'삼성전기',t:'009150',r:'MLCC·FC-BGA기판',kr:true,mc:'₩9조'},{n:'LG이노텍',t:'011070',r:'FC-BGA·카메라',kr:true,mc:'₩3조'},{n:'대덕전자',t:'353200',r:'반도체 기판',kr:true,mc:'₩0.4조'}]},
+];
+
+const SEMI_KR=['005930','000660','000990','042700','240810','036930','319660','084370','095610','039030','281820','058470','085310','140860','064290','322310','357780','005290','036490','104830','064760','092070','183300','093370','014680','272290','074600','166090','101490','281740','222800','007660','353200','009150','011070','067310','033640','330860','036540','089020','131970','232140','089030','025560','399720','440110','394280','432720','094360','102120','054450','200710','393210','056190','011930','095340','141000','031980','102710','079370','121600'];
+
+const TERMS=[
+  {term:'반도체',cat:'기초',short:'전기가 흐르기도, 안 흐르기도 하는 물질로 만든 전자 부품',detail:'실리콘(Si)에 불순물을 넣어 전기 흐름을 정밀하게 제어. 0과 1로 디지털 연산 처리. CPU·GPU·메모리 모두 반도체다.',pureun:'⚡ 푸른아, 전기가 지나가는 길을 열었다 닫았다 할 수 있는 아주 작은 스위치야! 그 스위치가 수십억 개 모이면 스마트폰이 되는 거야 📱'},
+  {term:'웨이퍼 (Wafer)',cat:'소재',short:'반도체 칩을 만드는 원형 실리콘 기판. 300mm가 주류',detail:'고순도 실리콘 단결정을 얇게 자른 원형 판. 여기에 수백 개의 칩을 동시에 새긴다. 품질이 수율과 성능에 직결.',pureun:'🍪 동그란 쿠키판 같은 거야! 그 판 위에 아주 작은 그림(칩)을 수백 개 그리고, 나중에 하나씩 잘라서 쓰는 거야 😊'},
+  {term:'EUV (극자외선)',cat:'공정',short:'13.5nm 파장으로 7nm 이하 초미세 패턴 구현. ASML 독점',detail:'기존 ArF(193nm) 대비 14배 짧은 빛으로 더 미세한 회로를 그린다. ASML만 제조 가능. 장비 1대 약 3,500억원.',pureun:'🖊️ 아주아주 가는 연필로 아주 작은 그림을 그리는 거야! 세상에서 ASML 한 회사만 만들 수 있어서 엄청 비싸고 귀해 💎'},
+  {term:'HBM (고대역폭메모리)',cat:'제품',short:'AI GPU 옆에 수직 적층되는 초고속 DRAM',detail:'DRAM을 수직으로 쌓아 TSV로 연결. NVIDIA H100 1개에 HBM 6개 필요. SK하이닉스 공급 1위.',pureun:'🏗️ 레고 블록처럼 메모리를 위로 쌓아 올린 거야! 키가 클수록 정보를 더 빨리 주고받을 수 있어. AI가 생각하려면 꼭 필요해 🤖'},
+  {term:'DRAM',cat:'제품',short:'휘발성 고속 메모리. PC·서버·스마트폰 주기억장치',detail:'전원 끄면 데이터 소멸. 빠른 읽기/쓰기로 CPU·GPU와 데이터 중계. 삼성·SK하이닉스·마이크론 3사 과점.',pureun:'🧠 컴퓨터의 단기 기억이야! 지금 하는 일을 기억해 두는 곳인데, 전원이 꺼지면 다 잊어버려. 마치 잠들면 오늘 일을 잊는 것처럼 😴'},
+  {term:'NAND Flash',cat:'제품',short:'비휘발성 메모리. SSD·스마트폰 저장장치',detail:'전원 꺼도 데이터 유지. SSD·USB·스마트폰 저장소. 3D NAND가 주류. DRAM보다 가격 사이클 변동 더 큼.',pureun:'📚 컴퓨터의 장기 기억이야! 전원 꺼도 사진·동영상이 사라지지 않는 이유야. 아빠 스마트폰 안에도 있어! 📱'},
+  {term:'CoWoS',cat:'패키징',short:'GPU+HBM을 같은 기판에 묶는 TSMC 2.5D 첨단패키징',detail:'실리콘 인터포저 위에 GPU와 HBM을 나란히 배치. AI칩 필수 기술. TSMC 독점으로 공급 병목 발생.',pureun:'🤝 GPU랑 HBM이 손잡고 일하게 만들어주는 기술이야! 두 친구를 아주 가까이 붙여놓으면 훨씬 빨리 일할 수 있어. NVIDIA AI칩에 다 들어가 있어 🤖'},
+  {term:'팹리스 (Fabless)',cat:'비즈니스',short:'공장 없이 설계만 하는 반도체 기업',detail:'Fab(공장)+Less(없음). 설계에 집중하고 제조는 TSMC에 위탁. NVIDIA·AMD·Qualcomm·ARM이 대표.',pureun:'✏️ 레고 설계도만 만들고 실제로 만드는 건 남한테 맡기는 친구야! 설계도만 잘 그려도 엄청 돈을 많이 버는 거야 💰'},
+  {term:'파운드리 (Foundry)',cat:'비즈니스',short:'위탁 제조 전문. TSMC 선단공정 60%+',detail:'팹리스 설계를 대신 제조. 수십조 CAPEX 필요한 자본집약 산업. 가동률이 수익성 핵심.',pureun:'🏭 다른 친구가 그린 설계도대로 실제로 만들어주는 공장이야! 전 세계 스마트폰 칩의 절반이 TSMC에서 나와 😲'},
+  {term:'IDM',cat:'비즈니스',short:'설계·제조·판매 모두 담당하는 종합 반도체 기업',detail:'Integrated Device Manufacturer. 삼성·SK하이닉스·인텔이 대표. 경기 사이클에 가장 직접 노출.',pureun:'🏠 설계도도 직접 그리고, 공장도 직접 갖고, 파는 것도 직접 하는 회사야! 삼성전자가 딱 이런 회사야 💪'},
+  {term:'OSAT',cat:'비즈니스',short:'패키징·테스트 외주 전문기업',detail:'Outsourced Semiconductor Assembly and Test. AI 시대 HBM 첨단패키징으로 중요성 급상승.',pureun:'🎁 칩을 예쁘게 포장해서 테스트하는 회사야! 잘못된 칩은 여기서 걸러내고 안전하게 포장해서 내보내 📦'},
+  {term:'수율 (Yield)',cat:'공정',short:'웨이퍼에서 정상 칩 비율. 수율=원가·수익성 직결',detail:'웨이퍼 1장 정상 다이÷전체 다이. 신공정 초기에 낮고 점진적 개선. 파운드리 경쟁력 핵심 지표.',pureun:'🍪 쿠키 100개 구웠는데 80개만 예쁘게 나오면 수율 80%야! 반도체도 똑같아. 많이 잘 나올수록 돈을 더 버는 거야 😄'},
+  {term:'EDA (설계자동화)',cat:'설계',short:'반도체 설계 자동화 소프트웨어. Synopsys·Cadence 과점',detail:'수십억 트랜지스터 칩을 자동으로 설계. 팹리스·IDM 모두 필수 구독. 안정적 과점 구조.',pureun:'🖥️ 복잡한 설계도 그리는 걸 컴퓨터가 도와주는 프로그램이야! 이게 없으면 칩 설계가 불가능해 🎮'},
+  {term:'Book-to-Bill',cat:'투자',short:'수주÷출하. 1.0 초과=장비 호황 신호',detail:'반도체 장비업황 선행지표. SEMI 매월 발표. 1.2 이상이면 강한 호황 신호.',pureun:'📋 주문이 더 많냐, 배달이 더 많냐 보는 거야! 1.0보다 크면 앞으로 더 바빠진다는 뜻이야 📈'},
+  {term:'ASP (평균판매단가)',cat:'투자',short:'반도체 평균 판매가격. 가격 사이클 핵심 지표',detail:'메모리 투자에서 가장 중요한 지표. HBM은 일반 DRAM의 3~5배. 분기 실적에서 반드시 체크.',pureun:'💰 반도체 하나의 평균 가격이야! 이 숫자가 올라가면 회사가 돈을 더 많이 버는 거야. 이것만 잘 봐도 투자를 잘할 수 있대 📊'},
+  {term:'CAPEX (설비투자)',cat:'투자',short:'공장·장비 투자비. 급증 후 2~3년 뒤 공급과잉 주의',detail:'TSMC 연 30~40조, 삼성 40~50조. CAPEX 급증→공급과잉→가격하락 패턴 반복.',pureun:'🏗️ 공장 짓거나 기계 사는 돈이야! 너무 많이 지으면 나중에 반도체가 넘쳐서 가격이 떨어지기도 해 😅'},
+  {term:'TC본더',cat:'장비',short:'HBM 적층 핵심 장비. 한미반도체 독점 공급',detail:'Thermal Compression Bonder. HBM 칩을 수직으로 쌓을 때 열·압력으로 정밀하게 접합. 한미반도체 독점.',pureun:'🔨 HBM을 층층이 쌓을 때 꽉 붙여주는 기계야! 이 기계는 한미반도체라는 한국 회사만 만들어서 전 세계가 사가 🇰🇷'},
+  {term:'노광 (Lithography)',cat:'공정',short:'빛으로 웨이퍼에 회로 패턴을 인쇄하는 핵심 공정',detail:'포토마스크에 그려진 회로 패턴을 빛으로 감광재에 전사. 파장이 짧을수록 더 미세한 패턴 구현.',pureun:'📷 도장 찍는 거랑 비슷해! 회로 모양이 새겨진 도장에 특별한 빛을 쏘면 웨이퍼에 그 모양이 찍히는 거야 🔬'},
+  {term:'CVD / ALD',cat:'공정',short:'박막을 웨이퍼에 층층이 쌓는 증착 기술',detail:'CVD: 반응가스로 박막 형성. ALD: 원자 1개층씩 정밀 증착. 공정 미세화로 ALD 수요 급증.',pureun:'🧁 케이크에 크림을 한 층씩 바르는 거랑 같아! ALD는 원자 하나 두께로 아주아주 얇게 바르는 거야 🍰'},
+  {term:'SoC (시스템온칩)',cat:'제품',short:'CPU·GPU·NPU 등을 하나의 칩에 통합',detail:'스마트폰 AP가 대표적. Qualcomm Snapdragon·Apple A시리즈·삼성 Exynos. 소형화·저전력 핵심.',pureun:'🎒 모든 걸 하나의 가방에 넣은 거야! CPU·GPU·통신을 하나의 작은 칩에 다 넣어서 폰을 얇게 만드는 거야 😊'},
+  {term:'전구체 (Precursor)',cat:'소재',short:'ALD·CVD 공정 원료 화학물질',detail:'ALD·CVD에서 반응가스로 주입돼 박막을 형성. 미세화로 고순도 전구체 수요 증가. 디엔에프·레이크머티리얼즈.',pureun:'🧪 케이크 반죽 같은 재료야! 이 특별한 화학 재료를 넣어야 웨이퍼 위에 얇은 막이 생기거든 👨‍🍳'},
+  {term:'수율 vs 가동률',cat:'투자',short:'수율=정상칩 비율 / 가동률=공장 가동 비율',detail:'수율(Yield): 파운드리 경쟁력 핵심. 가동률(Utilization): 높을수록 수익성 좋음. 둘 다 올라야 진짜 호황.',pureun:'🏭 수율은 빵이 맛있게 나왔냐, 가동률은 오븐을 쉬지 않고 돌렸냐야! 둘 다 좋아야 빵집이 돈을 잘 버는 거야 🍞'},
+  {term:'FC-BGA (기판)',cat:'기판',short:'고성능 반도체용 플립칩 볼그리드어레이 기판',detail:'AI칩 수요 폭증으로 FC-BGA 공급 타이트. 삼성전기·LG이노텍·심텍·이수페타시스 수혜.',pureun:'🍱 칩을 담는 도시락 같은 거야! AI칩이 많이 팔릴수록 이 도시락도 더 많이 필요해. 한국 기업들이 잘 만들어 🇰🇷'},
+  {term:'NF3 (삼불화질소)',cat:'소재',short:'반도체 챔버 세정용 필수 특수가스',detail:'공정 장비 내부 챔버 세정에 사용. CVD·ALD 공정 늘수록 수요 증가. 후성·SK머티리얼즈 국내 공급.',pureun:'🧹 반도체 만드는 기계 안을 청소하는 특별한 가스야! 기계를 깨끗하게 해야 좋은 칩이 나오거든 ✨'},
+  {term:'블랭크마스크',cat:'소재',short:'EUV 노광용 마스크 원판. 에스앤에스텍 국내 독점',detail:'EUV 포토마스크 제작 전 단계 원판. 극도로 높은 평탄도·청정도 요구. 국산화 소재.',pureun:'🖼️ 회로 그림을 찍는 도장의 원판이야! 에스앤에스텍이라는 한국 회사가 만드는 아주 특별한 소재야 🇰🇷'},
+];
+
+const HISTORY=[
+  {year:'2016~17',phase:'슈퍼호황',color:C.green,event:'스마트폰+서버 동시 수요. DRAM 가격 3배 급등. 삼성·하이닉스 최대 이익'},
+  {year:'2018~19',phase:'급격조정',color:C.red,event:'과잉공급·재고 급증. DRAM 가격 반토막. 삼성·하이닉스 주가 반토막'},
+  {year:'2020~21',phase:'코로나호황',color:C.green,event:'재택근무·서버 수요 폭발. 반도체 대란. 차량용 칩 부족 사태'},
+  {year:'2022~23',phase:'역대급불황',color:C.red,event:'재고 급증·역대급 감산. SK하이닉스 분기 4조 적자. 삼성 메모리 감산'},
+  {year:'2023~26',phase:'AI 드리븐',color:C.cyan,event:'HBM·GPU 수요 폭증. SK하이닉스 역대 최대 이익. AI 새로운 수퍼사이클 시작'},
+];
+
+const METRICS=[
+  {seg:'팹리스',color:C.purple,pe:'20~50x',key:'EPS 성장률',risk:'수요 사이클',note:'AI 테마 프리미엄 지속. 데이터센터 매출 비중이 핵심 체크포인트',pureun:'📈 AI랑 관련된 회사들이라 가격이 비싸도 사람들이 사는 거야! AI 관련 매출이 얼마나 되는지 확인해봐.'},
+  {seg:'장비',color:C.amber,pe:'15~35x',key:'Book-to-Bill',risk:'수출 규제',note:'과점 구조로 마진 안정적. 중국향 매출 비중 반드시 체크',pureun:'🔧 기계 파는 회사들이야. 주문(Book)이 배달(Bill)보다 많은지 확인하는 게 중요해!'},
+  {seg:'IDM/메모리',color:C.cyan,pe:'PBR 0.8~2.5x',key:'DRAM ASP',risk:'가격 사이클',note:'저점(PBR 1배 미만) 매수 → 호황기 매도 전략. CAPEX 급증 구간 주의',pureun:'💰 반도체 가격(ASP)이 오르고 있는지 확인해봐! 가격이 바닥일 때 사서 올랐을 때 파는 게 핵심이야.'},
+  {seg:'파운드리',color:C.green,pe:'15~25x',key:'가동률 (Util.)',risk:'지정학',note:'TSMC 장기보유 관점. DB하이텍은 8인치 사이클 체크',pureun:'🏭 공장이 얼마나 바쁘게 돌아가는지 확인해봐! 바쁠수록 돈을 많이 버는 거야.'},
+  {seg:'소재',color:C.pink,pe:'10~25x',key:'점유율·ASP',risk:'일본의존도',note:'국산화 수혜 테마. 솔브레인·후성·동진쎄미켐 고객사 다변화 체크',pureun:'🧪 반도체 재료를 파는 회사들이야. 일본한테서 독립하는 국산화가 진행되면서 한국 회사들이 점점 더 많이 팔고 있어!'},
+  {seg:'패키징/기판',color:C.red,pe:'6~20x',key:'첨단패키징 수주',risk:'고객집중도',note:'HBM 패키징·FC-BGA 수혜. 첨단패키징 전환 속도 체크',pureun:'📦 칩 포장하는 회사들이야. AI 시대에 포장이 엄청 중요해져서 이 회사들이 돈을 많이 벌고 있어!'},
+];
+
+const CHECK_ITEMS=[
+  {normal:'수요처(AI/모바일/자동차) 사이클 방향 먼저 확인',pureun:'🌱 AI 컴퓨터, 스마트폰, 자동차 중 어디에 반도체가 더 많이 필요한지 봐!'},
+  {normal:'CAPEX 급증 → 2~3년 후 공급과잉 리스크 대비',pureun:'🌱 공장을 너무 많이 짓고 있으면 나중에 반도체가 넘쳐서 가격이 떨어질 수 있어!'},
+  {normal:'수출 규제 여부 및 중국향 매출 비중 체크',pureun:'🌱 중국에 많이 파는 회사는 미국이 규제하면 힘들어질 수 있어. 얼마나 파는지 봐봐!'},
+  {normal:'선단공정 전환 여부 (차세대 노드 준비도)',pureun:'🌱 더 좋은 기술로 업그레이드 준비를 잘 하고 있는지 확인해봐!'},
+  {normal:'경쟁사 대비 ASP 방어 능력과 수율 개선 추이',pureun:'🌱 가격을 잘 지키고 있는지, 칩을 잘 만들고 있는지 확인해봐!'},
+];
+
+// ═══════════════ LEARN STEPS ═══════════════
+const LEARN_STEPS=[
+  {no:1,emoji:'⚡',title:'반도체, 이게 뭐야?',sub:'모래에서 탄생하는 디지털 세계의 뿌리',color:C.cyan,
+   cards:[
+     {ico:'🌾',title:'원료는 모래',body:'실리콘(Si)은 모래의 주성분. 지구에서 두 번째로 풍부한 원소야. 정제하면 순도 99.9999999%(나인나인) 실리콘이 되고, 이게 웨이퍼가 돼.',pureun:'🌾 모래로 폰을 만들 수 있어! 아빠랑 해변에서 모래 만지면 그 안에 실리콘이 있어. 그걸 아주 깨끗하게 닦으면 반도체 재료가 되는 거야 😲'},
+     {ico:'💡',title:'전기 스위치',body:'반도체는 전기를 흐르게도, 막을 수도 있어. 이 ON/OFF가 0과 1이 되고, 0과 1이 무한히 조합돼 모든 연산·저장·통신을 처리해.',pureun:'💡 전기 스위치야! 켜면 1, 끄면 0. 그 스위치가 폰 안에 수십억 개 들어있어. 아빠가 손가락으로 화면 누를 때마다 그 스위치들이 엄청 바쁘게 움직이는 거야 📱'},
+     {ico:'🔬',title:'상상을 초월하는 크기',body:'현재 최첨단 공정은 2nm(나노미터). 머리카락 굵기의 1/50,000 수준. NVIDIA H100 칩 하나에 트랜지스터 800억 개. 지구 인구(80억)의 10배.',pureun:'🔬 엄청 작아! 머리카락보다 5만 배 더 작아. 그 작은 스위치가 폰 하나에 800억 개나 들어가. 세상 사람 수보다 10배 더 많은 거야 😮'},
+   ],
+   takeaway:'반도체 = 모래(실리콘)로 만든 초소형 전기 스위치 수십억 개의 집합',
+   pureun_takeaway:'⚡ 모래로 만든 작은 스위치가 수십억 개 모여서 스마트폰이 되는 거야!'},
+  {no:2,emoji:'🌍',title:'왜 전 세계가 반도체에 목숨 거나?',sub:'경제 무기이자 국가 생존의 문제',color:C.purple,
+   cards:[
+     {ico:'📱',title:'없으면 아무것도 안 돼',body:'스마트폰·자동차·냉장고·신호등·전투기·인공위성. 반도체 없이 작동하는 현대 기기는 없어. 코로나 때 차량용 반도체 부족으로 완성차 공장이 멈췄어.',pureun:'📱 반도체가 없으면 폰도 없고, 자동차도 없고, TV도 없어! 코로나 때 반도체가 부족해서 자동차 공장이 멈췄어. 아빠 차도 반도체 덕분에 달리는 거야 🚗'},
+     {ico:'🔒',title:'수출통제 = 경제 전쟁',body:'미국이 ASML EUV를 중국에 팔지 못하게 막았어. EUV 없이는 첨단 반도체 제조가 불가능. 반도체 하나가 핵무기보다 강력한 외교 무기가 된 거야.',pureun:'🔒 반도체는 진짜 무기야! 미국이 "중국아, 이 기계는 못 팔아" 하면 중국이 좋은 칩을 못 만들어. 그래서 나라들이 반도체 공장을 자기 땅에 짓고 싶어하는 거야 💪'},
+     {ico:'🇰🇷',title:'한국의 위치',body:'메모리 반도체(DRAM·NAND) 세계 시장 점유율 60%+. 삼성전자+SK하이닉스 합계. AI 시대 HBM 수요 폭증으로 한국 메모리 수혜 극대화.',pureun:'🇰🇷 한국이 메모리 반도체를 세계에서 제일 잘 만들어! 전 세계 DRAM의 절반 이상이 한국산이야. 아빠가 열심히 공부하는 게 바로 이거야 😄'},
+   ],
+   takeaway:'반도체 = 21세기의 석유. 국가가 전략 자산으로 여기는 이유',
+   pureun_takeaway:'🌍 반도체는 진짜 무기야! 없으면 아무것도 못 만들기 때문에 나라마다 갖고 싶어해.'},
+  {no:3,emoji:'🧠',title:'메모리 vs 비메모리',sub:'같은 반도체, 전혀 다른 역할',color:C.blue,
+   cards:[
+     {ico:'💾',title:'메모리 — 기억하는 칩',body:'DRAM: 작업 중인 데이터 임시 저장. 빠르지만 전원 끄면 소멸(휘발성). NAND: 사진·앱 영구 저장. 전원 꺼도 유지(비휘발성). 삼성·SK하이닉스 세계 1·2위.',pureun:'💾 기억하는 친구야! DRAM은 지금 하는 일을 기억하고(끄면 잊어버려), NAND는 사진이나 앱을 영원히 기억해. 폰에 둘 다 들어있어 📱'},
+     {ico:'🎮',title:'비메모리 — 생각하는 칩',body:'CPU: 컴퓨터의 두뇌. 모든 연산 처리. GPU: 그래픽·AI 병렬 연산. NVIDIA 독주. AP: 스마트폰용 SoC. Qualcomm·삼성LSI·MediaTek 경쟁.',pureun:'🎮 생각하는 친구야! CPU는 모든 걸 계산하고, GPU는 게임 화면을 그리고, AP는 스마트폰 두뇌야. NVIDIA가 AI 덕분에 세계에서 제일 비싼 회사가 됐어 🤖'},
+     {ico:'🇰🇷',title:'한국의 강점과 약점',body:'강점: 메모리 세계 1·2위 (삼성+SK하이닉스). 약점: 비메모리(CPU·GPU 설계)는 아직 초기 단계. 팹리스 육성이 한국의 장기 과제.',pureun:'🇰🇷 한국은 기억하는 칩은 세계 1위인데, 생각하는 칩은 아직 공부 중이야. 그래서 한국이 NVIDIA 같은 회사를 만드는 게 목표야 🎯'},
+   ],
+   takeaway:'메모리(저장) = 삼성·하이닉스 강점 / 비메모리(연산) = 미국 NVIDIA·AMD 강점',
+   pureun_takeaway:'🧠 기억하는 칩(메모리)은 한국이 1등! 생각하는 칩(비메모리)은 미국이 1등이야.'},
+  {no:4,emoji:'🏭',title:'어떻게 만들어? 공정의 세계',sub:'웨이퍼 하나가 칩이 되는 3개월의 여정',color:C.amber,
+   cards:[
+     {ico:'⚙️',title:'전공정 — 회로를 새긴다',body:'웨이퍼에 수백 번 노광(패턴 인쇄)·식각(제거)·증착(쌓기)을 반복. 3개월 걸려. EUV 장비로 2nm 이하 초미세 패턴 구현. 파운드리(TSMC·삼성)가 담당.',pureun:'⚙️ 동그란 웨이퍼 판에 아주 작은 그림을 수백 번 그리는 거야! 빛으로 찍고, 약으로 지우고, 막을 쌓고... 3개월이나 걸려. 정말 복잡해 😅'},
+     {ico:'📦',title:'후공정 — 포장한다',body:'웨이퍼를 개별 칩으로 잘라(다이싱), 기판에 연결하고(패키징), 최종 테스트. AI 시대엔 HBM·CoWoS 같은 첨단패키징이 핵심.',pureun:'📦 다 만든 칩을 포장하는 거야! 쿠키 판에서 쿠키를 하나씩 잘라내고, 예쁘게 포장해서 테스트하는 거야. AI 시대엔 여러 칩을 층층이 쌓아서 포장해 🍪'},
+     {ico:'🔑',title:'핵심: EUV가 모든 걸 결정',body:'7nm 이하 첨단 공정엔 EUV 노광장비가 필수. 만드는 곳은 ASML 단 하나. 대당 3,500억원+. 이 기계 없으면 첨단 반도체 불가. 미국이 중국에 팔지 못하게 막은 이유.',pureun:'🔑 EUV라는 특별한 기계가 핵심이야! 세상에서 네덜란드 ASML만 만들 수 있어. 이 기계 없으면 좋은 칩을 못 만들어. 그래서 미국이 중국한테 이 기계를 팔지 말라고 한 거야 🚫'},
+   ],
+   takeaway:'전공정(회로 그리기) → 후공정(포장·테스트). EUV가 첨단 공정의 핵심 열쇠',
+   pureun_takeaway:'🏭 웨이퍼에 그림을 그리고(전공정) → 잘라서 포장하는(후공정) 2단계야! EUV 기계가 제일 중요해.'},
+  {no:5,emoji:'💼',title:'밸류체인 — 누가 어디서 돈 버나',sub:'설계부터 수요처까지 7단계 생태계',color:C.green,
+   cards:[
+     {ico:'✏️',title:'설계(팹리스) vs 제조(파운드리)',body:'팹리스(NVIDIA·AMD): 공장 없이 설계만. 막대한 CAPEX 없이 고마진 창출. 파운드리(TSMC·삼성): 설계대로 위탁 제조. 수십조 CAPEX 필요. IDM(삼성·SK하이닉스): 설계+제조+판매 통합.',pureun:'✏️ 팹리스는 설계도만 그리는 친구, 파운드리는 그 설계도대로 만드는 공장이야! NVIDIA는 설계만 해서 세계에서 제일 비싼 회사가 됐어. 공장 없어도 엄청 돈을 버는 거야 💰'},
+     {ico:'🔧',title:'소재·장비 — 숨은 강자들',body:'소재(신에쓰화학·솔브레인): 웨이퍼·포토레지스트·특수가스. 장비(ASML·Applied Materials·한미반도체): 없으면 못 만들어. 진입장벽 극히 높고 과점. 국산화가 핵심 과제.',pureun:'🔧 재료 파는 친구들이랑 기계 파는 친구들이야! ASML은 세상에서 하나밖에 없는 특별한 기계를 팔아서 엄청 돈을 많이 벌어. 한국도 이런 회사들을 키우고 있어 🌱'},
+     {ico:'🤖',title:'AI가 바꾼 수요 지형',body:'AI 서버 1대에 GPU 수천 개 + HBM 수만 개. 데이터센터 투자 폭발 → 전 밸류체인 수혜. NVIDIA→TSMC→SK하이닉스→한미반도체로 이어지는 AI 수혜 연결고리.',pureun:'🤖 AI가 반도체를 엄청 많이 사용해! AI 컴퓨터 하나에 GPU랑 메모리가 수천 개씩 들어가. 그래서 NVIDIA·TSMC·SK하이닉스·한미반도체 모두 AI 덕분에 돈을 많이 벌고 있어 🎉'},
+   ],
+   takeaway:'팹리스(설계)·장비·소재·파운드리·패키징 전 구간이 서로 연결된 생태계',
+   pureun_takeaway:'💼 반도체는 설계하는 친구, 재료 파는 친구, 기계 파는 친구, 만드는 친구, 포장하는 친구 모두 함께 일해야 해!'},
+  {no:6,emoji:'🎢',title:'사이클 — 오르락내리락의 법칙',sub:'알면 돈 버는 반도체 가격 패턴',color:C.red,
+   cards:[
+     {ico:'📈',title:'왜 사이클이 생기나',body:'수요 폭발 → 공장을 더 짓기 시작 → 2~3년 후 공장 완공 → 공급 과잉 → 가격 폭락. 반도체는 공장 짓는 데 3~5년 걸려서 수요-공급 시차가 필연적으로 발생.',pureun:'📈 반도체가 많이 필요해지면 공장을 더 지어! 그런데 공장 짓는 데 3년이 걸려. 그 사이 너무 많이 짓다 보면 나중에 반도체가 넘쳐서 가격이 떨어지는 거야. 롤러코스터 같은 거지 🎢'},
+     {ico:'📅',title:'역대 사이클 요약',body:'2016~17 슈퍼호황 → 2018~19 급락 → 2020~21 코로나호황 → 2022~23 역대급 불황(SK하이닉스 분기 4조 적자) → 2023~ AI 드리븐 새 사이클.',pureun:'📅 반도체는 항상 올랐다 내렸다 해! 2022~23년에 SK하이닉스가 엄청 손해를 봤는데, AI가 나오면서 다시 엄청 돈을 벌기 시작했어. 아빠가 공부하는 게 바로 이 타이밍을 알기 위해서야 😊'},
+     {ico:'🎯',title:'투자 타이밍의 법칙',body:'저점 신호: PBR 1배 미만 + 감산 발표 + 재고 감소 시작. 고점 신호: CAPEX 급증 + 공급 확대 발표 + ASP 하락 시작. 역사는 반복돼.',pureun:'🎯 가격이 바닥일 때 사고, 꼭대기일 때 팔면 돈을 벌어! 회사 주가가 장부 가격보다 싸지면(PBR 1배 이하) 그게 살 타이밍이야. 쉽지는 않지만 알면 도움이 돼 💪'},
+   ],
+   takeaway:'공장(CAPEX) 급증 후 2~3년 뒤 공급과잉 → 저점 매수 → 호황기 매도 반복',
+   pureun_takeaway:'🎢 반도체 가격은 롤러코스터야! 싸질 때 사고 비싸질 때 팔면 돈을 버는 거야.'},
+  {no:7,emoji:'📊',title:'투자 핵심 지표 딱 3개',sub:'이것만 알아도 반도체 투자 80% 완성',color:C.pink,
+   cards:[
+     {ico:'💰',title:'① ASP — 가격 방향을 봐라',body:'Average Selling Price. 메모리 반도체 평균 판매가격. 분기 실적 발표 때 ASP가 전분기 대비 올랐는지 확인. 올라가면 호황 신호. HBM은 일반 DRAM의 3~5배.',pureun:'💰 반도체 하나의 가격이야! 이 가격이 오르면 회사가 돈을 더 많이 버는 거야. 실적 발표할 때 이 숫자가 오르는지 내리는지만 봐도 투자 공부가 되는 거야 📊'},
+     {ico:'📋',title:'② Book-to-Bill — 장비 호황 선행',body:'장비 수주액 ÷ 출하액. SEMI에서 매월 발표. 1.0 초과면 호황 진입 신호. 장비주(한미반도체·원익IPS)가 먼저 움직이고, 6~12개월 후 메모리주가 따라와.',pureun:'📋 주문이 배달보다 많으면 앞으로 더 바빠진다는 거야! 1.0보다 크면 "와, 주문이 쏟아진다!" 인 거야. 이게 오르면 한국 장비 회사들 주가가 먼저 올라 📈'},
+     {ico:'📉',title:'③ PBR — 메모리 저점 포착',body:'주가 ÷ 순자산가치. 삼성전자·SK하이닉스 PBR이 1배 미만으로 떨어지면 역사적 매수 구간. 2022년 하이닉스 PBR 0.9배가 바닥이었어.',pureun:'📉 회사가 가진 재산보다 주가가 더 싸지면 사야해! 삼성전자나 SK하이닉스 PBR이 1 아래로 내려가면 "이제 살 타이밍이야!" 라는 신호야 🛒'},
+   ],
+   takeaway:'ASP↑(호황) + Book-to-Bill>1(장비호황) + PBR<1(메모리저점매수) 3가지면 충분',
+   pureun_takeaway:'📊 가격(ASP), 주문량(Book-to-Bill), 싸게팔리나(PBR) 이 3개만 봐도 반도체 투자 거의 다 알아!'},
+];
+
+
+const e=React.createElement;
+const tag=(color,text)=>e('span',{style:{fontSize:9,padding:'1px 6px',borderRadius:8,background:color+'22',color,border:'1px solid '+color+'44',fontWeight:700}},text);
+
+// ═══════════════ APP ═══════════════
+function App(){
+  const[tab,setTab]=useState('basics');
+  const[pureun,setPureun]=useState(false);
+  const[openBasic,setOpenBasic]=useState('what');
+  const[selChain,setSelChain]=useState(null);
+  const[procView,setProcView]=useState('front');
+  const[selProc,setSelProc]=useState(null);
+  const[openTerm,setOpenTerm]=useState(null);
+  const[termMode,setTermMode]=useState('normal');
+  const[termQ,setTermQ]=useState('');
+  const[showCodes,setShowCodes]=useState(false);
+  // ── Learning ──
+  const[learnStep,setLearnStep]=useState(()=>{try{return parseInt(localStorage.getItem('chipmap_step')||'0');}catch{return 0;}});
+  const[learnVisited,setLearnVisited]=useState(()=>{try{const v=JSON.parse(localStorage.getItem('chipmap_visited')||'[]');return new Set(v);}catch{return new Set();}});
+  function goLearn(n){
+    const next=Math.max(0,Math.min(LEARN_STEPS.length,n));
+    setLearnStep(next);
+    try{localStorage.setItem('chipmap_step',next);}catch{}
+    if(n<LEARN_STEPS.length){
+      const nv=new Set(learnVisited);nv.add(n);setLearnVisited(nv);
+      try{localStorage.setItem('chipmap_visited',JSON.stringify([...nv]));}catch{}
+    }
+  }
+
+  // ── Onboarding ──
+  const[onboarded,setOnboarded]=useState(()=>{try{return localStorage.getItem('chipmap_v1')==='done';}catch{return false;}});
+  const[obStep,setObStep]=useState(0);
+  const[obMode,setObMode]=useState('normal');
+
+  function completeOb(){
+    if(obMode==='pureun'){setPureun(true);setTermMode('pureun');}
+    try{localStorage.setItem('chipmap_v1','done');}catch{}
+    setOnboarded(true);
+  }
+
+  const FEATS=[
+    {icon:'📚',title:'기초 개념',desc:'반도체란? 메모리 vs 비메모리, 사이클, 국가별 경쟁구도',delay:'.05s'},
+    {icon:'🔗',title:'산업 구조',desc:'밸류체인 7단계 + 제조공정 12단계 기업 포함',delay:'.1s'},
+    {icon:'🏢',title:'70+ 기업',desc:'국가별 전체 반도체 기업 — 국내·해외 구분',delay:'.15s'},
+    {icon:'📖',title:'핵심 용어 25개',desc:'EUV·HBM·CoWoS 등 업계 필수 용어 상세 설명',delay:'.2s'},
+    {icon:'📊',title:'투자 인사이트',desc:'사이클 히스토리 + 섹터별 지표 + 체크리스트',delay:'.25s'},
+  ];
+
+  // ── Onboarding Render ──
+  if(!onboarded) return e('div',{className:'ob-wrap'},
+    // Step 0 : Welcome
+    obStep===0&&e('div',{key:'s0',className:'ob-screen'},
+      e('div',{className:'ob-hero'},
+        e('div',{className:'ob-logo-big'},'🗺️'),
+        e('div',{className:'ob-app-name'},'CHIPMAP'),
+        e('div',{className:'ob-app-sub'},'반도체 산업 학습 앱'),
+        e('div',{className:'ob-tagline'},
+          '공정·기업·용어·투자까지',e('br',null),
+          e('strong',null,'반도체 공부, 이 앱 하나로 끝내요')
+        )
+      ),
+      e('div',{className:'ob-footer'},
+        e('div',{className:'ob-dots'},
+          [0,1,2].map(i=>e('div',{key:i,className:'ob-dot'+(obStep===i?' act':'')}))
+        ),
+        e('button',{className:'ob-btn-main ob-btn-primary',onClick:()=>setObStep(1)},'시작하기 →'),
+        e('button',{className:'ob-btn-skip',onClick:completeOb},'건너뛰기')
+      )
+    ),
+
+    // Step 1 : Features
+    obStep===1&&e('div',{key:'s1',className:'ob-screen'},
+      e('div',{style:{paddingTop:28,marginBottom:16}},
+        e('div',{style:{fontSize:18,fontWeight:800,marginBottom:3}},'무엇을 배울 수 있나요?'),
+        e('div',{style:{fontSize:12,color:C.text3}},'5개 탭으로 반도체 산업 전체를 커버해요')
+      ),
+      e('div',{className:'ob-features'},
+        FEATS.map((f,i)=>e('div',{key:i,className:'ob-feat',style:{animationDelay:f.delay}},
+          e('div',{className:'ob-feat-icon'},f.icon),
+          e('div',{style:{flex:1}},
+            e('div',{className:'ob-feat-title'},f.title),
+            e('div',{className:'ob-feat-desc'},f.desc)
+          )
+        ))
+      ),
+      e('div',{className:'ob-footer'},
+        e('div',{className:'ob-dots'},
+          [0,1,2].map(i=>e('div',{key:i,className:'ob-dot'+(obStep===i?' act':'')}))
+        ),
+        e('button',{className:'ob-btn-main ob-btn-primary',onClick:()=>setObStep(2)},'다음 →'),
+        e('button',{className:'ob-btn-skip',onClick:()=>setObStep(0)},'← 이전')
+      )
+    ),
+
+    // Step 2 : Mode selection
+    obStep===2&&e('div',{key:'s2',className:'ob-screen'},
+      e('div',{style:{paddingTop:28,marginBottom:16}},
+        e('div',{style:{fontSize:18,fontWeight:800,marginBottom:3}},'어떻게 공부할까요?'),
+        e('div',{style:{fontSize:12,color:C.text3}},'언제든지 헤더에서 바꿀 수 있어요')
+      ),
+      e('div',{className:'ob-modes'},
+        e('div',{
+          className:'ob-mode-card'+(obMode==='normal'?' sel-normal':''),
+          onClick:()=>setObMode('normal')
+        },
+          e('div',{className:'ob-mode-icon'},'👀'),
+          e('div',{className:'ob-mode-title',style:{color:obMode==='normal'?C.blue:C.text}},'일반 모드'),
+          e('div',{className:'ob-mode-desc'},'투자자·직장인·학생을 위한\n전문 용어와 분석적 설명'),
+          obMode==='normal'&&e('div',{className:'ob-mode-badge',style:{background:'rgba(79,142,247,.2)',color:C.blue}},'✓ 선택됨')
+        ),
+        e('div',{
+          className:'ob-mode-card'+(obMode==='pureun'?' sel-pureun':''),
+          onClick:()=>setObMode('pureun')
+        },
+          e('div',{className:'ob-mode-icon'},'🌱'),
+          e('div',{className:'ob-mode-title',style:{color:obMode==='pureun'?C.pink:C.text}},'푸른시점'),
+          e('div',{className:'ob-mode-desc'},'4살도 이해하는 쉬운 비유로\n처음부터 재미있게 배우기'),
+          obMode==='pureun'&&e('div',{className:'ob-mode-badge',style:{background:'rgba(232,111,168,.2)',color:C.pink}},'✓ 선택됨')
+        )
+      ),
+      e('div',{className:'ob-footer'},
+        e('div',{className:'ob-dots'},
+          [0,1,2].map(i=>e('div',{key:i,className:'ob-dot'+(obStep===i?' act':'')}))
+        ),
+        e('button',{
+          className:'ob-btn-main'+(obMode==='pureun'?' ob-btn-pureun':' ob-btn-primary'),
+          onClick:completeOb
+        },'시작하기 🚀'),
+        e('button',{className:'ob-btn-skip',onClick:()=>setObStep(1)},'← 이전')
+      )
+    )
+  );
+
+  const pa=pureun?C.pink:C.blue;
+  const filtTerms=TERMS.filter(t=>!termQ||t.term.toLowerCase().includes(termQ.toLowerCase())||t.cat.includes(termQ)||t.short.includes(termQ));
+
+  // ── Tab renderer ──
+  const tabs=[
+    {id:'basics',icon:'📚',label:'기초'},
+    {id:'structure',icon:'🔗',label:'구조'},
+    {id:'companies',icon:'🏢',label:'기업'},
+    {id:'terms',icon:'📖',label:'용어'},
+    {id:'invest',icon:'📊',label:'투자'},
+  ];
+
+  return e('div',{style:{background:C.bg,color:C.text,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",height:'100dvh',display:'flex',flexDirection:'column',overflow:'hidden',maxWidth:540,margin:'0 auto'}},
+
+    // ── HEADER ──
+    e('div',{className:'header'},
+      e('div',{className:'logo',style:{cursor:'pointer'},onClick:()=>{try{localStorage.removeItem('chipmap_v1');}catch{}setOnboarded(false);setObStep(0);}},'🗺️'),
+      e('div',null,
+        e('div',{className:'logo-text'},'CHIPMAP'),
+        e('div',{className:'logo-sub'},'반도체 산업 A to Z')
+      ),
+      e('div',{className:'pureun-toggle'+(pureun?' on':''),onClick:()=>{setPureun(!pureun);if(!pureun)setTermMode('pureun');else setTermMode('normal');}},
+        e('div',{className:'pureun-toggle-dot'},pureun?'🌱':'👀'),
+        e('div',{className:'pureun-toggle-label'},pureun?'푸른시점':'일반모드')
+      )
+    ),
+
+    // ── PUREUN BANNER ──
+    pureun&&e('div',{className:'pureun-banner'},'🌱 푸른이도 이해하는 쉬운 설명 모드예요! 4살 눈높이로 알려드려요 💕'),
+
+    // ── CONTENT ──
+    e('div',{className:'content'},
+
+      // ── 기초 (스텝 학습) ──
+      tab==='basics'&&e('div',{className:'learn-wrap'},
+        // 완료 화면
+        learnStep>=LEARN_STEPS.length
+          ?e('div',{className:'learn-scroll'},
+              e('div',{className:'learn-done-wrap'},
+                e('div',{className:'learn-done-emoji'},'🎉'),
+                e('div',{className:'learn-done-title'},'학습 완료!'),
+                e('div',{className:'learn-done-sub'},pureun
+                  ?'우와! 7단계를 모두 끝냈어! 이제 반도체 공부를 다 했다고 할 수 있어! 🌱\n나머지 탭도 둘러봐~'
+                  :'반도체 기초 7단계를 모두 완료했어요.\n구조·기업·용어·투자 탭도 살펴보세요.'
+                ),
+                e('button',{className:'learn-restart-btn',onClick:()=>goLearn(0)},'처음부터 다시 보기'),
+                e('div',{style:{marginTop:16,display:'flex',gap:6,flexWrap:'wrap',justifyContent:'center'}},
+                  LEARN_STEPS.map((_,i)=>e('div',{key:i,style:{fontSize:11,padding:'3px 8px',borderRadius:8,background:'rgba(45,217,138,.15)',color:C.green,fontWeight:700}},'✓ Step '+(i+1)))
+                )
+              )
+            )
+          // 학습 단계 화면
+          :e(React.Fragment,null,
+            // 진행 바
+            e('div',{className:'learn-prog-row'},
+              e('div',{className:'learn-prog-bar'},
+                e('div',{className:'learn-prog-fill',style:{width:((learnStep)/LEARN_STEPS.length*100)+'%',background:`linear-gradient(90deg,${LEARN_STEPS[learnStep].color},${C.purple})`}})
+              ),
+              e('div',{className:'learn-prog-txt',style:{color:LEARN_STEPS[learnStep].color}},learnStep+1+' / '+LEARN_STEPS.length)
+            ),
+            // 스텝 맵
+            e('div',{className:'learn-step-map'},
+              LEARN_STEPS.map((s,i)=>e('div',{key:i,
+                className:'learn-dot'+(learnVisited.has(i)&&i!==learnStep?' done':i===learnStep?' curr':' todo'),
+                style:i===learnStep?{background:s.color,borderColor:s.color}:{},
+                onClick:()=>goLearn(i)
+              },learnVisited.has(i)&&i!==learnStep?'✓':i+1))
+            ),
+            // 스크롤 영역
+            e('div',{className:'learn-scroll'},
+              e('div',{className:'learn-hero'},
+                e('div',{className:'learn-hero-top'},
+                  e('div',{className:'learn-hero-emoji',style:{background:LEARN_STEPS[learnStep].color+'22'}},LEARN_STEPS[learnStep].emoji),
+                  e('div',null,
+                    e('div',{style:{fontSize:11,color:LEARN_STEPS[learnStep].color,fontWeight:700,marginBottom:2}},'STEP '+(learnStep+1)),
+                    e('div',{className:'learn-hero-title'},LEARN_STEPS[learnStep].title),
+                    e('div',{className:'learn-hero-sub'},LEARN_STEPS[learnStep].sub)
+                  )
+                )
+              ),
+              e('div',{className:'learn-cards'},
+                LEARN_STEPS[learnStep].cards.map((card,i)=>e('div',{key:i,className:'learn-card'},
+                  e('div',{className:'learn-card-top'},
+                    e('div',{className:'learn-card-ico'},card.ico),
+                    e('div',{className:'learn-card-title'},card.title)
+                  ),
+                  pureun
+                    ?e('div',{className:'learn-pureun-body'},card.pureun_body)
+                    :e('div',{className:'learn-card-body'},card.body)
+                ))
+              ),
+              e('div',{className:'learn-takeaway',style:{background:LEARN_STEPS[learnStep].color+'10',borderLeftColor:LEARN_STEPS[learnStep].color}},
+                e('strong',null,'💡 핵심 한 줄'),
+                pureun?LEARN_STEPS[learnStep].pureun_takeaway:LEARN_STEPS[learnStep].takeaway
+              )
+            ),
+            // 네비
+            e('div',{className:'learn-nav'},
+              e('button',{className:'learn-btn learn-btn-prev',onClick:()=>goLearn(learnStep-1),disabled:learnStep===0},'← 이전'),
+              e('button',{className:'learn-btn learn-btn-next',style:{background:`linear-gradient(135deg,${LEARN_STEPS[learnStep].color},${C.purple})`},
+                onClick:()=>goLearn(learnStep+1)
+              },learnStep===LEARN_STEPS.length-1?'완료 🎉':'다음 →')
+            )
+          )
+      ),
+
+      // ── 구조 ──
+      tab==='structure'&&e('div',{className:'section active'},
+        e('div',{className:'sec-label'},'INDUSTRY VALUE CHAIN'),
+        e('div',{className:'chain-scroll'},
+          e('div',{className:'chain-flow'},
+            CHAIN.map((n,i)=>e(React.Fragment,{key:n.id},
+              e('div',{
+                className:'chain-node'+(selChain?.id===n.id?' sel':''),
+                style:{background:selChain?.id===n.id?n.color+'20':undefined,borderColor:selChain?.id===n.id?n.color:undefined},
+                onClick:()=>setSelChain(selChain?.id===n.id?null:n)
+              },
+                e('div',{style:{fontSize:14,marginBottom:2}},n.icon),
+                e('div',{className:'chain-node-label',style:{color:n.color}},n.label),
+                e('div',{className:'chain-node-sub'},n.sub)
+              ),
+              i<CHAIN.length-1&&e('span',{className:'chain-arrow'},'›')
+            ))
+          )
+        ),
+        selChain&&e('div',{className:'chain-detail',style:{background:selChain.color+'0c',border:'1px solid '+selChain.color+'50'}},
+          e('div',{style:{display:'flex',justifyContent:'space-between',marginBottom:6}},
+            e('span',{style:{fontSize:14,fontWeight:700,color:selChain.color}},selChain.label+' — '+selChain.sub),
+            e('button',{onClick:()=>setSelChain(null),style:{background:'none',border:'none',cursor:'pointer',color:C.text3,fontSize:16}},'✕')
+          ),
+          e('div',{style:{fontSize:12,color:C.text2,lineHeight:1.65,marginBottom:8}},pureun?selChain.pureun:selChain.desc),
+          e('div',{style:{display:'flex',flexWrap:'wrap',gap:4}},
+            selChain.companies.map(c=>e('span',{key:c,style:{fontSize:10,padding:'2px 7px',borderRadius:8,background:selChain.color+'18',color:selChain.color,border:'1px solid '+selChain.color+'40',fontWeight:600}},c))
+          )
+        ),
+        e('div',{className:'divider'}),
+        e('div',{className:'sec-label'},'MANUFACTURING PROCESS'),
+        e('div',{className:'proc-toggle'},
+          e('div',{className:'proc-pill',style:{background:procView==='front'?C.blue+'22':undefined,color:procView==='front'?C.blue:undefined,borderColor:procView==='front'?C.blue+'60':undefined},onClick:()=>{setProcView('front');setSelProc(null);}},'전공정 (9단계)'),
+          e('div',{className:'proc-pill',style:{background:procView==='back'?C.red+'22':undefined,color:procView==='back'?C.red:undefined,borderColor:procView==='back'?C.red+'60':undefined},onClick:()=>{setProcView('back');setSelProc(null);}},'후공정 (3단계)')
+        ),
+        PROCESS.filter(p=>p.type===procView).map(p=>e('div',{key:p.no,className:'proc-step'+(selProc===p.no?' sel':''),style:{background:selProc===p.no?p.color+'10':C.bg2,borderColor:selProc===p.no?p.color+'70':undefined}},
+          e('div',{className:'proc-header',onClick:()=>setSelProc(selProc===p.no?null:p.no)},
+            e('div',{className:'proc-no',style:{background:p.color+'22',color:p.color}},p.no),
+            e('div',{style:{flex:1}},
+              e('div',{style:{fontSize:13,fontWeight:700,color:selProc===p.no?p.color:C.text}},p.name),
+              e('div',{style:{fontSize:10,color:C.text3,marginTop:1}},p.key)
+            ),
+            e('span',{style:{fontSize:11,color:C.text3}},selProc===p.no?'▲':'▼')
+          ),
+          selProc===p.no&&e('div',{className:'proc-body'},
+            pureun
+              ?e('div',{className:'proc-pureun'},p.pureun)
+              :e('div',{className:'proc-desc'},p.desc),
+            e('div',{style:{fontSize:10,fontWeight:700,color:C.text3,marginBottom:6,letterSpacing:'.3px'}},'관련 기업'),
+            e('div',{style:{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(128px,1fr))',gap:5}},
+              p.cos.map(c=>e('div',{key:c.n,style:{background:C.bg,borderRadius:8,padding:'7px 9px',borderLeft:'2.5px solid '+(c.kr?C.cyan:C.blue)}},
+                e('div',{style:{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:2}},
+                  e('span',{style:{fontSize:9,fontFamily:'monospace',color:c.kr?C.cyan:C.blue,fontWeight:700}},c.t),
+                  e('span',{style:{fontSize:8,padding:'1px 4px',borderRadius:5,background:c.kr?'rgba(38,201,232,.12)':'rgba(79,142,247,.12)',color:c.kr?C.cyan:C.blue,fontWeight:700}},c.kr?'국내':'해외')
+                ),
+                e('div',{style:{fontSize:12,fontWeight:700}},c.n),
+                e('div',{style:{fontSize:10,color:C.text3}},c.r)
+              ))
+            )
+          )
+        ))
+      ),
+
+      // ── 기업 ──
+      tab==='companies'&&e('div',{className:'section active'},
+        e('div',{className:'sec-label'},'국가별 주요 기업'),
+        COMPANIES.map(group=>e('div',{key:group.country,className:'co-section'},
+          e('div',{className:'co-section-title'},
+            e('div',{className:'co-section-dot',style:{background:group.color}}),
+            group.country
+          ),
+          e('div',{style:{fontSize:11,color:group.color,marginBottom:8}},group.strength),
+          e('div',{className:'co-grid'},
+            group.cos.map(c=>e('div',{key:c.n,className:'co-card',style:{borderLeftColor:group.color+'80'}},
+              e('div',{className:'co-ticker',style:{color:group.color}},c.t),
+              e('div',{className:'mkt-badge',style:{background:c.kr?'rgba(38,201,232,.12)':'rgba(129,140,248,.12)',color:c.kr?C.cyan:C.purple}},c.kr?'🇰🇷 국내':'🌏 해외'),
+              e('div',{className:'co-name'},c.n),
+              e('div',{className:'co-role'},c.r),
+              c.mc&&e('div',{className:'co-mc'},c.mc)
+            ))
+          )
+        )),
+        // ── Method ② 코드 리스트 ──
+        e('div',{className:'codes-box'},
+          e('div',{className:'codes-toggle',onClick:()=>setShowCodes(!showCodes)},
+            e('span',null,'📋 국내 반도체 종목 코드 목록 (분석용)'),
+            e('span',{style:{color:C.text3}},showCodes?'▲':'▼')
+          ),
+          showCodes&&e('div',null,
+            e('div',{style:{fontSize:11,color:C.text2,marginTop:8,marginBottom:6,lineHeight:1.6}},
+              'FinanceDataReader(fdr) 방법 ② 기반 국내 반도체 확정 종목 리스트예요.\n총 '+SEMI_KR.length+'개 종목'
+            ),
+            e('pre',{className:'code-list'},
+              "SEMI_KR = [\n    '" + SEMI_KR.join("','") + "'\n]"
+            )
+          )
+        )
+      ),
+
+      // ── 용어 ──
+      tab==='terms'&&e('div',{className:'section active'},
+        e('div',{className:'term-toggle'},
+          e('div',{className:'term-mode-btn'+(termMode==='normal'?' active-normal':''),onClick:()=>setTermMode('normal')},'📖 일반 설명'),
+          e('div',{className:'term-mode-btn'+(termMode==='pureun'?' active-pureun':''),onClick:()=>setTermMode('pureun')},'🌱 푸른시점')
+        ),
+        termMode==='pureun'&&e('div',{style:{background:'rgba(232,111,168,.08)',border:'1px solid rgba(232,111,168,.2)',borderRadius:10,padding:'7px 12px',marginBottom:10,fontSize:11,color:C.pink}},'💕 4살도 이해하는 버전이에요!'),
+        e('div',{className:'search-wrap'},
+          e('span',{className:'search-ico'},'🔍'),
+          e('input',{className:'search-input',type:'text',placeholder:'용어 검색...',value:termQ,onChange:ev=>setTermQ(ev.target.value)})
+        ),
+        filtTerms.map(t=>e('div',{key:t.term,className:'term-card'+(openTerm===t.term?' open'+(termMode==='pureun'?' pureun-mode':''):'')},
+          e('div',{className:'term-header',onClick:()=>setOpenTerm(openTerm===t.term?null:t.term)},
+            e('div',{className:'term-left'},
+              e('span',{className:'term-name',style:{color:openTerm===t.term?(termMode==='pureun'?C.pink:C.blue):C.text}},t.term),
+              e('span',{className:'term-cat'},t.cat)
+            ),
+            e('span',{style:{fontSize:11,color:C.text3}},openTerm===t.term?'▲':'▼')
+          ),
+          e('div',{className:'term-short'},t.short),
+          openTerm===t.term&&e('div',{className:'term-body'},
+            termMode==='normal'
+              ?e('div',{className:'term-detail'},t.detail)
+              :e('div',{className:'term-pureun-box'},t.pureun)
+          )
+        ))
+      ),
+
+      // ── 투자 ──
+      tab==='invest'&&e('div',{className:'section active'},
+        e('div',{className:'sec-label'},'CYCLE HISTORY'),
+        e('div',{className:'card',style:{padding:'10px 14px',marginBottom:14}},
+          HISTORY.map((h,i)=>e('div',{key:i,className:'history-row'},
+            e('div',{className:'history-year'},
+              e('div',{style:{fontSize:10,fontWeight:700,color:h.color}},h.year),
+              e('div',{className:'history-phase'},h.phase)
+            ),
+            e('div',{className:'history-bar',style:{background:h.color}}),
+            e('div',{className:'history-event'},h.event)
+          ))
+        ),
+        e('div',{className:'sec-label'},'SECTOR METRICS'),
+        METRICS.map(m=>e('div',{key:m.seg,className:'metric-card',style:{borderLeftColor:m.color}},
+          e('div',{style:{fontSize:14,fontWeight:700,color:m.color,marginBottom:7}},m.seg),
+          e('div',{className:'metric-grid'},
+            [{l:'밸류에이션',v:m.pe},{l:'핵심지표',v:m.key},{l:'주요리스크',v:m.risk}].map(it=>e('div',{key:it.l,className:'metric-box'},
+              e('div',{className:'metric-box-label'},it.l),
+              e('div',{className:'metric-box-val',style:{color:m.color}},it.v)
+            ))
+          ),
+          e('div',{className:'metric-note'},pureun?m.pureun:'💡 '+m.note)
+        )),
+        e('div',{className:'sec-label',style:{marginTop:12}},'INVESTMENT CHECKLIST'),
+        e('div',{className:'card'},
+          CHECK_ITEMS.map((item,i)=>e('div',{key:i,className:'check-item',style:{borderBottom:i<CHECK_ITEMS.length-1?undefined:'none'}},
+            e('span',{className:'check-icon',style:{color:pa}},'☐'),
+            pureun?item.pureun:item.normal
+          ))
+        )
+      )
+    ),
+
+    // ── BOTTOM NAV ──
+    e('div',{className:'bottom-nav'},
+      tabs.map(t=>e('button',{key:t.id,className:'nav-btn'+(tab===t.id?' active'+(pureun?' pureun-nav':''):''),onClick:()=>setTab(t.id)},
+        e('span',{className:'nav-icon'},t.icon),
+        t.label
+      ))
+    )
+  );
+}
+
+ReactDOM.render(e(App),document.getElementById('root'));
+</script>
+</body>
+</html>
