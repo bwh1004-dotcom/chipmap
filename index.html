@@ -672,6 +672,8 @@ function App(){
   const[dataLoaded,setDataLoaded]=useState(false);
   const[newsTag,setNewsTag]=useState('전체');
   const[openNews,setOpenNews]=useState(null);
+  const[showAll,setShowAll]=useState(false);
+  const[semiOnly,setSemiOnly]=useState(false);
 
   React.useEffect(()=>{
     loadExternalData().then(()=>{
@@ -1271,8 +1273,7 @@ function App(){
         mvpHistory.length>0&&(()=>{
           const stats=calcMvpStats(mvpHistory);
           const semi=['반도체장비','반도체소재','반도체소켓','반도체패키징'];
-          const [showAll,setShowAll]=React.useState(false);
-          const [semiOnly,setSemiOnly]=React.useState(false);
+
           const filtered=stats.filter(s=>!semiOnly||semi.includes(s.sector));
           const display=showAll?filtered:filtered.slice(0,10);
           return e('div',null,
