@@ -7,6 +7,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#080f1e">
 <title>CHIPMAP 칩맵</title>
+<link rel="icon" type="image/png" href="./icon.png">
+<link rel="apple-touch-icon" href="./icon.png">
+<meta name="apple-mobile-web-app-title" content="CHIPMAP">
 <meta name="author" content="UNO_DEYA">
 <meta name="description" content="반도체 산업 A to Z · UNO_DEYA">
 <style>
@@ -713,7 +716,9 @@ function App(){
     // Step 0 : Welcome
     obStep===0&&e('div',{key:'s0',className:'ob-screen'},
       e('div',{className:'ob-hero'},
-        e('div',{className:'ob-logo-big'},'🗺️'),
+        e('div',{className:'ob-logo-big'},
+          e('img',{src:'./icon.png',style:{width:'100%',height:'100%',borderRadius:22,objectFit:'cover'},alt:'CHIPMAP'})
+        ),
         e('div',{className:'ob-app-name'},'CHIPMAP'),
         e('div',{className:'ob-app-sub'},'반도체 산업 학습 앱'),
         e('div',{style:{fontSize:10,color:C.text3,marginTop:4,letterSpacing:'1.5px',fontWeight:600}},'by UNO_DEYA'),
@@ -817,7 +822,9 @@ function App(){
 
     // ── HEADER ──
     e('div',{className:'header'},
-      e('div',{className:'logo',style:{cursor:'pointer'},onClick:()=>{try{localStorage.removeItem('chipmap_v1');}catch{}setOnboarded(false);setObStep(0);}},'🗺️'),
+      e('div',{className:'logo',style:{cursor:'pointer'},onClick:()=>{try{localStorage.removeItem('chipmap_v1');}catch{}setOnboarded(false);setObStep(0);}},
+        e('img',{src:'./icon.png',style:{width:32,height:32,borderRadius:8,objectFit:'cover'},alt:'CHIPMAP'})
+      ),
       e('div',null,
         e('div',{className:'logo-text'},'CHIPMAP'),
         e('div',{className:'logo-sub'},'by UNO_DEYA')
