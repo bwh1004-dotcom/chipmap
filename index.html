@@ -796,7 +796,7 @@ function App(){
         },
           e('div',{className:'ob-mode-icon'},'🌱'),
           e('div',{className:'ob-mode-title',style:{color:obMode==='pureun'?C.pink:C.text}},'푸른시점'),
-          e('div',{className:'ob-mode-desc'},'4살도 이해하는 쉬운 비유로\n처음부터 재미있게 배우기'),
+          e('div',{className:'ob-mode-desc'},'아이도 이해하는 쉬운 비유로\n처음부터 재미있게 배우기'),
           obMode==='pureun'&&e('div',{className:'ob-mode-badge',style:{background:'rgba(232,111,168,.2)',color:C.pink}},'✓ 선택됨')
         )
       ),
@@ -850,7 +850,7 @@ function App(){
     ),
 
     // ── PUREUN BANNER ──
-    pureun&&e('div',{className:'pureun-banner'},'🌱 푸른이도 이해하는 쉬운 설명 모드예요! 4살 눈높이로 알려드려요 💕'),
+    pureun&&e('div',{className:'pureun-banner'},'🌱 푸른이도 이해하는 쉬운 설명 모드예요! 아이 눈높이로 알려드려요 💕'),
 
     // ── CONTENT ──
     e('div',{className:'content'},
@@ -964,7 +964,12 @@ function App(){
                   e('div',{style:{fontSize:14,marginBottom:2}},n.icon),
                   e('div',{className:'chain-node-label',style:{color:n.color}},n.label),
                   e('div',{className:'chain-node-sub'},n.sub),
-                  (n.id==='f'||n.id==='p')&&e('div',{style:{fontSize:8,marginTop:3,padding:'1px 5px',borderRadius:5,background:n.id==='f'?C.blue+'30':C.red+'30',color:n.id==='f'?C.blue:C.red,fontWeight:700}},n.id==='f'?'⚙️전공정':'📦후공정')
+                  e('div',{style:{fontSize:8,marginTop:3,padding:'1px 5px',borderRadius:5,fontWeight:700,
+                    background:(n.id==='f'?C.blue:n.id==='p'?C.red:'transparent')+'30',
+                    color:n.id==='f'?C.blue:n.id==='p'?C.red:'transparent',
+                    border:'1px solid '+(n.id==='f'?C.blue:n.id==='p'?C.red:'transparent')+'30',
+                    visibility:(n.id==='f'||n.id==='p')?'visible':'hidden'
+                  }},n.id==='f'?'⚙️전공정':n.id==='p'?'📦후공정':'⠀')
                 ),
                 i<CHAIN.length-1&&e('span',{className:'chain-arrow'},'›')
               ))
@@ -1162,7 +1167,7 @@ function App(){
           e('div',{className:'term-mode-btn'+(termMode==='normal'?' active-normal':''),onClick:()=>setTermMode('normal')},'📖 일반 설명'),
           e('div',{className:'term-mode-btn'+(termMode==='pureun'?' active-pureun':''),onClick:()=>setTermMode('pureun')},'🌱 푸른시점')
         ),
-        termMode==='pureun'&&e('div',{style:{background:'rgba(232,111,168,.08)',border:'1px solid rgba(232,111,168,.2)',borderRadius:10,padding:'7px 12px',marginBottom:10,fontSize:11,color:C.pink}},'💕 4살도 이해하는 버전이에요!'),
+        termMode==='pureun'&&e('div',{style:{background:'rgba(232,111,168,.08)',border:'1px solid rgba(232,111,168,.2)',borderRadius:10,padding:'7px 12px',marginBottom:10,fontSize:11,color:C.pink}},'💕 아이도 이해하는 버전이에요!'),
         e('div',{className:'search-wrap'},
           e('span',{className:'search-ico'},'🔍'),
           e('input',{className:'search-input',type:'text',placeholder:'용어 검색...',value:termQ,onChange:ev=>{setTermQ(ev.target.value);setTermCat('전체');}})
