@@ -35,7 +35,6 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   z-index:1;
   display:flex;
   flex-direction:column;
-  overflow:hidden;
   background:var(--bg);
 }
 .header{padding:13px 16px 11px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:linear-gradient(135deg,#0d1628 0%,#101e38 100%)}
@@ -50,7 +49,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .pureun-toggle.on .pureun-toggle-label{color:var(--pink)}
 .pureun-banner{background:linear-gradient(135deg,rgba(232,111,168,.12),rgba(155,110,247,.08));border-bottom:1px solid rgba(232,111,168,.2);padding:7px 16px;font-size:11px;color:var(--pink);display:flex;align-items:center;gap:6px;flex-shrink:0;animation:slideDown .3s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.content{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .section{padding:14px 15px 24px;display:none}
 .section.active{display:block}
 .sec-label{font-size:11px;color:var(--text3);margin-bottom:10px;letter-spacing:.3px;font-weight:600;text-transform:uppercase}
