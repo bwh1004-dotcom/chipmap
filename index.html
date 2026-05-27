@@ -654,19 +654,17 @@ const tag=(color,text)=>e('span',{style:{fontSize:9,padding:'1px 6px',borderRadi
 
 // ═══════════════ APP ═══════════════
 function App(){
-  const[tab,setTab]=useState(()=>{
-    // URL hash로 초기 탭 결정
-    const hash=window.location.hash.replace('#','');
-    const valid=['basics','structure','companies','terms','invest','news'];
-    return valid.includes(hash)?hash:'basics';
-  });
+  const[tab,setTab]=useState('basics');
 
   // 뒤로가기 처리
   React.useEffect(()=>{
+    // 시작 시 hash 제거
+    if(window.location.hash) history.replaceState(null,'',window.location.pathname);
     const onPop=()=>{
       const hash=window.location.hash.replace('#','');
       const valid=['basics','structure','companies','terms','invest','news'];
       if(valid.includes(hash)) setTab(hash);
+      else setTab('basics');
     };
     window.addEventListener('popstate',onPop);
     return ()=>window.removeEventListener('popstate',onPop);
