@@ -22,21 +22,9 @@
   --green:#2dd98a;--amber:#f5a623;--red:#f46b6b;--pink:#e86fa8;
 }
 #binary-rain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:.18;pointer-events:none}
-html{height:100%}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;height:100%;margin:0;overflow:hidden}
-#root{
-  position:fixed;
-  top:env(safe-area-inset-top,0px);
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:540px;
-  bottom:0;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  background:var(--bg);
-}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden;max-width:540px;margin:0 auto}
+#root{flex:1;display:flex;flex-direction:column;min-height:0}
 .header{padding:13px 16px 11px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:linear-gradient(135deg,#0d1628 0%,#101e38 100%)}
 .logo{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:linear-gradient(135deg,#4f8ef7,#9b6ef7)}
 .logo-text{font-size:16px;font-weight:800;letter-spacing:-.3px}
@@ -49,7 +37,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .pureun-toggle.on .pureun-toggle-label{color:var(--pink)}
 .pureun-banner{background:linear-gradient(135deg,rgba(232,111,168,.12),rgba(155,110,247,.08));border-bottom:1px solid rgba(232,111,168,.2);padding:7px 16px;font-size:11px;color:var(--pink);display:flex;align-items:center;gap:6px;flex-shrink:0;animation:slideDown .3s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.content{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0}
 .section{padding:14px 15px 24px;display:none}
 .section.active{display:block}
 .sec-label{font-size:11px;color:var(--text3);margin-bottom:10px;letter-spacing:.3px;font-weight:600;text-transform:uppercase}
@@ -153,7 +141,7 @@ table.info td.logic{color:var(--purple);text-align:center}
 .learn-done-sub{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:24px}
 .learn-restart-btn{padding:12px 28px;border-radius:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer}
 /* ── ONBOARDING ── */
-.ob-wrap{height:100%;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.ob-wrap{height:100dvh;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
 .ob-screen{flex:1;display:flex;flex-direction:column;padding:0 24px;animation:obIn .35s ease}
 @keyframes obIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .ob-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
@@ -852,7 +840,7 @@ function App(){
     {id:'news',icon:'📰',label:'뉴스'},
   ];
 
-  return e('div',{style:{display:'flex',flexDirection:'column',flex:1,minHeight:0,background:C.bg}},
+  return e('div',{style:{background:C.bg,color:C.text,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",height:'100dvh',display:'flex',flexDirection:'column',overflow:'hidden',maxWidth:540,margin:'0 auto',paddingTop:'env(safe-area-inset-top,0px)'}},
 
     // ── HEADER ──
     e('div',{className:'header'},
