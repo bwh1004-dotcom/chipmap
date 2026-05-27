@@ -922,12 +922,12 @@ function App(){
       tab==='structure'&&e('div',{className:'section active'},
         // 서브탭
         e('div',{style:{display:'flex',gap:6,marginBottom:16}},
-          e('div',{onClick:()=>setStructureTab('ecosystem'),style:{flex:1,padding:'10px 0',textAlign:'center',borderRadius:10,fontSize:12,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(structureTab==='ecosystem'?C.green:C.border),background:structureTab==='ecosystem'?C.green+'18':'transparent',color:structureTab==='ecosystem'?C.green:C.text3}},
+          e('div',{onClick:()=>{setStructureTab('ecosystem');const c=document.querySelector('.content');if(c)c.scrollTop=0;},style:{flex:1,padding:'10px 0',textAlign:'center',borderRadius:10,fontSize:12,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(structureTab==='ecosystem'?C.green:C.border),background:structureTab==='ecosystem'?C.green+'18':'transparent',color:structureTab==='ecosystem'?C.green:C.text3}},
             e('div',{style:{fontSize:16,marginBottom:2}},'🏭'),
             '산업 생태계',
             e('div',{style:{fontSize:9,fontWeight:400,marginTop:2,opacity:.7}},'7개 플레이어')
           ),
-          e('div',{onClick:()=>setStructureTab('process'),style:{flex:1,padding:'10px 0',textAlign:'center',borderRadius:10,fontSize:12,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(structureTab==='process'?C.cyan:C.border),background:structureTab==='process'?C.cyan+'18':'transparent',color:structureTab==='process'?C.cyan:C.text3}},
+          e('div',{onClick:()=>{setStructureTab('process');const c=document.querySelector('.content');if(c)c.scrollTop=0;},style:{flex:1,padding:'10px 0',textAlign:'center',borderRadius:10,fontSize:12,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(structureTab==='process'?C.cyan:C.border),background:structureTab==='process'?C.cyan+'18':'transparent',color:structureTab==='process'?C.cyan:C.text3}},
             e('div',{style:{fontSize:16,marginBottom:2}},'⚙️'),
             '제조 공정',
             e('div',{style:{fontSize:9,fontWeight:400,marginTop:2,opacity:.7}},'전공정 9단계 · 후공정 3단계')
@@ -1346,7 +1346,11 @@ function App(){
 
     // ── BOTTOM NAV ──
     e('div',{className:'bottom-nav'},
-      tabs.map(t=>e('button',{key:t.id,className:'nav-btn'+(tab===t.id?' active'+(pureun?' pureun-nav':''):''),onClick:()=>setTab(t.id)},
+      tabs.map(t=>e('button',{key:t.id,className:'nav-btn'+(tab===t.id?' active'+(pureun?' pureun-nav':''):''),onClick:()=>{
+        setTab(t.id);
+        const c=document.querySelector('.content');
+        if(c) c.scrollTop=0;
+      }},
         e('span',{className:'nav-icon'},t.icon),
         t.label
       ))
