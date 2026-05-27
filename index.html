@@ -49,7 +49,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .pureun-toggle.on .pureun-toggle-label{color:var(--pink)}
 .pureun-banner{background:linear-gradient(135deg,rgba(232,111,168,.12),rgba(155,110,247,.08));border-bottom:1px solid rgba(232,111,168,.2);padding:7px 16px;font-size:11px;color:var(--pink);display:flex;align-items:center;gap:6px;flex-shrink:0;animation:slideDown .3s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.content{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.content{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .section{padding:14px 15px 24px;display:none}
 .section.active{display:block}
 .sec-label{font-size:11px;color:var(--text3);margin-bottom:10px;letter-spacing:.3px;font-weight:600;text-transform:uppercase}
@@ -666,7 +666,23 @@ const tag=(color,text)=>e('span',{style:{fontSize:9,padding:'1px 6px',borderRadi
 
 // ═══════════════ APP ═══════════════
 function App(){
-  const[tab,setTab]=useState('basics');
+  const[tab,setTab]=useState(()=>{
+    // URL hash로 초기 탭 결정
+    const hash=window.location.hash.replace('#','');
+    const valid=['basics','structure','companies','terms','invest','news'];
+    return valid.includes(hash)?hash:'basics';
+  });
+
+  // 뒤로가기 처리
+  React.useEffect(()=>{
+    const onPop=()=>{
+      const hash=window.location.hash.replace('#','');
+      const valid=['basics','structure','companies','terms','invest','news'];
+      if(valid.includes(hash)) setTab(hash);
+    };
+    window.addEventListener('popstate',onPop);
+    return ()=>window.removeEventListener('popstate',onPop);
+  },[]);
   const[mvpData,setMvpData]=useState(null);
   const[mvpHistory,setMvpHistory]=useState([]);
   const[newsData,setNewsData]=useState([]);
@@ -836,7 +852,7 @@ function App(){
     {id:'news',icon:'📰',label:'뉴스'},
   ];
 
-  return e('div',{style:{display:'flex',flexDirection:'column',height:'100%',overflow:'hidden',background:C.bg}},
+  return e('div',{style:{display:'flex',flexDirection:'column',height:'100%',background:C.bg}},
 
     // ── HEADER ──
     e('div',{className:'header'},
@@ -1400,6 +1416,9 @@ function App(){
     // ── BOTTOM NAV ──
     e('div',{className:'bottom-nav'},
       tabs.map(t=>e('button',{key:t.id,className:'nav-btn'+(tab===t.id?' active'+(pureun?' pureun-nav':''):''),onClick:()=>{
+        if(tab!==t.id){
+          history.pushState({tab:t.id},'','#'+t.id);
+        }
         setTab(t.id);
         const c=document.querySelector('.content');
         if(c) c.scrollTop=0;
