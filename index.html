@@ -140,7 +140,7 @@ table.info td.logic{color:var(--purple);text-align:center}
 .learn-done-sub{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:24px}
 .learn-restart-btn{padding:12px 28px;border-radius:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer}
 /* ── ONBOARDING ── */
-.ob-wrap{height:100dvh;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.ob-wrap{height:100%;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
 .ob-screen{flex:1;display:flex;flex-direction:column;padding:0 24px;animation:obIn .35s ease}
 @keyframes obIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .ob-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
@@ -818,7 +818,7 @@ function App(){
     {id:'news',icon:'📰',label:'뉴스'},
   ];
 
-  return e('div',{style:{background:C.bg,color:C.text,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",height:'100dvh',display:'flex',flexDirection:'column',overflow:'hidden',maxWidth:540,margin:'0 auto'}},
+  return e('div',{style:{background:C.bg,color:C.text,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",height:'100%',display:'flex',flexDirection:'column',overflow:'hidden',maxWidth:540,margin:'0 auto'}},
 
     // ── HEADER ──
     e('div',{className:'header'},
