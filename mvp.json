@@ -1,27 +1,28 @@
-{
-  "date": "2026-05-27",
-  "source": "아이투자",
-  "url": "https://news.itooza.com/2026052707153402052/100/91",
-  "list": [
-    {"rank":1,"name":"HPSP","ticker":"403870","price":"60,100","change":"+9.9%","mvp":96,"supply":92,"value":99,"fundamental":96,"per":68.1,"pbr":16.0,"roe":"23.6%","sector":"반도체장비"},
-    {"rank":2,"name":"유진테크","ticker":"084370","price":"138,700","change":"0.0%","mvp":92,"supply":87,"value":95,"fundamental":94,"per":56.1,"pbr":6.6,"roe":"11.9%","sector":"반도체장비"},
-    {"rank":3,"name":"이오테크닉스","ticker":"039030","price":"547,000","change":"-4.5%","mvp":89,"supply":78,"value":97,"fundamental":93,"per":91.0,"pbr":9.5,"roe":"10.5%","sector":"반도체장비"},
-    {"rank":4,"name":"슈프리마","ticker":"236200","price":"44,550","change":"-1.6%","mvp":89,"supply":80,"value":91,"fundamental":95,"per":9.1,"pbr":1.1,"roe":"12.2%","sector":"기타"},
-    {"rank":5,"name":"RF시스템즈","ticker":"089530","price":"14,520","change":"+6.7%","mvp":89,"supply":100,"value":87,"fundamental":79,"per":33.8,"pbr":3.9,"roe":"11.4%","sector":"기타"},
-    {"rank":6,"name":"ISC","ticker":"095340","price":"240,000","change":"+14.3%","mvp":88,"supply":80,"value":94,"fundamental":91,"per":72.9,"pbr":9.4,"roe":"12.9%","sector":"반도체소켓"},
-    {"rank":7,"name":"케이엘넷","ticker":"039420","price":"2,810","change":"-4.1%","mvp":88,"supply":93,"value":70,"fundamental":100,"per":7.2,"pbr":1.0,"roe":"13.6%","sector":"기타"},
-    {"rank":8,"name":"피에스케이홀딩스","ticker":"031980","price":"131,900","change":"-3.8%","mvp":88,"supply":71,"value":97,"fundamental":95,"per":31.0,"pbr":5.6,"roe":"18.1%","sector":"반도체장비"},
-    {"rank":9,"name":"아주IB투자","ticker":"027360","price":"16,510","change":"+4.6%","mvp":88,"supply":100,"value":82,"fundamental":81,"per":240.4,"pbr":7.5,"roe":"3.1%","sector":"금융"},
-    {"rank":10,"name":"지앤비에스 에코","ticker":"270520","price":"8,860","change":"-3.5%","mvp":87,"supply":80,"value":91,"fundamental":92,"per":18.5,"pbr":2.3,"roe":"12.3%","sector":"기타"},
-    {"rank":11,"name":"달바글로벌","ticker":"417180","price":"213,000","change":"-2.7%","mvp":87,"supply":75,"value":90,"fundamental":95,"per":29.2,"pbr":11.4,"roe":"39.1%","sector":"기타"},
-    {"rank":12,"name":"하나머티리얼즈","ticker":"166090","price":"80,000","change":"-1.4%","mvp":85,"supply":78,"value":98,"fundamental":80,"per":31.7,"pbr":3.3,"roe":"10.3%","sector":"반도체소재"},
-    {"rank":13,"name":"고영","ticker":"098460","price":"40,800","change":"+3.6%","mvp":85,"supply":100,"value":77,"fundamental":78,"per":189.8,"pbr":8.4,"roe":"4.4%","sector":"반도체장비"},
-    {"rank":14,"name":"아비코전자","ticker":"036670","price":"12,460","change":"+19.5%","mvp":85,"supply":100,"value":77,"fundamental":78,"per":17.4,"pbr":1.4,"roe":"8.2%","sector":"기타"},
-    {"rank":15,"name":"티에이치엔","ticker":"062970","price":"9,680","change":"+29.9%","mvp":85,"supply":100,"value":89,"fundamental":65,"per":2.1,"pbr":0.7,"roe":"32.8%","sector":"기타"},
-    {"rank":16,"name":"한화손해보험","ticker":"000370","price":"7,150","change":"-0.6%","mvp":85,"supply":81,"value":99,"fundamental":73,"per":2.8,"pbr":0.3,"roe":"11.2%","sector":"금융"},
-    {"rank":17,"name":"브이엠","ticker":"prolly","price":"66,200","change":"+2.6%","mvp":84,"supply":86,"value":90,"fundamental":75,"per":32.7,"pbr":8.0,"roe":"24.6%","sector":"기타"},
-    {"rank":18,"name":"프로이천","ticker":"093400","price":"4,850","change":"+15.6%","mvp":83,"supply":87,"value":71,"fundamental":92,"per":34.9,"pbr":3.2,"roe":"9.1%","sector":"기타"},
-    {"rank":19,"name":"LG씨엔에스","ticker":"064400","price":"82,900","change":"-0.4%","mvp":83,"supply":66,"value":98,"fundamental":86,"per":18.3,"pbr":2.7,"roe":"14.9%","sector":"IT서비스"},
-    {"rank":20,"name":"슈피겐코리아","ticker":"192440","price":"31,250","change":"-3.6%","mvp":83,"supply":85,"value":77,"fundamental":88,"per":6.7,"pbr":0.4,"roe":"5.5%","sector":"기타"}
-  ]
-}
+[
+  {
+    "date": "2026-05-27",
+    "source": "아이투자",
+    "list": [
+      {"rank":1,"name":"HPSP","ticker":"403870","price":"60,100","change":"+9.9%","mvp":96,"supply":92,"value":99,"fundamental":96,"per":68.1,"pbr":16.0,"roe":"23.6%","sector":"반도체장비"},
+      {"rank":2,"name":"유진테크","ticker":"084370","price":"138,700","change":"0.0%","mvp":92,"supply":87,"value":95,"fundamental":94,"per":56.1,"pbr":6.6,"roe":"11.9%","sector":"반도체장비"},
+      {"rank":3,"name":"이오테크닉스","ticker":"039030","price":"547,000","change":"-4.5%","mvp":89,"supply":78,"value":97,"fundamental":93,"per":91.0,"pbr":9.5,"roe":"10.5%","sector":"반도체장비"},
+      {"rank":4,"name":"슈프리마","ticker":"236200","price":"44,550","change":"-1.6%","mvp":89,"supply":80,"value":91,"fundamental":95,"per":9.1,"pbr":1.1,"roe":"12.2%","sector":"기타"},
+      {"rank":5,"name":"RF시스템즈","ticker":"089530","price":"14,520","change":"+6.7%","mvp":89,"supply":100,"value":87,"fundamental":79,"per":33.8,"pbr":3.9,"roe":"11.4%","sector":"기타"},
+      {"rank":6,"name":"ISC","ticker":"095340","price":"240,000","change":"+14.3%","mvp":88,"supply":80,"value":94,"fundamental":91,"per":72.9,"pbr":9.4,"roe":"12.9%","sector":"반도체소켓"},
+      {"rank":7,"name":"케이엘넷","ticker":"039420","price":"2,810","change":"-4.1%","mvp":88,"supply":93,"value":70,"fundamental":100,"per":7.2,"pbr":1.0,"roe":"13.6%","sector":"기타"},
+      {"rank":8,"name":"피에스케이홀딩스","ticker":"031980","price":"131,900","change":"-3.8%","mvp":88,"supply":71,"value":97,"fundamental":95,"per":31.0,"pbr":5.6,"roe":"18.1%","sector":"반도체장비"},
+      {"rank":9,"name":"아주IB투자","ticker":"027360","price":"16,510","change":"+4.6%","mvp":88,"supply":100,"value":82,"fundamental":81,"per":240.4,"pbr":7.5,"roe":"3.1%","sector":"금융"},
+      {"rank":10,"name":"지앤비에스 에코","ticker":"270520","price":"8,860","change":"-3.5%","mvp":87,"supply":80,"value":91,"fundamental":92,"per":18.5,"pbr":2.3,"roe":"12.3%","sector":"기타"},
+      {"rank":11,"name":"달바글로벌","ticker":"417180","price":"213,000","change":"-2.7%","mvp":87,"supply":75,"value":90,"fundamental":95,"per":29.2,"pbr":11.4,"roe":"39.1%","sector":"기타"},
+      {"rank":12,"name":"하나머티리얼즈","ticker":"166090","price":"80,000","change":"-1.4%","mvp":85,"supply":78,"value":98,"fundamental":80,"per":31.7,"pbr":3.3,"roe":"10.3%","sector":"반도체소재"},
+      {"rank":13,"name":"고영","ticker":"098460","price":"40,800","change":"+3.6%","mvp":85,"supply":100,"value":77,"fundamental":78,"per":189.8,"pbr":8.4,"roe":"4.4%","sector":"반도체장비"},
+      {"rank":14,"name":"아비코전자","ticker":"036670","price":"12,460","change":"+19.5%","mvp":85,"supply":100,"value":77,"fundamental":78,"per":17.4,"pbr":1.4,"roe":"8.2%","sector":"기타"},
+      {"rank":15,"name":"티에이치엔","ticker":"062970","price":"9,680","change":"+29.9%","mvp":85,"supply":100,"value":89,"fundamental":65,"per":2.1,"pbr":0.7,"roe":"32.8%","sector":"기타"},
+      {"rank":16,"name":"한화손해보험","ticker":"000370","price":"7,150","change":"-0.6%","mvp":85,"supply":81,"value":99,"fundamental":73,"per":2.8,"pbr":0.3,"roe":"11.2%","sector":"금융"},
+      {"rank":17,"name":"브이엠","ticker":"086670","price":"66,200","change":"+2.6%","mvp":84,"supply":86,"value":90,"fundamental":75,"per":32.7,"pbr":8.0,"roe":"24.6%","sector":"기타"},
+      {"rank":18,"name":"프로이천","ticker":"093400","price":"4,850","change":"+15.6%","mvp":83,"supply":87,"value":71,"fundamental":92,"per":34.9,"pbr":3.2,"roe":"9.1%","sector":"기타"},
+      {"rank":19,"name":"LG씨엔에스","ticker":"064400","price":"82,900","change":"-0.4%","mvp":83,"supply":66,"value":98,"fundamental":86,"per":18.3,"pbr":2.7,"roe":"14.9%","sector":"IT서비스"},
+      {"rank":20,"name":"슈피겐코리아","ticker":"192440","price":"31,250","change":"-3.6%","mvp":83,"supply":85,"value":77,"fundamental":88,"per":6.7,"pbr":0.4,"roe":"5.5%","sector":"기타"}
+    ]
+  }
+]

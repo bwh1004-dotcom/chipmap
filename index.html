@@ -515,9 +515,9 @@ const CHECK_ITEMS=[
 ];
 
 // ═══════════════ 외부 JSON 데이터 (fetch) ═══════════════
-// mvp.json / news.json 은 GitHub에 별도 파일로 관리
 let QUARTERLY_TRACKER=[];
 let NEWS_DATA=[];
+let MVP_HISTORY=[];  // 누적 MVP 데이터 [{date, list:[{rank,name,...}]}]
 
 async function loadExternalData(){
   try{
@@ -526,13 +526,14 @@ async function loadExternalData(){
       fetch('./news.json?v='+Date.now())
     ]);
     if(mvpRes.ok){
-      const mvp=await mvpRes.json();
-      // mvp.json → QUARTERLY_TRACKER 형식으로 변환
-      const semi=['반도체장비','반도체소재','반도체소켓','반도체패키징'];
-      const semiList=mvp.list.filter(m=>semi.includes(m.sector));
+      const raw=await mvpRes.json();
+      // 배열 형식(누적) 또는 단일 객체(구버전) 모두 처리
+      MVP_HISTORY=Array.isArray(raw)?raw:[raw];
+      // 최신 날짜 기준으로 QUARTERLY_TRACKER 생성
+      const latest=MVP_HISTORY[MVP_HISTORY.length-1];
       QUARTERLY_TRACKER=[{
         quarter:'2026 1Q',
-        date:mvp.date,
+        date:latest.date,
         color:'#26c9e8',
         surprise:[
           {n:'하나마이크론',t:'067310',cat:'패키징',op:'720억',beat:'+28.2%',note:'최근 5개분기 최대 영업익',star:true},
@@ -548,7 +549,7 @@ async function loadExternalData(){
           {n:'서울반도체',t:'046890',cat:'LED반도체',op:'18억',beat:'+278%',note:'흑자전환',star:false},
           {n:'사피엔반도체',t:'440110',cat:'팹리스',op:'1억',beat:'흑자전환',note:'최근 5개분기 최대 영업익',star:false},
         ],
-        mvp20:mvp.list.map(m=>({rank:m.rank,n:m.name,t:m.ticker,cat:m.sector,mvp:m.mvp,note:''})),
+        mvp20:latest.list.map(m=>({rank:m.rank,n:m.name,t:m.ticker,cat:m.sector,mvp:m.mvp,note:''})),
         insight:'장비·소재 섹터 동시 서프라이즈 → 전공정 발주 본격화 신호. 유진테크·이오테크닉스는 MVP+서프라이즈 이중 확인.',
       }];
     }
@@ -562,6 +563,33 @@ async function loadExternalData(){
       }));
     }
   }catch(e){console.warn('JSON 로드 실패(로컬 실행 시 정상):',e.message);}
+}
+
+// 누적 MVP 통계 계산
+function calcMvpStats(history){
+  const stats={};  // { name: {count, bestRank, latestRank, latestDate, streak, rankHistory} }
+  const sorted=[...history].sort((a,b)=>a.date>b.date?1:-1);
+  sorted.forEach(day=>{
+    (day.list||[]).forEach(m=>{
+      if(!stats[m.name]) stats[m.name]={
+        name:m.name, ticker:m.ticker, sector:m.sector,
+        count:0, bestRank:99, latestRank:99, latestDate:'', streak:0, rankHistory:[]
+      };
+      const s=stats[m.name];
+      s.count++;
+      s.bestRank=Math.min(s.bestRank,m.rank);
+      s.latestRank=m.rank;
+      s.latestDate=day.date;
+      s.rankHistory.push({date:day.date, rank:m.rank, mvp:m.mvp});
+    });
+    // 스트릭 계산: 연속 등장 여부
+    const names=new Set((day.list||[]).map(m=>m.name));
+    Object.keys(stats).forEach(n=>{
+      if(names.has(n)) stats[n].streak++;
+      else stats[n].streak=0;
+    });
+  });
+  return Object.values(stats).sort((a,b)=>b.count-a.count||a.bestRank-b.bestRank);
 }
 
 function buildMvpMap(tracker){
@@ -641,12 +669,16 @@ const tag=(color,text)=>e('span',{style:{fontSize:9,padding:'1px 6px',borderRadi
 function App(){
   const[tab,setTab]=useState('basics');
   const[mvpData,setMvpData]=useState(null);
+  const[mvpHistory,setMvpHistory]=useState([]);
   const[newsData,setNewsData]=useState([]);
   const[dataLoaded,setDataLoaded]=useState(false);
+  const[newsTag,setNewsTag]=useState('전체');
+  const[openNews,setOpenNews]=useState(null);
 
   React.useEffect(()=>{
     loadExternalData().then(()=>{
       setMvpData([...QUARTERLY_TRACKER]);
+      setMvpHistory([...MVP_HISTORY]);
       setNewsData([...NEWS_DATA]);
       setDataLoaded(true);
     });
@@ -1132,7 +1164,8 @@ function App(){
           )
         )
         );
-      })(),
+        })()
+      ),
 
       // ── 용어 ──
       tab==='terms'&&e('div',{className:'section active'},
@@ -1235,7 +1268,50 @@ function App(){
           )
         )),
 
-        e('div',{className:'sec-label'},'CYCLE HISTORY'),
+        e('div',{className:'sec-label'},'📊 MVP 누적 트래커'),
+        e('div',{style:{fontSize:11,color:C.text3,marginBottom:10,paddingLeft:2}},mvpHistory.length+'일 누적 · '+mvpHistory[mvpHistory.length-1]?.date+' 최신'),
+        mvpHistory.length>0&&(()=>{
+          const stats=calcMvpStats(mvpHistory);
+          const semi=['반도체장비','반도체소재','반도체소켓','반도체패키징'];
+          const [showAll,setShowAll]=React.useState(false);
+          const [semiOnly,setSemiOnly]=React.useState(false);
+          const filtered=stats.filter(s=>!semiOnly||semi.includes(s.sector));
+          const display=showAll?filtered:filtered.slice(0,10);
+          return e('div',null,
+            e('div',{style:{display:'flex',gap:6,marginBottom:10}},
+              e('div',{onClick:()=>setSemiOnly(false),style:{padding:'5px 10px',borderRadius:8,fontSize:11,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(semiOnly?C.border:C.cyan),background:semiOnly?'transparent':C.cyan+'18',color:semiOnly?C.text3:C.cyan}},'전체'),
+              e('div',{onClick:()=>setSemiOnly(true),style:{padding:'5px 10px',borderRadius:8,fontSize:11,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(semiOnly?C.blue:C.border),background:semiOnly?C.blue+'18':'transparent',color:semiOnly?C.blue:C.text3}},'⚙️ 반도체만')
+            ),
+            e('div',{style:{display:'flex',flexDirection:'column',gap:5}},
+              display.map((s,i)=>{
+                const prev=s.rankHistory.length>1?s.rankHistory[s.rankHistory.length-2].rank:null;
+                const trend=prev===null?'→':s.latestRank<prev?'↑':s.latestRank>prev?'↓':'→';
+                const trendColor=trend==='↑'?C.green:trend==='↓'?C.red:C.text3;
+                return e('div',{key:s.name,style:{display:'flex',alignItems:'center',gap:8,padding:'8px 10px',borderRadius:10,background:C.bg2,border:'1px solid '+(semi.includes(s.sector)?C.blue+'30':C.border)}},
+                  e('div',{style:{fontSize:11,fontWeight:700,color:C.text3,width:16,textAlign:'center'}},i+1),
+                  e('div',{style:{flex:1}},
+                    e('div',{style:{display:'flex',alignItems:'center',gap:6}},
+                      e('span',{style:{fontSize:12,fontWeight:700,color:C.text}},s.name),
+                      semi.includes(s.sector)&&e('span',{style:{fontSize:9,padding:'1px 5px',borderRadius:4,background:C.blue+'20',color:C.blue,fontWeight:700}},'반도체')
+                    ),
+                    e('div',{style:{fontSize:10,color:C.text3,marginTop:1}},s.ticker+' · '+s.sector)
+                  ),
+                  e('div',{style:{textAlign:'right'}},
+                    e('div',{style:{display:'flex',alignItems:'center',gap:4,justifyContent:'flex-end'}},
+                      e('span',{style:{fontSize:11,fontWeight:700,color:trendColor}},trend),
+                      e('span',{style:{fontSize:12,fontWeight:700,color:C.cyan}},'최고 '+s.bestRank+'위')
+                    ),
+                    e('div',{style:{fontSize:10,color:C.text3}},s.count+'일 · '+s.streak+'일 연속')
+                  )
+                );
+              })
+            ),
+            filtered.length>10&&e('div',{onClick:()=>setShowAll(!showAll),style:{textAlign:'center',padding:'8px',fontSize:11,color:C.cyan,cursor:'pointer',marginTop:4}},
+              showAll?'▲ 접기':'▼ 전체보기 ('+filtered.length+'개)')
+          );
+        })(),
+
+        e('div',{className:'sec-label',style:{marginTop:16}},'CYCLE HISTORY'),
         e('div',{className:'card',style:{padding:'10px 14px',marginBottom:14}},
           HISTORY.map((h,i)=>e('div',{key:i,className:'history-row'},
             e('div',{className:'history-year'},
@@ -1267,75 +1343,60 @@ function App(){
       ),
 
       // ── 뉴스 ──
-      tab==='news'&&(()=>{
-        const[newsTag,setNewsTag]=useState('전체');
-        const[openNews,setOpenNews]=useState(null);
-        const tags=['전체',...[...new Set(newsData.map(n=>n.tag))]];
-        const filtered=newsData.slice().reverse().filter(n=>newsTag==='전체'||n.tag===newsTag);
-        return e('div',{className:'section active'},
-          e('div',{className:'sec-label'},'📰 반도체 뉴스 아카이브'),
-          e('div',{style:{fontSize:11,color:C.text3,marginBottom:10,paddingLeft:2}},'우노가 직접 선별한 반도체 주요 뉴스 · 누적 기록'),
-          newsData.length===0
-            ?e('div',{style:{textAlign:'center',padding:'40px 20px',color:C.text3}},
-                e('div',{style:{fontSize:32,marginBottom:12}},'📭'),
-                e('div',{style:{fontSize:14,fontWeight:700,marginBottom:6,color:C.text2}},'아직 뉴스가 없어요'),
-                e('div',{style:{fontSize:11,lineHeight:1.7}},'매일 반도체 뉴스를 클로드에게 전달하면\nNEWS_DATA 배열에 누적 저장됩니다.')
-              )
-            :e('div',null,
-              // 태그 필터
+      tab==='news'&&e('div',{className:'section active'},
+        e('div',{className:'sec-label'},'📰 반도체 뉴스 아카이브'),
+        e('div',{style:{fontSize:11,color:C.text3,marginBottom:10,paddingLeft:2}},'우노가 직접 선별한 반도체 주요 뉴스 · 누적 기록'),
+        newsData.length===0
+          ?e('div',{style:{textAlign:'center',padding:'40px 20px',color:C.text3}},
+              e('div',{style:{fontSize:32,marginBottom:12}},'📭'),
+              e('div',{style:{fontSize:14,fontWeight:700,marginBottom:6,color:C.text2}},'뉴스 로딩 중...'),
+              e('div',{style:{fontSize:11,lineHeight:1.7,color:C.text3}},'news.json을 GitHub에 업로드하면 자동으로 불러와요')
+            )
+          :e('div',null,
               e('div',{style:{display:'flex',flexWrap:'wrap',gap:4,marginBottom:12}},
-                tags.map(tag=>e('div',{key:tag,onClick:()=>setNewsTag(tag),style:{padding:'4px 10px',borderRadius:7,fontSize:11,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(newsTag===tag?C.cyan:C.border),background:newsTag===tag?C.cyan+'18':'transparent',color:newsTag===tag?C.cyan:C.text3}},tag))
+                ['전체',...[...new Set(newsData.map(n=>n.tag))]].map(tag=>
+                  e('div',{key:tag,onClick:()=>setNewsTag(tag),style:{padding:'4px 10px',borderRadius:7,fontSize:11,fontWeight:700,cursor:'pointer',border:'1.5px solid '+(newsTag===tag?C.cyan:C.border),background:newsTag===tag?C.cyan+'18':'transparent',color:newsTag===tag?C.cyan:C.text3}},tag)
+                )
               ),
-              filtered.map((n,i)=>e('div',{key:i,style:{marginBottom:10,borderRadius:12,border:'1px solid '+(n.impact==='긍정'?C.green+'30':n.impact==='부정'?C.red+'30':C.border),background:C.bg2,overflow:'hidden'}},
-                // 헤더
-                e('div',{style:{padding:'8px 12px',borderBottom:'1px solid '+C.border,display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'},onClick:()=>setOpenNews(openNews===i?null:i)},
-                  e('div',{style:{display:'flex',gap:6,alignItems:'center'}},
-                    e('span',{style:{fontSize:9,padding:'2px 7px',borderRadius:5,fontWeight:700,
-                      background:n.impact==='긍정'?C.green+'20':n.impact==='부정'?C.red+'20':'rgba(255,255,255,.08)',
-                      color:n.impact==='긍정'?C.green:n.impact==='부정'?C.red:C.text3
-                    }},n.impact==='긍정'?'📈 긍정':n.impact==='부정'?'📉 부정':'➡️ 중립'),
-                    e('span',{style:{fontSize:9,padding:'2px 7px',borderRadius:5,background:C.cyan+'18',color:C.cyan,fontWeight:700}},n.tag),
-                    e('span',{style:{fontSize:10,color:C.text3}},n.date)
+              newsData.slice().reverse().filter(n=>newsTag==='전체'||n.tag===newsTag).map((n,i)=>
+                e('div',{key:i,style:{marginBottom:10,borderRadius:12,border:'1px solid '+(n.impact==='긍정'?C.green+'30':n.impact==='부정'?C.red+'30':C.border),background:C.bg2,overflow:'hidden'}},
+                  e('div',{style:{padding:'8px 12px',borderBottom:'1px solid '+C.border,display:'flex',justifyContent:'space-between',alignItems:'center',cursor:'pointer'},onClick:()=>setOpenNews(openNews===i?null:i)},
+                    e('div',{style:{display:'flex',gap:6,alignItems:'center'}},
+                      e('span',{style:{fontSize:9,padding:'2px 7px',borderRadius:5,fontWeight:700,background:n.impact==='긍정'?C.green+'20':n.impact==='부정'?C.red+'20':'rgba(255,255,255,.08)',color:n.impact==='긍정'?C.green:n.impact==='부정'?C.red:C.text3}},n.impact==='긍정'?'📈 긍정':n.impact==='부정'?'📉 부정':'➡️ 중립'),
+                      e('span',{style:{fontSize:9,padding:'2px 7px',borderRadius:5,background:C.cyan+'18',color:C.cyan,fontWeight:700}},n.tag),
+                      e('span',{style:{fontSize:10,color:C.text3}},n.date)
+                    ),
+                    e('span',{style:{fontSize:11,color:C.text3}},openNews===i?'▲':'▼')
                   ),
-                  e('span',{style:{fontSize:11,color:C.text3}},openNews===i?'▲':'▼')
-                ),
-                // 제목 + 한줄요약
-                e('div',{style:{padding:'10px 12px 8px',cursor:'pointer'},onClick:()=>setOpenNews(openNews===i?null:i)},
-                  e('div',{style:{fontSize:13,fontWeight:700,color:C.text,marginBottom:6,lineHeight:1.4}},n.title),
-                  e('div',{style:{fontSize:11,color:n.impact==='긍정'?C.green:n.impact==='부정'?C.red:C.text2,fontWeight:600,lineHeight:1.5,padding:'5px 8px',borderRadius:7,background:n.impact==='긍정'?C.green+'0d':n.impact==='부정'?C.red+'0d':'rgba(255,255,255,.04)'}},
-                    '💬 '+n.oneline)
-                ),
-                // 펼치면 상세 내용
-                openNews===i&&e('div',{style:{padding:'0 12px 12px'}},
-                  // 요약
-                  e('div',{style:{fontSize:11,color:C.text2,lineHeight:1.7,marginBottom:10}},n.summary),
-                  // 핵심 정리
-                  e('div',{style:{background:C.bg3,borderRadius:9,padding:'9px 11px',marginBottom:10,border:'1px solid '+C.border}},
-                    e('div',{style:{fontSize:10,fontWeight:700,color:C.amber,marginBottom:6}},'🔑 핵심 정리'),
-                    n.keypoints.map((kp,ki)=>e('div',{key:ki,style:{display:'flex',gap:6,fontSize:11,color:C.text2,lineHeight:1.6,marginBottom:ki<n.keypoints.length-1?4:0}},
-                      e('span',{style:{color:C.amber,flexShrink:0}},ki===0?'①':ki===1?'②':'③'),
-                      kp
-                    ))
+                  e('div',{style:{padding:'10px 12px 8px',cursor:'pointer'},onClick:()=>setOpenNews(openNews===i?null:i)},
+                    e('div',{style:{fontSize:13,fontWeight:700,color:C.text,marginBottom:6,lineHeight:1.4}},n.title),
+                    e('div',{style:{fontSize:11,color:n.impact==='긍정'?C.green:n.impact==='부정'?C.red:C.text2,fontWeight:600,lineHeight:1.5,padding:'5px 8px',borderRadius:7,background:n.impact==='긍정'?C.green+'0d':n.impact==='부정'?C.red+'0d':'rgba(255,255,255,.04)'}},'💬 '+n.oneline)
                   ),
-                  // 관심 종목
-                  n.stocks&&n.stocks.length>0&&e('div',{style:{background:'rgba(79,142,247,.06)',borderRadius:9,padding:'9px 11px',border:'1px solid rgba(79,142,247,.2)'}},
-                    e('div',{style:{fontSize:10,fontWeight:700,color:C.blue,marginBottom:7}},'👀 관심 종목 (투자 참고용)'),
-                    e('div',{style:{display:'flex',flexDirection:'column',gap:5}},
-                      n.stocks.map((s,si)=>e('div',{key:si,style:{display:'flex',alignItems:'center',gap:8,padding:'5px 7px',borderRadius:7,background:C.bg2,border:'1px solid '+C.border}},
-                        e('span',{style:{fontSize:9,fontFamily:'monospace',color:C.blue,fontWeight:700,width:50}},s.t),
-                        e('span',{style:{fontSize:12,fontWeight:700,color:C.text,flex:1}},s.n),
-                        e('span',{style:{fontSize:10,color:C.text3}},s.reason)
+                  openNews===i&&e('div',{style:{padding:'0 12px 12px'}},
+                    e('div',{style:{fontSize:11,color:C.text2,lineHeight:1.7,marginBottom:10}},n.summary),
+                    e('div',{style:{background:C.bg3,borderRadius:9,padding:'9px 11px',marginBottom:10,border:'1px solid '+C.border}},
+                      e('div',{style:{fontSize:10,fontWeight:700,color:C.amber,marginBottom:6}},'🔑 핵심 정리'),
+                      (n.keypoints||[]).map((kp,ki)=>e('div',{key:ki,style:{display:'flex',gap:6,fontSize:11,color:C.text2,lineHeight:1.6,marginBottom:ki<n.keypoints.length-1?4:0}},
+                        e('span',{style:{color:C.amber,flexShrink:0}},ki===0?'①':ki===1?'②':'③'),kp
                       ))
                     ),
-                    e('div',{style:{fontSize:9,color:C.text3,marginTop:6}},'⚠️ 투자 판단은 본인이 하세요. 참고 목적입니다.')
-                  ),
-                  n.source&&e('div',{style:{fontSize:10,color:C.text3,marginTop:8}},'출처: '+n.source)
+                    n.stocks&&n.stocks.length>0&&e('div',{style:{background:'rgba(79,142,247,.06)',borderRadius:9,padding:'9px 11px',border:'1px solid rgba(79,142,247,.2)'}},
+                      e('div',{style:{fontSize:10,fontWeight:700,color:C.blue,marginBottom:7}},'👀 관심 종목 (투자 참고용)'),
+                      e('div',{style:{display:'flex',flexDirection:'column',gap:5}},
+                        n.stocks.map((s,si)=>e('div',{key:si,style:{display:'flex',alignItems:'center',gap:8,padding:'5px 7px',borderRadius:7,background:C.bg2,border:'1px solid '+C.border}},
+                          e('span',{style:{fontSize:9,fontFamily:'monospace',color:C.blue,fontWeight:700,width:50}},s.t),
+                          e('span',{style:{fontSize:12,fontWeight:700,color:C.text,flex:1}},s.n),
+                          e('span',{style:{fontSize:10,color:C.text3}},s.reason)
+                        ))
+                      ),
+                      e('div',{style:{fontSize:9,color:C.text3,marginTop:6}},'⚠️ 투자 판단은 본인이 하세요. 참고 목적입니다.')
+                    ),
+                    n.source&&e('div',{style:{fontSize:10,color:C.text3,marginTop:8}},'출처: '+n.source)
+                  )
                 )
-              ))
+              )
             )
-        );
-      })(),
-    ),
+      ),
 
     // ── BOTTOM NAV ──
     e('div',{className:'bottom-nav'},
