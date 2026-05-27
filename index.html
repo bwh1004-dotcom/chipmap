@@ -514,102 +514,64 @@ const CHECK_ITEMS=[
   {normal:'경쟁사 대비 ASP 방어 능력과 수율 개선 추이',pureun:'🌱 가격을 잘 지키고 있는지, 칩을 잘 만들고 있는지 확인해봐!'},
 ];
 
-// ═══════════════ 분기 트래커 ═══════════════
-const QUARTERLY_TRACKER=[
-  {
-    quarter:'2026 1Q',
-    date:'2026.05.15',
-    color:C.cyan,
-    surprise:[
-      {n:'하나마이크론',t:'067310',cat:'패키징',op:'720억',beat:'+28.2%',note:'최근 5개분기 최대 영업익',star:true},
-      {n:'이오테크닉스',t:'039030',cat:'장비',op:'298억',beat:'+18.2%',note:'최근 5개분기 최대 영업익',star:true},
-      {n:'피에스케이',t:'319660',cat:'장비',op:'472억',beat:'+46.5%',note:'최근 5개분기 최대 영업익',star:true},
-      {n:'유진테크',t:'084370',cat:'장비',op:'188억',beat:'+20.7%',note:'실적 안정적 성장',star:false},
-      {n:'하나머티리얼즈',t:'166090',cat:'소재',op:'213억',beat:'+8.1%',note:'최근 5개분기 최대 영업익',star:false},
-      {n:'이엔에프테크',t:'102710',cat:'소재',op:'249억',beat:'+14.8%',note:'최근 5개분기 최대 영업익',star:false},
-      {n:'에프에스티',t:'036810',cat:'장비(EUV펠리클)',op:'14억',beat:'흑자전환',note:'2개 분기만에 흑자전환',star:false},
-      {n:'와이씨',t:'232140',cat:'장비(번인테스터)',op:'40억',beat:'+2097%',note:'대규모 서프라이즈',star:false},
-      {n:'티에스이',t:'095610',cat:'테스트·소켓',op:'420억',beat:'+84.2%',note:'최근 5개분기 최대 영업익',star:false},
-      {n:'프로텍',t:'053610',cat:'장비(본더)',op:'154억',beat:'+60.6%',note:'성장세 지속',star:false},
-      {n:'서울반도체',t:'046890',cat:'LED반도체',op:'18억',beat:'+278%',note:'흑자전환',star:false},
-      {n:'사피엔반도체',t:'440110',cat:'팹리스',op:'1억',beat:'흑자전환',note:'최근 5개분기 최대 영업익',star:false},
-    ],
-    mvp20:[
-      {rank:1,n:'HPSP',t:'403870',cat:'장비',mvp:96,note:'고압수소어닐링 독점'},
-      {rank:2,n:'유진테크',t:'084370',cat:'장비',mvp:92,note:'MVP+서프라이즈 동시'},
-      {rank:3,n:'이오테크닉스',t:'039030',cat:'장비',mvp:89,note:'MVP+서프라이즈 동시'},
-      {rank:6,n:'ISC',t:'095340',cat:'소켓·테스트',mvp:88,note:'테스트 소켓'},
-      {rank:8,n:'피에스케이홀딩스',t:'031980',cat:'장비',mvp:88,note:'피에스케이 서프라이즈 연계'},
-      {rank:12,n:'하나머티리얼즈',t:'166090',cat:'소재',mvp:85,note:'MVP+서프라이즈 동시'},
-    ],
-    insight:'장비·소재 섹터 동시 서프라이즈 → 전공정 발주 본격화 신호. 유진테크·이오테크닉스는 MVP+서프라이즈 이중 확인.',
-  },
-];
+// ═══════════════ 외부 JSON 데이터 (fetch) ═══════════════
+// mvp.json / news.json 은 GitHub에 별도 파일로 관리
+let QUARTERLY_TRACKER=[];
+let NEWS_DATA=[];
 
-// MVP 최신 순위 맵 (분기 트래커에서 자동 추출)
-const NEWS_DATA=[
-  {
-    date:'2026-05-27',
-    title:'엔비디아, GPU 넘어 AI 풀스택 플랫폼으로 진화',
-    oneline:'GPU → CPU → 소프트웨어까지, NVIDIA는 이제 AI 생태계 전체를 장악 중',
-    summary:'데이터센터 매출 비중 90% 달하며, Vera CPU 신사업까지 추가. 단순 GPU 기업을 넘어 CPU·네트워크·소프트웨어를 아우르는 풀스택 AI 플랫폼 기업으로 평가 전환. AI 에이전트 시대 최대 수혜주로 부각.',
-    keypoints:['데이터센터 매출 비중 90%+ → 전통 PC·게임 GPU 의존도 탈피 완료','Vera CPU 신사업 = 인텔·AMD 영역까지 잠식 시작','AI 에이전트 확산 → NVIDIA 플랫폼 락인 효과 심화'],
-    stocks:[{n:'NVIDIA',t:'NVDA',reason:'직접 수혜·핵심 주체'},{n:'SK하이닉스',t:'000660',reason:'HBM 공급 지속 수혜'},{n:'한미반도체',t:'042700',reason:'TC본더 수요 연동'}],
-    tag:'NVIDIA',impact:'긍정',source:'반도체 AI 브리핑 2026.05.27'
-  },
-  {
-    date:'2026-05-27',
-    title:'미국 CHIPS법, 양자컴퓨팅에 20억 달러 투입',
-    oneline:'미국이 양자컴퓨팅을 차세대 반도체 패권의 핵심으로 규정하고 대규모 투자 시작',
-    summary:'IBM·GlobalFoundries 등 9개 기업에 총 20억 1,300만 달러 지원 공식 발표. 발표 직후 D-Wave +33%, Rigetti +30%, IonQ +12% 급등. 미국 양자 반도체 패권 강화 목적.',
-    keypoints:['CHIPS법 자금이 전통 반도체를 넘어 양자컴퓨팅까지 확장','D-Wave·Rigetti·IonQ 주가 당일 30%↑ 급등 반응','국내 직접 수혜는 제한적 — 간접 소재·장비 관심 필요'],
-    stocks:[{n:'NVIDIA',t:'NVDA',reason:'양자+AI 수혜 교집합'},{n:'삼성전자',t:'005930',reason:'양자소자 연구 진행 중'}],
-    tag:'CHIPS법',impact:'긍정',source:'반도체 AI 브리핑 2026.05.27'
-  },
-  {
-    date:'2026-05-27',
-    title:'애플·인텔 파운드리 협력 시 ASML 최대 7조 원 장비 수혜 전망',
-    oneline:'애플이 인텔 파운드리를 선택하면 ASML EUV 추가 발주 → 국내 장비·소재까지 연쇄 수혜',
-    summary:'애플이 자체 칩 일부를 인텔 파운드리에 위탁하는 방안 추진 중. 실현 시 인텔이 ASML EUV 장비 최대 7조 원 규모 추가 확보 가능성. 국내 수혜 기대주: 한미반도체·원익IPS·주성엔지니어링.',
-    keypoints:['애플 → 인텔 위탁 확정 시 EUV 장비 발주 7조 원 유발','ASML 수주 → 국내 전공정 장비·소재 동반 발주 가능성','아직 확정 아님 — 추진 중 단계, 과도한 선반영 주의'],
-    stocks:[{n:'ASML',t:'ASML',reason:'EUV 장비 직접 수혜'},{n:'한미반도체',t:'042700',reason:'국내 수혜 1순위'},{n:'원익IPS',t:'240810',reason:'전공정 장비 연동'},{n:'에프에스티',t:'036810',reason:'EUV 펠리클 독점'}],
-    tag:'ASML',impact:'긍정',source:'반도체 AI 브리핑 2026.05.27'
-  },
-  {
-    date:'2026-05-27',
-    title:'AI·EDA·반도체 스타트업 80개사 84억 달러 조달',
-    oneline:'AI 반도체 설계 생태계에 자금이 대규모 유입 — 팹리스 산업 급성장 신호',
-    summary:'AI·EDA·반도체 제조 분야 스타트업 80개사가 총 84억 달러 투자 유치. 새로운 역량 추가 속도가 이전 기술 세대 대비 훨씬 빠른 것으로 평가.',
-    keypoints:['EDA 스타트업 급성장 → Synopsys·Cadence 독점 균열 가능성','AI 칩 설계 스타트업 투자 = 미래 파운드리 고객 증가','국내 팹리스 생태계 육성 필요성 재확인'],
-    stocks:[{n:'Synopsys',t:'SNPS',reason:'EDA 기존 강자 방어력'},{n:'가온칩스',t:'399720',reason:'국내 AI칩 설계 선도'}],
-    tag:'AI인프라',impact:'긍정',source:'반도체 AI 브리핑 2026.05.27'
-  },
-  {
-    date:'2026-05-27',
-    title:'3월 글로벌 반도체 매출 전년비 +79.2% 급성장',
-    oneline:'전년比 +79% — 숫자로 확인된 AI 슈퍼사이클, 메모리·비메모리 모두 동반 성장',
-    summary:'SIA 발표 기준 2026년 3월 글로벌 반도체 매출 995억 달러 (전년比 +79.2%, 전월比 +11.5%). 2026년 1분기 전체 2,985억 달러로 전 분기 대비 25% 성장.',
-    keypoints:['월 매출 1,000억 달러 돌파 임박 — 사상 최초 예상','전월比 +11.5%로 가속도 붙는 구간 진입','메모리·비메모리 동반 성장 = 진짜 슈퍼사이클 패턴'],
-    stocks:[{n:'삼성전자',t:'005930',reason:'메모리 직접 수혜'},{n:'SK하이닉스',t:'000660',reason:'HBM·DRAM 동반 성장'},{n:'이오테크닉스',t:'039030',reason:'장비 발주 연동'}],
-    tag:'시장동향',impact:'긍정',source:'SIA·반도체 AI 브리핑 2026.05.27'
-  },
-  {
-    date:'2026-05-27',
-    title:'SOX 지수 연초比 +65%, 닷컴버블 유사 과열 경고',
-    oneline:'65% 급등한 반도체 지수 — 실적이 뒷받침하지만 속도 과열 우려도 공존',
-    summary:'반도체 지수(SOX) 2026년 연초 대비 65% 이상 급등. 일부 시장 베테랑들이 1999~2000년 닷컴 버블과 유사하다며 25~30% 조정 가능성 경고. ASML은 칩 설계사 대비 방어적 특성으로 주목.',
-    keypoints:['6개월 +65% = 속도 과열, 실적 대비 밸류에이션 점검 필요','25~30% 조정 가능성 경고 — 분할 매수·리스크 관리 권장','ASML은 장비주 특성상 칩 설계사보다 방어적 — 조정 시 주목'],
-    stocks:[{n:'ASML',t:'ASML',reason:'조정 시 방어적 특성'},{n:'솔브레인',t:'357780',reason:'소재주 상대적 안정성'}],
-    tag:'리스크',impact:'부정',source:'반도체 AI 브리핑 2026.05.27'
-  },
-];
-const MVP_MAP=(()=>{
+async function loadExternalData(){
+  try{
+    const [mvpRes, newsRes] = await Promise.all([
+      fetch('./mvp.json?v='+Date.now()),
+      fetch('./news.json?v='+Date.now())
+    ]);
+    if(mvpRes.ok){
+      const mvp=await mvpRes.json();
+      // mvp.json → QUARTERLY_TRACKER 형식으로 변환
+      const semi=['반도체장비','반도체소재','반도체소켓','반도체패키징'];
+      const semiList=mvp.list.filter(m=>semi.includes(m.sector));
+      QUARTERLY_TRACKER=[{
+        quarter:'2026 1Q',
+        date:mvp.date,
+        color:'#26c9e8',
+        surprise:[
+          {n:'하나마이크론',t:'067310',cat:'패키징',op:'720억',beat:'+28.2%',note:'최근 5개분기 최대 영업익',star:true},
+          {n:'이오테크닉스',t:'039030',cat:'장비',op:'298억',beat:'+18.2%',note:'최근 5개분기 최대 영업익',star:true},
+          {n:'피에스케이',t:'319660',cat:'장비',op:'472억',beat:'+46.5%',note:'최근 5개분기 최대 영업익',star:true},
+          {n:'유진테크',t:'084370',cat:'장비',op:'188억',beat:'+20.7%',note:'실적 안정적 성장',star:false},
+          {n:'하나머티리얼즈',t:'166090',cat:'소재',op:'213억',beat:'+8.1%',note:'최근 5개분기 최대 영업익',star:false},
+          {n:'이엔에프테크',t:'102710',cat:'소재',op:'249억',beat:'+14.8%',note:'최근 5개분기 최대 영업익',star:false},
+          {n:'에프에스티',t:'036810',cat:'장비(EUV펠리클)',op:'14억',beat:'흑자전환',note:'2개 분기만에 흑자전환',star:false},
+          {n:'와이씨',t:'232140',cat:'장비(번인테스터)',op:'40억',beat:'+2097%',note:'대규모 서프라이즈',star:false},
+          {n:'티에스이',t:'095610',cat:'테스트·소켓',op:'420억',beat:'+84.2%',note:'최근 5개분기 최대 영업익',star:false},
+          {n:'프로텍',t:'053610',cat:'장비(본더)',op:'154억',beat:'+60.6%',note:'성장세 지속',star:false},
+          {n:'서울반도체',t:'046890',cat:'LED반도체',op:'18억',beat:'+278%',note:'흑자전환',star:false},
+          {n:'사피엔반도체',t:'440110',cat:'팹리스',op:'1억',beat:'흑자전환',note:'최근 5개분기 최대 영업익',star:false},
+        ],
+        mvp20:mvp.list.map(m=>({rank:m.rank,n:m.name,t:m.ticker,cat:m.sector,mvp:m.mvp,note:''})),
+        insight:'장비·소재 섹터 동시 서프라이즈 → 전공정 발주 본격화 신호. 유진테크·이오테크닉스는 MVP+서프라이즈 이중 확인.',
+      }];
+    }
+    if(newsRes.ok){
+      const raw=await newsRes.json();
+      NEWS_DATA=raw.map(n=>({
+        date:n.date, title:n.title, oneline:n.oneline,
+        summary:n.summary, keypoints:n.keypoints,
+        stocks:(n.stocks||[]).map(s=>({n:s.name,t:s.ticker,reason:s.reason})),
+        tag:n.tag, impact:n.impact, source:n.source
+      }));
+    }
+  }catch(e){console.warn('JSON 로드 실패(로컬 실행 시 정상):',e.message);}
+}
+
+function buildMvpMap(tracker){
   const map={};
-  QUARTERLY_TRACKER.forEach(q=>q.mvp20.forEach(m=>{
+  (tracker||[]).forEach(q=>(q.mvp20||[]).forEach(m=>{
     if(!map[m.n]||map[m.n].rank>m.rank) map[m.n]={rank:m.rank,quarter:q.quarter};
   }));
   return map;
-})();
+}
+const MVP_MAP=buildMvpMap(QUARTERLY_TRACKER);
 
 // ═══════════════ LEARN STEPS ═══════════════
 const LEARN_STEPS=[
@@ -678,6 +640,17 @@ const tag=(color,text)=>e('span',{style:{fontSize:9,padding:'1px 6px',borderRadi
 // ═══════════════ APP ═══════════════
 function App(){
   const[tab,setTab]=useState('basics');
+  const[mvpData,setMvpData]=useState(null);
+  const[newsData,setNewsData]=useState([]);
+  const[dataLoaded,setDataLoaded]=useState(false);
+
+  React.useEffect(()=>{
+    loadExternalData().then(()=>{
+      setMvpData([...QUARTERLY_TRACKER]);
+      setNewsData([...NEWS_DATA]);
+      setDataLoaded(true);
+    });
+  },[]);
   const[pureun,setPureun]=useState(false);
   const[openBasic,setOpenBasic]=useState('what');
   const[selChain,setSelChain]=useState(null);
@@ -1098,7 +1071,7 @@ function App(){
                     e('div',{style:{display:'flex',gap:4,flexWrap:'wrap',marginBottom:2}},
                       e('div',{className:'mkt-badge',style:{background:c.kr?'rgba(38,201,232,.12)':'rgba(129,140,248,.12)',color:c.kr?C.cyan:C.purple}},c.kr?'🇰🇷 국내':'🌏 해외'),
                       c.monopoly&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,200,0,.15)',color:'#f5c842',fontWeight:700,border:'1px solid rgba(245,200,66,.3)'}},'🔒 독점'),
-                      MVP_MAP[c.n]&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,100,100,.15)',color:'#ff6b6b',fontWeight:700,border:'1px solid rgba(255,100,100,.3)'}},'⭐MVP '+MVP_MAP[c.n].rank+'위')
+                      buildMvpMap(mvpData)[c.n]&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,100,100,.15)',color:'#ff6b6b',fontWeight:700,border:'1px solid rgba(255,100,100,.3)'}},'⭐MVP '+buildMvpMap(mvpData)[c.n].rank+'위')
                     ),
                     PROC_MAP[c.n]&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:PROC_INFO[PROC_MAP[c.n]].color+'25',color:PROC_INFO[PROC_MAP[c.n]].color,fontWeight:700,marginBottom:3,display:'inline-block'}},PROC_INFO[PROC_MAP[c.n]].icon+' '+PROC_INFO[PROC_MAP[c.n]].label),
                     e('div',{className:'co-name'},c.n),
@@ -1134,7 +1107,7 @@ function App(){
                     e('div',{style:{display:'flex',gap:4,flexWrap:'wrap',marginBottom:2}},
                       e('div',{className:'mkt-badge',style:{background:c.kr?'rgba(38,201,232,.12)':'rgba(129,140,248,.12)',color:c.kr?C.cyan:C.purple}},c.kr?'🇰🇷 국내':'🌏 해외'),
                       c.monopoly&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,200,0,.15)',color:'#f5c842',fontWeight:700,border:'1px solid rgba(245,200,66,.3)'}},'🔒 독점'),
-                      MVP_MAP[c.n]&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,100,100,.15)',color:'#ff6b6b',fontWeight:700,border:'1px solid rgba(255,100,100,.3)'}},'⭐MVP '+MVP_MAP[c.n].rank+'위')
+                      buildMvpMap(mvpData)[c.n]&&e('div',{style:{fontSize:9,padding:'1px 5px',borderRadius:5,background:'rgba(255,100,100,.15)',color:'#ff6b6b',fontWeight:700,border:'1px solid rgba(255,100,100,.3)'}},'⭐MVP '+buildMvpMap(mvpData)[c.n].rank+'위')
                     ),
                     e('div',{className:'co-name'},c.n),
                     e('div',{className:'co-role'},c.monopoly?e('span',{style:{color:'#f5c842'}},c.monopoly):c.r),
@@ -1205,7 +1178,7 @@ function App(){
         // ── 분기 트래커 ──
         e('div',{className:'sec-label'},'📊 분기 트래커'),
         e('div',{style:{fontSize:11,color:C.text3,marginBottom:10,paddingLeft:2}},'어닝서프라이즈 × MVP20 반도체 교집합 누적 기록'),
-        QUARTERLY_TRACKER.map(q=>e('div',{key:q.quarter,style:{marginBottom:16,borderRadius:12,border:'1px solid '+q.color+'40',background:q.color+'08',overflow:'hidden'}},
+        mvpData.map(q=>e('div',{key:q.quarter,style:{marginBottom:16,borderRadius:12,border:'1px solid '+q.color+'40',background:q.color+'08',overflow:'hidden'}},
           // 헤더
           e('div',{style:{background:q.color+'18',padding:'10px 14px',borderBottom:'1px solid '+q.color+'30',display:'flex',justifyContent:'space-between',alignItems:'center'}},
             e('div',null,
@@ -1297,12 +1270,12 @@ function App(){
       tab==='news'&&(()=>{
         const[newsTag,setNewsTag]=useState('전체');
         const[openNews,setOpenNews]=useState(null);
-        const tags=['전체',...[...new Set(NEWS_DATA.map(n=>n.tag))]];
-        const filtered=NEWS_DATA.slice().reverse().filter(n=>newsTag==='전체'||n.tag===newsTag);
+        const tags=['전체',...[...new Set(newsData.map(n=>n.tag))]];
+        const filtered=newsData.slice().reverse().filter(n=>newsTag==='전체'||n.tag===newsTag);
         return e('div',{className:'section active'},
           e('div',{className:'sec-label'},'📰 반도체 뉴스 아카이브'),
           e('div',{style:{fontSize:11,color:C.text3,marginBottom:10,paddingLeft:2}},'우노가 직접 선별한 반도체 주요 뉴스 · 누적 기록'),
-          NEWS_DATA.length===0
+          newsData.length===0
             ?e('div',{style:{textAlign:'center',padding:'40px 20px',color:C.text3}},
                 e('div',{style:{fontSize:32,marginBottom:12}},'📭'),
                 e('div',{style:{fontSize:14,fontWeight:700,marginBottom:6,color:C.text2}},'아직 뉴스가 없어요'),
