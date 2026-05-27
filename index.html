@@ -19,9 +19,9 @@
   --green:#2dd98a;--amber:#f5a623;--red:#f46b6b;--pink:#e86fa8;
 }
 #binary-rain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:.18;pointer-events:none}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden;max-width:540px;margin:0 auto;position:relative}
-#root{position:relative;z-index:1;display:flex;flex-direction:column;height:100dvh}
-.header{padding:13px 16px 11px;padding-top:calc(13px + env(safe-area-inset-top));border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:linear-gradient(135deg,#0d1628 0%,#101e38 100%)}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;height:100dvh;display:flex;flex-direction:column;overflow:hidden;max-width:540px;margin:0 auto;padding-top:env(safe-area-inset-top)}
+#root{position:relative;z-index:1;display:flex;flex-direction:column;height:calc(100dvh - env(safe-area-inset-top))}
+.header{padding:13px 16px 11px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:linear-gradient(135deg,#0d1628 0%,#101e38 100%)}
 .logo{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;background:linear-gradient(135deg,#4f8ef7,#9b6ef7)}
 .logo-text{font-size:16px;font-weight:800;letter-spacing:-.3px}
 .logo-sub{font-size:10px;color:var(--text3);letter-spacing:.2px;margin-top:1px}
