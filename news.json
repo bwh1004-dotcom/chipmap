@@ -4,98 +4,465 @@
     "title": "엔비디아, GPU 넘어 AI 풀스택 플랫폼으로 진화",
     "oneline": "GPU → CPU → 소프트웨어까지, NVIDIA는 이제 AI 생태계 전체를 장악 중",
     "summary": "데이터센터 매출 비중 90% 달하며, Vera CPU 신사업까지 추가. 단순 GPU 기업을 넘어 CPU·네트워크·소프트웨어를 아우르는 풀스택 AI 플랫폼 기업으로 평가 전환. AI 에이전트 시대 최대 수혜주로 부각.",
-    "keypoints": ["데이터센터 매출 비중 90%+ → 전통 PC·게임 GPU 의존도 탈피 완료", "Vera CPU 신사업 = 인텔·AMD 영역까지 잠식 시작", "AI 에이전트 확산 → NVIDIA 플랫폼 락인 효과 심화"],
-    "stocks": [{"name":"NVIDIA","ticker":"NVDA","reason":"직접 수혜·핵심 주체"},{"name":"SK하이닉스","ticker":"000660","reason":"HBM 공급 지속 수혜"},{"name":"한미반도체","ticker":"042700","reason":"TC본더 수요 연동"}],
-    "tag": "NVIDIA", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "데이터센터 매출 비중 90%+ → 전통 PC·게임 GPU 의존도 탈피 완료",
+      "Vera CPU 신사업 = 인텔·AMD 영역까지 잠식 시작",
+      "AI 에이전트 확산 → NVIDIA 플랫폼 락인 효과 심화"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "직접 수혜·핵심 주체"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM 공급 지속 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "TC본더 수요 연동"
+      }
+    ],
+    "tag": "NVIDIA",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-27",
     "title": "미국 CHIPS법, 양자컴퓨팅에 20억 달러 투입",
     "oneline": "미국이 양자컴퓨팅을 차세대 반도체 패권의 핵심으로 규정하고 대규모 투자 시작",
     "summary": "IBM·GlobalFoundries 등 9개 기업에 총 20억 1,300만 달러 지원 공식 발표. 발표 직후 D-Wave +33%, Rigetti +30%, IonQ +12% 급등.",
-    "keypoints": ["CHIPS법 자금이 전통 반도체를 넘어 양자컴퓨팅까지 확장", "D-Wave·Rigetti·IonQ 주가 당일 30%↑ 급등 반응", "국내 직접 수혜는 제한적 — 간접 소재·장비 관심 필요"],
-    "stocks": [{"name":"NVIDIA","ticker":"NVDA","reason":"양자+AI 수혜 교집합"},{"name":"삼성전자","ticker":"005930","reason":"양자소자 연구 진행 중"}],
-    "tag": "CHIPS법", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "CHIPS법 자금이 전통 반도체를 넘어 양자컴퓨팅까지 확장",
+      "D-Wave·Rigetti·IonQ 주가 당일 30%↑ 급등 반응",
+      "국내 직접 수혜는 제한적 — 간접 소재·장비 관심 필요"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "양자+AI 수혜 교집합"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "양자소자 연구 진행 중"
+      }
+    ],
+    "tag": "CHIPS법",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-27",
     "title": "애플·인텔 파운드리 협력 시 ASML 최대 7조 원 장비 수혜 전망",
     "oneline": "애플이 인텔 파운드리를 선택하면 ASML EUV 추가 발주 → 국내 장비·소재까지 연쇄 수혜",
     "summary": "애플이 자체 칩 일부를 인텔 파운드리에 위탁하는 방안 추진 중. 실현 시 인텔이 ASML EUV 장비 최대 7조 원 규모 추가 확보 가능성.",
-    "keypoints": ["애플 → 인텔 위탁 확정 시 EUV 장비 발주 7조 원 유발", "ASML 수주 → 국내 전공정 장비·소재 동반 발주 가능성", "아직 확정 아님 — 추진 중 단계, 과도한 선반영 주의"],
-    "stocks": [{"name":"ASML","ticker":"ASML","reason":"EUV 장비 직접 수혜"},{"name":"한미반도체","ticker":"042700","reason":"국내 수혜 1순위"},{"name":"에프에스티","ticker":"036810","reason":"EUV 펠리클 독점"}],
-    "tag": "ASML", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "애플 → 인텔 위탁 확정 시 EUV 장비 발주 7조 원 유발",
+      "ASML 수주 → 국내 전공정 장비·소재 동반 발주 가능성",
+      "아직 확정 아님 — 추진 중 단계, 과도한 선반영 주의"
+    ],
+    "stocks": [
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "EUV 장비 직접 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "국내 수혜 1순위"
+      },
+      {
+        "name": "에프에스티",
+        "ticker": "036810",
+        "reason": "EUV 펠리클 독점"
+      }
+    ],
+    "tag": "ASML",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-27",
     "title": "AI·EDA·반도체 스타트업 80개사 84억 달러 조달",
     "oneline": "AI 반도체 설계 생태계에 자금이 대규모 유입 — 팹리스 산업 급성장 신호",
     "summary": "AI·EDA·반도체 제조 분야 스타트업 80개사가 총 84억 달러 투자 유치. 새로운 역량 추가 속도가 이전 기술 세대 대비 훨씬 빠른 것으로 평가.",
-    "keypoints": ["EDA 스타트업 급성장 → Synopsys·Cadence 독점 균열 가능성", "AI 칩 설계 스타트업 투자 = 미래 파운드리 고객 증가", "국내 팹리스 생태계 육성 필요성 재확인"],
-    "stocks": [{"name":"Synopsys","ticker":"SNPS","reason":"EDA 기존 강자 방어력"},{"name":"가온칩스","ticker":"399720","reason":"국내 AI칩 설계 선도"}],
-    "tag": "AI인프라", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "EDA 스타트업 급성장 → Synopsys·Cadence 독점 균열 가능성",
+      "AI 칩 설계 스타트업 투자 = 미래 파운드리 고객 증가",
+      "국내 팹리스 생태계 육성 필요성 재확인"
+    ],
+    "stocks": [
+      {
+        "name": "Synopsys",
+        "ticker": "SNPS",
+        "reason": "EDA 기존 강자 방어력"
+      },
+      {
+        "name": "가온칩스",
+        "ticker": "399720",
+        "reason": "국내 AI칩 설계 선도"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-27",
     "title": "3월 글로벌 반도체 매출 전년비 +79.2% 급성장",
     "oneline": "전년比 +79% — 숫자로 확인된 AI 슈퍼사이클, 메모리·비메모리 모두 동반 성장",
     "summary": "SIA 발표 기준 2026년 3월 글로벌 반도체 매출 995억 달러 (전년比 +79.2%, 전월比 +11.5%). 2026년 1분기 전체 2,985억 달러로 전 분기 대비 25% 성장.",
-    "keypoints": ["월 매출 1,000억 달러 돌파 임박 — 사상 최초 예상", "전월比 +11.5%로 가속도 붙는 구간 진입", "메모리·비메모리 동반 성장 = 진짜 슈퍼사이클 패턴"],
-    "stocks": [{"name":"삼성전자","ticker":"005930","reason":"메모리 직접 수혜"},{"name":"SK하이닉스","ticker":"000660","reason":"HBM·DRAM 동반 성장"},{"name":"이오테크닉스","ticker":"039030","reason":"장비 발주 연동"}],
-    "tag": "시장동향", "impact": "긍정", "source": "SIA·반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "월 매출 1,000억 달러 돌파 임박 — 사상 최초 예상",
+      "전월比 +11.5%로 가속도 붙는 구간 진입",
+      "메모리·비메모리 동반 성장 = 진짜 슈퍼사이클 패턴"
+    ],
+    "stocks": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "메모리 직접 수혜"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM·DRAM 동반 성장"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "장비 발주 연동"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "SIA·반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-27",
     "title": "SOX 지수 연초比 +65%, 닷컴버블 유사 과열 경고",
     "oneline": "65% 급등한 반도체 지수 — 실적이 뒷받침하지만 속도 과열 우려도 공존",
     "summary": "반도체 지수(SOX) 2026년 연초 대비 65% 이상 급등. 일부 시장 베테랑들이 1999~2000년 닷컴 버블과 유사하다며 25~30% 조정 가능성 경고.",
-    "keypoints": ["6개월 +65% = 속도 과열, 실적 대비 밸류에이션 점검 필요", "25~30% 조정 가능성 경고 — 분할 매수·리스크 관리 권장", "ASML은 장비주 특성상 칩 설계사보다 방어적 — 조정 시 주목"],
-    "stocks": [{"name":"ASML","ticker":"ASML","reason":"조정 시 방어적 특성"},{"name":"솔브레인","ticker":"357780","reason":"소재주 상대적 안정성"}],
-    "tag": "리스크", "impact": "부정", "source": "반도체 AI 브리핑 2026.05.27"
+    "keypoints": [
+      "6개월 +65% = 속도 과열, 실적 대비 밸류에이션 점검 필요",
+      "25~30% 조정 가능성 경고 — 분할 매수·리스크 관리 권장",
+      "ASML은 장비주 특성상 칩 설계사보다 방어적 — 조정 시 주목"
+    ],
+    "stocks": [
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "조정 시 방어적 특성"
+      },
+      {
+        "name": "솔브레인",
+        "ticker": "357780",
+        "reason": "소재주 상대적 안정성"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.05.27"
   },
   {
     "date": "2026-05-28",
     "title": "Dell Q1 FY2027 실적 발표 — AI 서버 시장 최대 분수령",
     "oneline": "AI 서버 백로그 430억 달러, FY2027 AI 매출 500억 달러 목표 달성 여부 오늘 확인",
     "summary": "Dell이 오늘 장 개시 전 Q1 FY2027 실적 발표. FY2027 AI 매출 목표 500억 달러(전년比 100% 성장) 제시 상태. BofA 목표주가 280달러 상향, 최고 목표주가 300달러.",
-    "keypoints": ["AI 서버 백로그 430억 달러 → 수요 가시성 높음", "BofA 목표주가 280달러 상향 — 네오클라우드·소버린 AI 수요 강세 근거", "실적 미달 시 AI 서버주 전반 빠른 조정 위험"],
-    "stocks": [{"name":"SK하이닉스","ticker":"000660","reason":"AI 서버용 HBM 공급"},{"name":"삼성전자","ticker":"005930","reason":"서버 DRAM 수혜"},{"name":"한미반도체","ticker":"042700","reason":"AI 서버 패키징 연동"}],
-    "tag": "AI인프라", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.28"
+    "keypoints": [
+      "AI 서버 백로그 430억 달러 → 수요 가시성 높음",
+      "BofA 목표주가 280달러 상향 — 네오클라우드·소버린 AI 수요 강세 근거",
+      "실적 미달 시 AI 서버주 전반 빠른 조정 위험"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI 서버용 HBM 공급"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "서버 DRAM 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI 서버 패키징 연동"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.28"
   },
   {
     "date": "2026-05-28",
     "title": "AMD SOXX 사상 최고치 견인 +7.8%, EPYC Venice 양산 돌입",
     "oneline": "AMD 하루 +7.8% 급등 → SOXX 사상 최고치 +6.1%, AI CPU 시장 공급 본격 확대",
     "summary": "5/26 AMD +7.8%(503.89달러) 급등으로 SOXX +6.1% 사상 최고치. Lam Research +5.7%, Applied Materials +5.3% 동반 상승. EPYC Venice 볼륨 양산 공식 발표로 추가 +5% 신고가.",
-    "keypoints": ["AMD EPYC Venice 양산 = AI 인프라 CPU 공급 본격화", "SOXX 사상 최고치 — AI 반도체 업황 강세 재확인", "Lam·AMAT 동반 상승 → 전공정 장비 발주 기대감 반영"],
-    "stocks": [{"name":"AMD","ticker":"AMD","reason":"직접 주체·신고가"},{"name":"Lam Research","ticker":"LRCX","reason":"식각장비 수혜"},{"name":"Applied Mat.","ticker":"AMAT","reason":"증착장비 수혜"}],
-    "tag": "시장동향", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.28"
+    "keypoints": [
+      "AMD EPYC Venice 양산 = AI 인프라 CPU 공급 본격화",
+      "SOXX 사상 최고치 — AI 반도체 업황 강세 재확인",
+      "Lam·AMAT 동반 상승 → 전공정 장비 발주 기대감 반영"
+    ],
+    "stocks": [
+      {
+        "name": "AMD",
+        "ticker": "AMD",
+        "reason": "직접 주체·신고가"
+      },
+      {
+        "name": "Lam Research",
+        "ticker": "LRCX",
+        "reason": "식각장비 수혜"
+      },
+      {
+        "name": "Applied Mat.",
+        "ticker": "AMAT",
+        "reason": "증착장비 수혜"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.28"
   },
   {
     "date": "2026-05-28",
     "title": "Broadcom, 2027년 AI칩 매출 1,000억 달러 조준",
     "oneline": "AI ASIC 매출 YoY +106%, 구글·OpenAI·Meta 등 6개 고객사 확보 — 1,000억 달러 가시권",
     "summary": "Q1 FY2026 AI 반도체 매출 84억 달러(YoY +106%), Q2 가이던스 107억 달러. CEO Hock Tan '2027년 AI칩 매출 1,000억 달러 이상 달성 가시권' 언급. 73억 달러 AI 백로그 공개.",
-    "keypoints": ["AI ASIC YoY +106% — 커스텀 칩 시장 폭발적 성장", "구글·OpenAI·Meta·ByteDance 등 6개 주요 고객사 확보", "NVIDIA 대안 AI칩 수요 → TSMC 첨단공정 발주 연동"],
-    "stocks": [{"name":"TSMC","ticker":"TSM","reason":"Broadcom AI ASIC 위탁 생산"},{"name":"Synopsys","ticker":"SNPS","reason":"ASIC 설계 EDA 수혜"},{"name":"SK하이닉스","ticker":"000660","reason":"AI칩용 HBM 탑재"}],
-    "tag": "AI인프라", "impact": "긍정", "source": "반도체 AI 브리핑 2026.05.28"
+    "keypoints": [
+      "AI ASIC YoY +106% — 커스텀 칩 시장 폭발적 성장",
+      "구글·OpenAI·Meta·ByteDance 등 6개 주요 고객사 확보",
+      "NVIDIA 대안 AI칩 수요 → TSMC 첨단공정 발주 연동"
+    ],
+    "stocks": [
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Broadcom AI ASIC 위탁 생산"
+      },
+      {
+        "name": "Synopsys",
+        "ticker": "SNPS",
+        "reason": "ASIC 설계 EDA 수혜"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI칩용 HBM 탑재"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.28"
   },
   {
     "date": "2026-05-28",
     "title": "연준 5월 회의록 공개 — AI 섹터 금리 영향 주목",
     "oneline": "금리 경로 변화 시 AI 성장 멀티플에 직접 영향 — 오늘 회의록이 변수",
     "summary": "연방준비제도 5월 회의록 오늘 공개. 금리 시기 관련 언어 변화 시 AI 섹터 전체 성장 멀티플에 직접 영향. 반도체·AI 투자자 핵심 관전 포인트.",
-    "keypoints": ["금리 인하 신호 → AI 고PER주 멀티플 확장 기대", "매파적 언어 유지 → 단기 조정 트리거 가능", "반도체는 경기민감주 특성 — 금리 방향에 민감 반응"],
-    "stocks": [{"name":"NVIDIA","ticker":"NVDA","reason":"고PER 금리 민감"},{"name":"삼성전자","ticker":"005930","reason":"외국인 수급 금리 연동"}],
-    "tag": "매크로", "impact": "중립", "source": "반도체 AI 브리핑 2026.05.28"
+    "keypoints": [
+      "금리 인하 신호 → AI 고PER주 멀티플 확장 기대",
+      "매파적 언어 유지 → 단기 조정 트리거 가능",
+      "반도체는 경기민감주 특성 — 금리 방향에 민감 반응"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "고PER 금리 민감"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "외국인 수급 금리 연동"
+      }
+    ],
+    "tag": "매크로",
+    "impact": "중립",
+    "source": "반도체 AI 브리핑 2026.05.28"
   },
   {
     "date": "2026-05-28",
     "title": "Dell 실적 미달 시 AI 서버주 조정 경고",
     "oneline": "최근 급등한 AI 서버주 — Dell 코멘트 한 마디에 단기 되돌림 가능성",
     "summary": "Dell 실적 예상치 하회 또는 하이퍼스케일러 신중한 코멘트 시 AI 서버주 전반 빠른 되돌림 가능. HPE·SMCI 등 동반 종목 Dell 실적에 연동 가능성 높음.",
-    "keypoints": ["AI 서버주 단기 과열 — Dell 실적이 조정 트리거 될 수 있음", "HPE·SMCI 등 동반 하락 리스크", "국내 HBM 공급주도 단기 영향권"],
-    "stocks": [{"name":"SK하이닉스","ticker":"000660","reason":"단기 조정 시 영향권"},{"name":"한미반도체","ticker":"042700","reason":"AI 서버 수혜주 조정 연동"}],
-    "tag": "리스크", "impact": "부정", "source": "반도체 AI 브리핑 2026.05.28"
+    "keypoints": [
+      "AI 서버주 단기 과열 — Dell 실적이 조정 트리거 될 수 있음",
+      "HPE·SMCI 등 동반 하락 리스크",
+      "국내 HBM 공급주도 단기 영향권"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "단기 조정 시 영향권"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI 서버 수혜주 조정 연동"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.05.28"
+  },
+  {
+    "date": "2026-05-29",
+    "title": "Dell Q1 FY2027 — AI 서버 매출 500억 달러 목표, 배당 20% 인상",
+    "oneline": "AI 백로그 430억 달러 유지, FY27 AI매출 500억 달러·EPS +25% — 기대치 완전 충족",
+    "summary": "Dell Q1 FY2027 실적: FY27 전체 매출 가이던스 1,380억~1,420억 달러(YoY +23%), AI 서버 매출 500억 달러(YoY +100%), 비GAAP EPS $12.90(+25%). Q1 가이던스 매출 +51% YoY, EPS +87% YoY. 배당금 20% 인상, 100억 달러 추가 자사주 매입 발표.",
+    "keypoints": [
+      "AI 백로그 430억 달러 유지 → 수요 가시성 확실",
+      "배당 20% 인상 + 자사주 100억 달러 → 주주환원 강화",
+      "국내 HBM·AI서버 공급망 동반 수혜 기대"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI서버 HBM 공급"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "서버 DRAM 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI서버 패키징 연동"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.29"
+  },
+  {
+    "date": "2026-05-29",
+    "title": "Micron 시총 1조 달러 돌파, HBM4 양산 돌입",
+    "oneline": "Micron 시총 1조 달러 — HBM 전량 완판·HBM4 양산 돌입, AI 메모리 슈퍼사이클 확인",
+    "summary": "Micron이 5월 26일 사상 최초 시총 1조 달러 돌파. 최근 12개월 주가 8배 이상 상승. 2026년 HBM 전량 매진, HBM4 생산 돌입. UBS 목표주가 $535→$1,625 대폭 상향(46개 커버리지 최고치).",
+    "keypoints": [
+      "2026년 HBM 전량 완판 → 공급 부족 구조 지속",
+      "HBM4 양산 돌입 → 차세대 AI 인프라 수요 선점",
+      "AI 모델 대형화 → 메모리 수요 비례 증가 구조적 특성"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM 글로벌 1위 직접 경쟁"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "HBM3E·HBM4 추격 중"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "HBM TC본더 독점"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.29"
+  },
+  {
+    "date": "2026-05-29",
+    "title": "NVIDIA Q1 FY2027 — 매출 816억 달러 +85%, EPS +214%",
+    "oneline": "매출 816억·데이터센터 752억·EPS +214% — AI 인프라 수요 한계 안 보임",
+    "summary": "NVIDIA Q1 FY2027: 매출 816억 달러(YoY +85%, QoQ +20%), 데이터센터 752억 달러(YoY +92%), GAAP EPS $2.39(YoY +214%). 800억 달러 추가 자사주 매입, 배당금 $0.01→$0.25(25배 인상). 젠슨 황: '인류 역사상 가장 거대한 인프라 확장'.",
+    "keypoints": [
+      "데이터센터 752억 달러 — 분기 매출이 반도체 국가 연매출 수준",
+      "배당 25배 인상 → 수익 자신감 극도로 높음",
+      "Blackwell 수요 초과 → 차세대 Rubin 대기 수요 누적 중"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "직접 주체"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM 독점 공급"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Blackwell 위탁 생산"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "TC본더 수요 직결"
+      }
+    ],
+    "tag": "NVIDIA",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.29"
+  },
+  {
+    "date": "2026-05-29",
+    "title": "SOX 지수 52주 저점 대비 2배 돌파, 하이퍼스케일러 AI 투자 7,250억 달러",
+    "oneline": "SOX 12,000선 돌파, 52주 저점 2배 — AI 인프라 투자 7,250억 달러로 랠리 근거 충분",
+    "summary": "PHLX 반도체 지수(SOX) 2026년 5월 12,000선 돌파, 52주 저점 대비 2배 기록. 하이퍼스케일러 AI 인프라 투자 약정 총액 7,250억 달러(YoY +77%). 랠리 근거는 실적 기반이나 속도 과열 경고도 공존.",
+    "keypoints": [
+      "52주 저점 2배 = 속도 과열 구간, 단기 조정 가능",
+      "하이퍼스케일러 투자 7,250억 달러 → 장기 수요 가시성은 확보",
+      "닷컴버블 비교 경고 지속 — 25~30% 조정론 여전"
+    ],
+    "stocks": [
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "조정 시 방어적 특성"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "PBR 저평가 방어주 성격"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.05.29"
+  },
+  {
+    "date": "2026-05-29",
+    "title": "닷컴버블 비교 경고 — SOX 연초比 +65%, 25~30% 조정 가능성",
+    "oneline": "실적은 좋지만 속도가 문제 — 25~30% 조정론, 분할매수·리스크 관리 필요",
+    "summary": "SOX 연초 대비 65% 이상 급등. 베테랑 애널리스트들이 1999~2000년 닷컴 버블과 유사하다며 25~30% 조정 경고. 실적 기반 랠리지만 속도 과열. 분할 매수·현금 비중 유지 권고.",
+    "keypoints": [
+      "연초比 +65% = 속도 과열, 실적 대비 멀티플 재점검 필요",
+      "분할 매수·현금 비중 유지 전략 권장",
+      "조정 시 소재·장비 저PBR주 우선 관심"
+    ],
+    "stocks": [
+      {
+        "name": "솔브레인",
+        "ticker": "357780",
+        "reason": "소재주 상대적 안정"
+      },
+      {
+        "name": "에프에스티",
+        "ticker": "036810",
+        "reason": "독점주 방어적 특성"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.05.29"
   }
 ]

@@ -24,5 +24,31 @@
       {"rank":19,"name":"LG씨엔에스","ticker":"064400","price":"82,900","change":"-0.4%","mvp":83,"supply":66,"value":98,"fundamental":86,"per":18.3,"pbr":2.7,"roe":"14.9%","sector":"IT서비스"},
       {"rank":20,"name":"슈피겐코리아","ticker":"192440","price":"31,250","change":"-3.6%","mvp":83,"supply":85,"value":77,"fundamental":88,"per":6.7,"pbr":0.4,"roe":"5.5%","sector":"기타"}
     ]
+  },
+  {
+    "date": "2026-05-28",
+    "source": "아이투자",
+    "list": [
+      {"rank":1,"name":"슈프리마","ticker":"236200","price":"43,350","change":"-2.7%","mvp":93,"supply":94,"value":91,"fundamental":95,"per":8.8,"pbr":1.1,"roe":"12.2%","sector":"기타"},
+      {"rank":2,"name":"피에스케이홀딩스","ticker":"031980","price":"120,700","change":"-8.5%","mvp":91,"supply":82,"value":97,"fundamental":95,"per":28.4,"pbr":5.1,"roe":"18.1%","sector":"반도체장비"},
+      {"rank":3,"name":"비츠로셀","ticker":"082920","price":"55,300","change":"-4.7%","mvp":89,"supply":82,"value":89,"fundamental":96,"per":39.1,"pbr":7.4,"roe":"18.9%","sector":"기타"},
+      {"rank":4,"name":"에프앤가이드","ticker":"064850","price":"26,100","change":"-7.6%","mvp":88,"supply":88,"value":84,"fundamental":91,"per":22.5,"pbr":4.2,"roe":"18.7%","sector":"기타"},
+      {"rank":5,"name":"라온로보틱스","ticker":"388050","price":"22,500","change":"+22.3%","mvp":88,"supply":100,"value":83,"fundamental":80,"per":57.7,"pbr":6.5,"roe":"11.2%","sector":"기타"},
+      {"rank":6,"name":"달바글로벌","ticker":"417180","price":"207,000","change":"-2.8%","mvp":87,"supply":76,"value":90,"fundamental":95,"per":28.4,"pbr":11.1,"roe":"39.1%","sector":"기타"},
+      {"rank":7,"name":"한양이엔지","ticker":"045220","price":"34,050","change":"+2.1%","mvp":87,"supply":87,"value":85,"fundamental":89,"per":10.2,"pbr":0.9,"roe":"8.6%","sector":"기타"},
+      {"rank":8,"name":"국보디자인","ticker":"066620","price":"23,300","change":"-3.9%","mvp":86,"supply":90,"value":71,"fundamental":98,"per":4.4,"pbr":0.5,"roe":"12.3%","sector":"기타"},
+      {"rank":9,"name":"이오테크닉스","ticker":"039030","price":"515,000","change":"-5.9%","mvp":86,"supply":68,"value":97,"fundamental":93,"per":85.7,"pbr":9.0,"roe":"10.5%","sector":"반도체장비"},
+      {"rank":10,"name":"시큐브","ticker":"131180","price":"4,070","change":"+5.4%","mvp":86,"supply":83,"value":74,"fundamental":100,"per":6.6,"pbr":0.6,"roe":"9.5%","sector":"기타"},
+      {"rank":11,"name":"아비코전자","ticker":"036670","price":"12,850","change":"+3.1%","mvp":86,"supply":100,"value":78,"fundamental":78,"per":15.2,"pbr":1.4,"roe":"9.4%","sector":"기타"},
+      {"rank":12,"name":"NC","ticker":"036570","price":"277,500","change":"+2.2%","mvp":85,"supply":79,"value":96,"fundamental":81,"per":13.1,"pbr":1.7,"roe":"13.0%","sector":"기타"},
+      {"rank":13,"name":"네오오토","ticker":"344240","price":"15,570","change":"+4.8%","mvp":85,"supply":97,"value":73,"fundamental":85,"per":12.4,"pbr":1.3,"roe":"10.8%","sector":"기타"},
+      {"rank":14,"name":"제룡산업","ticker":"024890","price":"9,310","change":"-6.8%","mvp":85,"supply":74,"value":88,"fundamental":93,"per":13.2,"pbr":2.2,"roe":"16.4%","sector":"기타"},
+      {"rank":15,"name":"HPSP","ticker":"403870","price":"55,200","change":"-8.2%","mvp":85,"supply":59,"value":99,"fundamental":96,"per":62.5,"pbr":14.7,"roe":"23.6%","sector":"반도체장비"},
+      {"rank":16,"name":"유진테크","ticker":"084370","price":"131,700","change":"-5.1%","mvp":84,"supply":64,"value":95,"fundamental":94,"per":53.2,"pbr":6.3,"roe":"11.9%","sector":"반도체장비"},
+      {"rank":17,"name":"디아이티","ticker":"110990","price":"24,000","change":"-9.6%","mvp":84,"supply":65,"value":95,"fundamental":92,"per":11.6,"pbr":1.9,"roe":"16.0%","sector":"반도체장비"},
+      {"rank":18,"name":"에스엘","ticker":"005850","price":"72,600","change":"-4.1%","mvp":84,"supply":74,"value":84,"fundamental":94,"per":9.8,"pbr":1.3,"roe":"13.3%","sector":"기타"},
+      {"rank":19,"name":"한국가구","ticker":"004590","price":"6,670","change":"-2.1%","mvp":84,"supply":83,"value":74,"fundamental":95,"per":7.0,"pbr":0.5,"roe":"7.2%","sector":"기타"},
+      {"rank":20,"name":"나이스디앤비","ticker":"130580","price":"5,490","change":"+0.7%","mvp":84,"supply":68,"value":84,"fundamental":100,"per":6.1,"pbr":0.7,"roe":"12.1%","sector":"기타"}
+    ]
   }
 ]
