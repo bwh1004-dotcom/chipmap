@@ -764,5 +764,124 @@
     "tag": "NVIDIA",
     "impact": "긍정",
     "source": "반도체 AI 브리핑 2026.06.01"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "NVIDIA RTX Spark — PC 시장 전격 진입, 5년 로드맵 공개",
+    "oneline": "NVIDIA 역사상 최초 PC용 칩 RTX Spark — ARM+Blackwell GPU 집적, '스마트폰 혁명만큼 거대한 사건'",
+    "summary": "젠슨 황 GTC 타이베이 기조연설에서 RTX Spark(코드명 N1X) 발표. TSMC 3nm, 700억 트랜지스터, 20코어 ARM CPU + Blackwell GPU(6,144 CUDA코어). MediaTek 공동 개발. MS·Dell·HP·ASUS·Lenovo·MSI 6개사 2026년 가을 출시 예정. 로드맵: Blackwell→Vera Rubin(2027~28)→Rosa Feynman+HBM-Next(2029~30).",
+    "keypoints": [
+      "NVIDIA 최초 PC칩 = 인텔·AMD·Qualcomm과 직접 경쟁 시작",
+      "LPDDR6→HBM-Next 로드맵 = 메모리 수요 PC까지 확장",
+      "어도비 Photoshop·Premiere Pro 최적화 = 크리에이티브 시장 공략"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "직접 주체·PC 시장 신규 진입"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "3nm RTX Spark 위탁생산"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM-Next 2029 로드맵 수혜"
+      }
+    ],
+    "tag": "NVIDIA",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.02"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "SIA·Deloitte — AI 데이터센터 반도체 2028년 1.2조 달러 전망",
+    "oneline": "4년 만에 10배 성장 — AI 서버 랙 가치의 95%가 반도체, 슈퍼사이클 장기화 공식 확인",
+    "summary": "SIA·Deloitte 공동 보고서: AI 데이터센터 반도체 연간 매출 2028년 1조 2,000억 달러 전망(4년 만에 약 10배). AI 서버 랙 가치의 95%를 반도체가 차지. COMPUTEX 2026 개막 당일 발표.",
+    "keypoints": [
+      "2028년 1.2조 달러 = 현재 전체 반도체 시장과 맞먹는 수준",
+      "AI 서버 랙 95%가 반도체 → 장비·소재 전체 밸류체인 수혜",
+      "4년 10배 성장 = 2029~2030년까지 슈퍼사이클 지속 근거"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM AI 데이터센터 핵심"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "메모리·파운드리 양쪽 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI서버 패키징 TC본더"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.02"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "미국, 중국 기업 해외 자회사에도 AI 칩 수출 금지 확대",
+    "oneline": "우회 수출 원천 차단 — 중국 본사 둔 해외 자회사도 첨단 AI 칩 수출 금지",
+    "summary": "미국 상무부 6/1 공식 발표: 중국 본토 외 해외 소재 중국 기업 자회사에도 첨단 AI 반도체 수출 제한 동일 적용. 우회 수출 허점 원천 차단. 중국 본사·모기업 둔 모든 사업체 대상.",
+    "keypoints": [
+      "우회 수출 차단 강화 → 중국 AI 칩 자립 압박 더욱 심화",
+      "NVIDIA·AMD 중국 매출 추가 축소 불가피",
+      "국내 기업 직접 영향 낮으나 지정학 리스크 상시 모니터링"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "중국 매출 추가 제한 리스크"
+      },
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "대중 수출 통제 연동"
+      }
+    ],
+    "tag": "지정학",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.06.02"
+  },
+  {
+    "date": "2026-06-02",
+    "title": "COMPUTEX 2026 개막 — 시총 10조 달러 AI 전쟁터",
+    "oneline": "PC 전시회가 AI 전쟁터로 — 30개사·시총 10조 달러, AI칩·액체냉각·에이전트 플랫폼 경쟁",
+    "summary": "COMPUTEX 2026(6/2~6/5 타이베이) 개막. 참가 기업 합산 시총 10조 달러 이상. Qualcomm·Intel CEO 포함 30개사 기조연설. AI 공급 병목 2027년 말까지 지속 전망(Wiwynn). CPU 공급 부족 새 이슈 부상.",
+    "keypoints": [
+      "AI 하드웨어 병목 2027년 말 해소 전망 → 장비·소재 발주 지속",
+      "CPU 공급 부족 = 인텔·AMD 서버 CPU 수요 증가 신호",
+      "AI 에이전트·액체냉각·엣지컴퓨팅 테마 부각"
+    ],
+    "stocks": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "서버 DRAM·HBM 수혜"
+      },
+      {
+        "name": "Qualcomm",
+        "ticker": "QCOM",
+        "reason": "COMPUTEX 기조연설 주목"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "레이저 장비 AI 서버 연동"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.02"
   }
 ]
