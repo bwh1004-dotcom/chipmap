@@ -883,5 +883,145 @@
     "tag": "AI인프라",
     "impact": "긍정",
     "source": "반도체 AI 브리핑 2026.06.02"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "젠슨 황 '다음 1조 달러 기업은 Marvell' — 주가 +30% 폭등",
+    "oneline": "젠슨 황이 직접 무대에서 선언 — Marvell 시총 하루 470억 달러 증가, AI 인터커넥트 핵심 부각",
+    "summary": "젠슨 황 COMPUTEX 무대서 'Marvell이 다음 1조 달러 기업' 공개 선언. 주가 +25~30% 폭등, 시총 하루 470억 달러↑. NVIDIA 20억 달러 전략 투자 완료, NVLink Fusion 공동 개발. Marvell Q1 FY2027 매출 24억달러(YoY+28%) 역대 최고, 데이터센터 비중 75%.",
+    "keypoints": [
+      "젠슨 황 직접 선언 = AI 인터커넥트 시장 Marvell 독점 구도 강화",
+      "데이터센터 매출 비중 75% → 순수 AI 인프라 기업으로 전환 완료",
+      "NVLink Fusion 공동 개발 = NVIDIA 생태계 내 핵심 파트너"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "Marvell 20억 달러 투자·NVLink Fusion"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI 인프라 확장 HBM 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI 인터커넥트 패키징 연동"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.03"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "Qualcomm, 데이터센터 브랜드 Dragonfly 공개 — 주가는 -8.8%",
+    "oneline": "AI 에이전트 시대 선언 + Dragonfly 데이터센터 진출 — NVIDIA와 경쟁 심화 우려로 주가 역풍",
+    "summary": "Qualcomm CEO, 2026년을 'AI 에이전트의 해' 선언. 데이터센터 AI 추론칩 브랜드 Dragonfly(CPU·AI추론가속기·ASIC 3종) 공식 발표. 세부 로드맵 6/24 뉴욕 Investor Day 공개. 단 NVIDIA RTX Spark와 동일 시점 발표 + 단기 매출 불확실성으로 주가 -8.77%.",
+    "keypoints": [
+      "Dragonfly = Qualcomm 데이터센터 AI 시장 본격 진출 선언",
+      "NVIDIA와 AI PC·데이터센터 양면 경쟁 심화 구도",
+      "6/24 Investor Day 로드맵 공개 후 재평가 기회 주목"
+    ],
+    "stocks": [
+      {
+        "name": "Qualcomm",
+        "ticker": "QCOM",
+        "reason": "Dragonfly 직접 주체·단기 주가 조정"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Qualcomm 칩 위탁생산 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "중립",
+    "source": "반도체 AI 브리핑 2026.06.03"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "Micron COMPUTEX — HBM4 공개, AI 컨텍스트 연 30배 증가 경고",
+    "oneline": "AI 컨텍스트 연 30배 증가 = 메모리 수요 구조적 폭발 — HBM4·SOCAMM2 세계 유일 공급",
+    "summary": "Micron COMPUTEX: HBM4 36GB 12H 공개(LLM 추론 2.6배↑), 256GB SOCAMM2 세계 유일 공급사. 'AI 컨텍스트 길이 매년 30배 증가, 서버당 메모리 3년 만에 2배'. 메모리가 AI 성능의 핵심 병목임을 강조.",
+    "keypoints": [
+      "컨텍스트 연 30배 증가 = HBM 수요 기하급수적 증가 구조 확인",
+      "SOCAMM2 세계 유일 = 가격 협상력·수익성 극대화",
+      "SK하이닉스·삼성전자의 HBM4 경쟁 격화 예고"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM4 글로벌 선두 경쟁"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "HBM4 추격전 참전"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "HBM4 TC본더 독점"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.03"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "Intel Crescent Island AI GPU — HBM 대신 LPDDR5X로 공급 병목 우회",
+    "oneline": "HBM 없이도 AI 추론 가능 — Intel의 현실적 대안, 2027년 출시 예정",
+    "summary": "Intel COMPUTEX: 차세대 AI GPU Crescent Island 공개. Xe3P 아키텍처, 480GB LPDDR5X 탑재. HBM 대신 LPDDR5X로 공급 부족 우회. TDP 350W 에어쿨링 PCIe 카드(수냉 불필요). 고객 샘플링 2026 하반기, 제품 출시 2027년 예정.",
+    "keypoints": [
+      "HBM 대신 LPDDR5X = 공급 병목 우회 전략, 시장 확대 가능",
+      "에어쿨링 350W = 수냉 인프라 없는 중소 데이터센터 타깃",
+      "2027년 출시 → 단기 영향 제한적, 장기 경쟁 구도 주목"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "LPDDR5X 공급 수혜 가능"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "LPDDR5X 주요 공급사"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "중립",
+    "source": "반도체 AI 브리핑 2026.06.03"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "HPE Q2 실적 발표 — AI 서버주 변동성 트리거 주의",
+    "oneline": "Dell 서프라이즈 후 기대치 극도로 높아진 HPE — 미달 시 AI 서버주 조정 가능",
+    "summary": "HPE(Hewlett Packard Enterprise) 6/3 장 마감 후 Q2 FY2026 실적 발표. Dell 어닝 서프라이즈 후 시장 기대치 극도로 높음. 애프터마켓 이미 +37% 급등. 실적 미달 시 AI 서버주 전반 조정 트리거 가능.",
+    "keypoints": [
+      "기대치 높을수록 실망 리스크 큼 — '소문에 사고 뉴스에 팔기' 구간",
+      "HPE 조정 시 SK하이닉스·한미반도체 단기 영향권",
+      "결과 확인 후 대응하는 전략 권장"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI서버 수요 연동 단기 영향"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI서버 패키징 조정 연동"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.06.03"
   }
 ]
