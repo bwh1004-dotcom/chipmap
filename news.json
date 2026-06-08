@@ -1390,5 +1390,124 @@
     "tag": "리스크",
     "impact": "부정",
     "source": "반도체 AI 브리핑 2026.06.08"
+  },
+  {
+    "date": "2026-06-09",
+    "title": "NVIDIA × SK하이닉스 — 다년 기술 파트너십 체결, 4개 플랫폼 공동 개발",
+    "oneline": "단순 공급 계약을 넘어 — Vera Rubin·RTX Spark·Jetson Thor 4개 전 플랫폼 메모리 공동 개발·공급",
+    "summary": "6/7 NVIDIA·SK하이닉스 다년 기술 파트너십 공식 체결. Vera Rubin AI 슈퍼컴·Vera CPU·RTX Spark PC·Jetson Thor 로보틱스 4개 플랫폼 메모리 공동 개발·공급. 젠슨 황 'SK하이닉스는 앞으로도 NVIDIA 최대 파트너'. 추가로 CUDA-X·Omniverse·cuOpt 활용 팹 디지털 트윈·완전 자율 팹 운영 협력.",
+    "keypoints": [
+      "4개 전 플랫폼 공동 개발 = 단순 공급사→기술 파트너로 격상",
+      "완전 자율 팹 = AI가 SK하이닉스 제조 공정 전체에 침투",
+      "삼성전자 HBM 점유율 회복 더욱 어려워진 구도"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "NVIDIA 공식 최대 파트너 선언"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "4개 플랫폼 HBM TC본더 수혜"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "점유율 압박 심화 — 기술력 격차 극복 과제"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.09"
+  },
+  {
+    "date": "2026-06-09",
+    "title": "NVIDIA × SK텔레콤 — 기가와트급 AI 팩토리 데이터센터 공동 구축",
+    "oneline": "한국이 AI 인프라 허브로 — NVIDIA DSX 기반 기가와트 AI 팩토리, 젠슨 황 'AI는 미래의 전기·수도'",
+    "summary": "6/8 NVIDIA·SK텔레콤 AI 팩토리 공동 구축 협약. NVIDIA DSX 플랫폼 기반 기가와트 규모 AI 클라우드 인프라. 한국이 메모리 공급자→AI 인프라 허브 전략 전환점.",
+    "keypoints": [
+      "기가와트 AI 팩토리 = 국내 전력·냉각 인프라 투자 촉진",
+      "SK텔레콤 AI 클라우드 사업 새 성장 동력 확보",
+      "데이터센터 전력·변압기·케이블 관련주 간접 수혜"
+    ],
+    "stocks": [
+      {
+        "name": "SK텔레콤",
+        "ticker": "017670",
+        "reason": "AI 팩토리 직접 주체"
+      },
+      {
+        "name": "LS ELECTRIC",
+        "ticker": "010120",
+        "reason": "데이터센터 전력 인프라"
+      },
+      {
+        "name": "HD현대일렉트릭",
+        "ticker": "267260",
+        "reason": "변압기 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.09"
+  },
+  {
+    "date": "2026-06-09",
+    "title": "Vera Rubin — AWS·구글·MS·Oracle 여름 출하 확정",
+    "oneline": "Vera Rubin 풀 생산 중 — 4대 하이퍼스케일러 2026년 여름 출하, AI 추론 비용 구조적 하락 시작",
+    "summary": "Vera Rubin 현재 풀 생산 중. AWS·Google Cloud·MS Azure·Oracle 2026년 여름 출하 시작, 하반기 전면 공급 확정. Grace Blackwell 대비 에이전트 처리량 10배↑. AI 추론 비용 구조적 하락 본격화.",
+    "keypoints": [
+      "4대 하이퍼스케일러 동시 출하 = HBM4 수요 하반기 급증 확실",
+      "추론 비용 하락 → AI 서비스 대중화 가속 → 다음 GPU 수요 유발",
+      "SK하이닉스 HBM4 하반기 출하량 급증 직결"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "HBM4 Vera Rubin 탑재 확정"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Vera Rubin 위탁생산"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "출하 증가 TC본더 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.09"
+  },
+  {
+    "date": "2026-06-09",
+    "title": "반도체 섹터 조정 — AMD -6.4%·Micron -8.5%·TSMC -3.4% 급락",
+    "oneline": "Broadcom 신중론 + 미국 고용 쇼크 이중 악재 — SOX +80% 이후 기술적 되돌림 주의",
+    "summary": "6/5 AMD -6.39%, Micron -8.47%, Broadcom -4.69%, TSMC -3.4% 급락. Broadcom AI 칩 신중 전망 + 미국 고용지표 강세 → 금리 인하 기대 후퇴. SOX 연초比 +80% 이후 기술적 되돌림 가능성. 추가로 LPDDR5 수요 충돌로 스마트폰 출하 최대 -31% 경고.",
+    "keypoints": [
+      "호재에도 급락 = 매크로 압박이 실적 모멘텀보다 강한 국면",
+      "SOX +80% 구간 = 단기 차익실현·리스크 관리 필요 시점",
+      "스마트폰 -31% 경고 = LPDDR5 수요 충돌로 메모리 믹스 악화 가능"
+    ],
+    "stocks": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "스마트폰 LPDDR5 수요 충돌 리스크"
+      },
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "조정 시 방어적 장비주"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.06.09"
   }
 ]
