@@ -2580,5 +2580,124 @@
     "tag": "지정학",
     "impact": "부정",
     "source": "반도체 AI 브리핑 2026.06.19"
+  },
+  {
+    "date": "2026-06-20",
+    "title": "Marvell S&P500 편입 D-2 — 6월 한 달 드라마, 패시브 수십억달러 강제 유입",
+    "oneline": "+32.5% 급등→-17% 급락→S&P500 편입 확정 — 6/22 패시브 자금 수십억달러 강제 매수",
+    "summary": "Marvell 6월 주가: 젠슨 황 선언 후 +32.5% → Broadcom 여파 -17% → +9.63% 반등. Q1 FY2027 GAAP 순이익 3,450만달러로 S&P500 편입 조건 충족. 6/22 정식 편입 확정. 패시브 펀드 MRVL 의무 매수 수십억달러 예상. 커스텀 AI 실리콘·네트워킹·실리콘 포토닉스 3개 분야 동시 성장.",
+    "keypoints": [
+      "S&P500 편입 = 패시브 펀드 강제 매수→수급 구조 개선",
+      "실리콘 포토닉스 핵심주 Marvell의 기관 자금 유입 = CPO 테마 재부각",
+      "NVIDIA와 동시 편입 = 6/22 반도체 섹터 전반 수급 긍정"
+    ],
+    "stocks": [
+      {
+        "name": "Marvell",
+        "ticker": "MRVL",
+        "reason": "S&P500 편입 직접 수혜"
+      },
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "동시 편입·AI 생태계"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "AI 인프라 수혜 동반"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.20"
+  },
+  {
+    "date": "2026-06-20",
+    "title": "DeepSeek 블랙리스트 등재 지연 — 수출통제 실효성 균열 신호",
+    "oneline": "DeepSeek·CXMT 블랙리스트 등재 지연 — 지정학 계산에 막혀 수출통제 실효성 논란 심화",
+    "summary": "미국 정부, DeepSeek·CXMT 등 100개 이상 기업 블랙리스트 등재를 국가안보 위협으로 인정하면서도 공식 등재 지연. 이란 합의·무역 협상·동맹 외교 복잡한 계산 작용. 화웨이 칩 스태킹 우회 + DeepSeek 지연 + CXMT HBM 독자개발 = 수출통제 실효성 균열.",
+    "keypoints": [
+      "수출통제 지연 = 중국 AI 역량 제한 효과 약화 신호",
+      "CXMT HBM 유사 메모리 독자 개발 = 장기 경쟁 심화 우려",
+      "단기 영향 제한적이나 2027~2028 구도 변화 모니터링 필요"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "CXMT HBM 개발 장기 경쟁 우려"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "중국 메모리 자립 장기 리스크"
+      }
+    ],
+    "tag": "지정학",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.06.20"
+  },
+  {
+    "date": "2026-06-20",
+    "title": "Micron Q3 FY2026 6/24 실적 발표 — HBM 공급 스토리 최종 검증",
+    "oneline": "52주 +930% Micron의 Q3 실적 — '2026년 FCF 역대 합산 초과' 달성 여부가 하반기 분수령",
+    "summary": "Micron 6/24 Q3 FY2026 실적 발표. 현재 52주 +930%. 시장 컨센서스: HBM4 양산 본격화·'2026년 FCF 역대 합산 초과' 달성. 2026년 HBM 전량 매진·2027~28 LTA 선점 완료 이미 확인. 실적 기대 부합 시 하반기 랠리 도화선.",
+    "keypoints": [
+      "FCF 역대 합산 초과 달성 시 = 최고 실적 확인·추가 랠리",
+      "HBM4 양산 현황·가이던스가 SK하이닉스·삼성 동반 영향",
+      "실망 시 고평가 조정 리스크 — 기대치 높은 구간 주의"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Micron 실적이 HBM 섹터 전체 방향 결정"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "HBM 공급 스토리 연동"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "HBM 생산 확인 시 TC본더 수혜"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.20"
+  },
+  {
+    "date": "2026-06-20",
+    "title": "Tensordyne TSMC·Broadcom·HPE 연합 AI 추론 칩 2억달러 수주",
+    "oneline": "NVIDIA 독주 대안 추론 칩 등장 — TSMC+Broadcom+HPE 연합 Napier 칩 2억달러 수요 확보",
+    "summary": "AI 추론 칩 스타트업 Tensordyne, TSMC 생산·Broadcom 설계·HPE 네트워크 연동 Napier 칩으로 12개 이상 기업 LOI·2억달러 이상 수요 확보. NVIDIA 독주 대안 커스텀 ASIC 시장 다변화 가속.",
+    "keypoints": [
+      "NVIDIA 대안 추론 칩 수요 현실화 = 공급망 다변화 가속",
+      "TSMC는 모든 진영에 공급 = 변화 속 최대 수혜",
+      "커스텀 ASIC 설계 역량 보유 국내 기업 관심 증가"
+    ],
+    "stocks": [
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "모든 AI 칩 진영 공급·최대 수혜"
+      },
+      {
+        "name": "Broadcom",
+        "ticker": "AVGO",
+        "reason": "Napier 설계 협력 직접 수혜"
+      },
+      {
+        "name": "가온칩스",
+        "ticker": "399720",
+        "reason": "국내 커스텀 ASIC 설계 관심"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.20"
   }
 ]
