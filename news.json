@@ -2699,5 +2699,119 @@
     "tag": "AI인프라",
     "impact": "긍정",
     "source": "반도체 AI 브리핑 2026.06.20"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "Marvell S&P500 정식 편입 D-DAY — 프리마켓 +8%, YTD +247%",
+    "oneline": "오늘 S&P500 편입·패시브 강제 매수 시작 — 광학네트워킹·커스텀ASIC·스케일업스위칭 3각 성장",
+    "summary": "Marvell 6/22 S&P500 정식 편입, 프리마켓 +8%. Pool Corp 대체. YTD +247%, YoY +322%. KeyBanc 목표주가 260→385달러. NVIDIA 20억달러 투자 완료. FY26 매출 82억→FY28 167억달러(연평균 +43%). 핵심 성장: ①하이퍼스케일러 커스텀AI실리콘 ②광학네트워킹(PIC 500만개 출하) ③스케일업스위칭.",
+    "keypoints": [
+      "S&P500 편입 = 패시브 수십억달러 강제 매수 구조적 수급 개선",
+      "광학네트워킹 = CPO·실리콘포토닉스 테마 핵심 수혜",
+      "편입 후 30~90일 언더퍼폼 경향 — 차익실현 타이밍 주의"
+    ],
+    "stocks": [
+      {
+        "name": "Marvell",
+        "ticker": "MRVL",
+        "reason": "S&P500 편입 직접 수혜·YTD +247%"
+      },
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "20억달러 투자·생태계 연동"
+      },
+      {
+        "name": "오이솔루션",
+        "ticker": "138080",
+        "reason": "광학네트워킹 국내 수혜"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.22"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "TSMC +6.86% 급등 — Amkor와 애리조나 10년 첨단패키징 파트너십",
+    "oneline": "TSMC 역대 최고 매출·Amkor 10년 파트너십 — CoWoS 병목 해소·미국 온쇼어링 공급망 본격화",
+    "summary": "TSMC 6/21 +6.86%. 역대 최고 매출 성장률·AI/HPC 수요·가격 인상·Amkor 애리조나 10년 첨단패키징 파트너십·내부자 매수·연간 전망 상향 동시 작용. CoWoS 패키징 병목 해소 전략. 미국 내 반도체 공급망 온쇼어링 핵심 축.",
+    "keypoints": [
+      "Amkor 파트너십 = CoWoS 병목 구조적 해소 신호",
+      "미국 내 패키징 확대 = 온쇼어링 공급망 본격화",
+      "TSMC 가격 인상 = 고객사 원가 압박·수익성 추가 개선"
+    ],
+    "stocks": [
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "직접 주체·+6.86% 급등"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "CoWoS 패키징 TC본더 수혜"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "TSMC 발주 증가 장비 연동"
+      }
+    ],
+    "tag": "TSMC",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.22"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "Marvell 리스크 — P/E 69배·CFO 내부자 매도 48%·고객 집중도 80%",
+    "oneline": "P/E 69배 vs NVIDIA 17배 극단적 프리미엄 — CFO 48% 지분 매도·상위 10개 고객 80% 집중 경고",
+    "summary": "Marvell 리스크: ①NTM P/E 69배(NVIDIA 17배·Broadcom 21배 대비 극단적 프리미엄) ②퇴임 CFO 지분 48%·6,010만달러 매도(내부자 매도 신호) ③상위 10개 고객 매출 80% 집중(아마존 Trainium 전환 시 직격).",
+    "keypoints": [
+      "P/E 69배 = 실행 리스크 고위험 구간·기대치 달성 필수",
+      "CFO 내부자 매도 = 주가 고점 신호 해석 가능",
+      "아마존 자체 칩 전환 리스크 = 매출 집중도 위험"
+    ],
+    "stocks": [
+      {
+        "name": "Marvell",
+        "ticker": "MRVL",
+        "reason": "리스크 요인 직접 해당"
+      },
+      {
+        "name": "Broadcom",
+        "ticker": "AVGO",
+        "reason": "상대적 밸류에이션 매력"
+      }
+    ],
+    "tag": "리스크",
+    "impact": "부정",
+    "source": "반도체 AI 브리핑 2026.06.22"
+  },
+  {
+    "date": "2026-06-22",
+    "title": "Intel 18A-P 리스크 프로덕션 진입 — 9% 성능 or 18% 전력 절감",
+    "oneline": "Intel 18A-P 초기 양산 단계 진입 — 구글 TPU 수주+CHIPS법+18A-P로 파운드리 부활 스토리 현실화",
+    "summary": "Intel 18A-P 리스크 프로덕션 진입. 18A 대비 9% 성능 향상 또는 18% 전력 절감 선택 가능. 구글 TPU 300만개 수주·CHIPS법 지원금 심사와 맞물려 Intel 파운드리 부활 스토리 현실화 중.",
+    "keypoints": [
+      "리스크 프로덕션 = 양산 직전 단계·2027년 본격 출하 가시성",
+      "전력 절감 18% = 데이터센터 PUE 개선에 강력한 셀링포인트",
+      "TSMC 대안 파운드리 현실화 = AI 공급망 다변화 가속"
+    ],
+    "stocks": [
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Intel 경쟁 심화 장기 모니터링"
+      },
+      {
+        "name": "ASML",
+        "ticker": "ASML",
+        "reason": "Intel 18A-P EUV 장비 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.22"
   }
 ]
