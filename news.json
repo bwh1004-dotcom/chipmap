@@ -2813,5 +2813,129 @@
     "tag": "AI인프라",
     "impact": "긍정",
     "source": "반도체 AI 브리핑 2026.06.22"
+  },
+  {
+    "date": "2026-06-23",
+    "title": "Micron Q3 FY2026 실적 D-1 — EPS $19.72·매출 $345억 컨센서스, 총마진 81% 기대",
+    "oneline": "4분기 연속 컨센서스 +21.7% 초과 Micron — 내일 Q3 발표, QoQ +45% 성장 기정사실화",
+    "summary": "Micron 6/24 장 마감 후 Q3 FY2026 발표. 컨센서스 EPS $19.72·매출 $345.2억. 자체 가이던스 매출 $335억·총마진 81%. 최근 4분기 연속 EPS 컨센서스 평균 +21.7% 초과. FY2026 EPS 전망 $57.71(+651%), FY2027 $97.77. EV/EBITDA 11.7배 저평가.",
+    "keypoints": [
+      "5대 관전: HBM4 LTA·총마진 80% 돌파·FCF 역대 합산 초과·가이던스 상향·하이퍼스케일러 코멘트",
+      "FY2027 P/E 약 10배 = +930% 기업이 역설적으로 저평가",
+      "실망 시 단기 급락 리스크 — 기대치가 극도로 높은 구간"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Micron 실적이 HBM 섹터 전체 방향 결정"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "HBM 공급 스토리 동반 검증"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "HBM 생산 확인 시 TC본더 수혜"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.23"
+  },
+  {
+    "date": "2026-06-23",
+    "title": "Marvell S&P500 편입 첫날 성공 — 광학 PIC 500만개 출하·CPO 목표 2배 상향",
+    "oneline": "편입 첫날 주간 +11% 마감 — CPO 수익 목표 $1.5억→$3억 2배 상향, 광학네트워킹 핵심 부각",
+    "summary": "Marvell S&P500 편입 첫날 패시브 강제 매수 완료, 주간 +11%. Tower Semiconductor와 AI DC 인터커넥트용 PIC 500만개 출하 달성. CPO 수익 목표 내년 $1.5억→$3억 2배 상향. 하이퍼스케일러 AI 랙 간 광학 연결 수요 급증.",
+    "keypoints": [
+      "CPO 목표 2배 상향 = 광학네트워킹 수요 폭발 공식 확인",
+      "PIC 500만개 출하 = 실리콘포토닉스 상용화 본격화 신호",
+      "국내 CPO 관련주 에이디에스테크·인텍플러스 재주목"
+    ],
+    "stocks": [
+      {
+        "name": "Marvell",
+        "ticker": "MRVL",
+        "reason": "CPO 목표 2배 상향 직접 수혜"
+      },
+      {
+        "name": "에이디에스테크",
+        "ticker": "200030",
+        "reason": "국내 CPO 장비 수혜"
+      },
+      {
+        "name": "인텍플러스",
+        "ticker": "064290",
+        "reason": "광소자 검사 장비 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.23"
+  },
+  {
+    "date": "2026-06-23",
+    "title": "Qualcomm Investor Day 뉴욕 — Dragonfly 데이터센터 AI 칩 로드맵 공개",
+    "oneline": "모바일 칩 기업 Qualcomm의 데이터센터 진출 선언 — Dragonfly CPU·AI추론·ASIC 3종 로드맵",
+    "summary": "Qualcomm 6/23 뉴욕 Investor Day. Dragonfly 데이터센터 AI 칩 상세 로드맵 공개. CPU·AI추론가속기·ASIC 3종. ByteDance AI 칩 수주 이후 데이터센터 사업 본격화. 발표 내용에 따라 AI 인프라 플레이어로 재평가 가능.",
+    "keypoints": [
+      "Dragonfly 로드맵 구체화 = Qualcomm 데이터센터 사업 실체 확인",
+      "ByteDance 수주+Dragonfly = NVIDIA 대안 AI 칩 시장 경쟁 심화",
+      "TSMC 첨단공정 추가 발주 가능성"
+    ],
+    "stocks": [
+      {
+        "name": "Qualcomm",
+        "ticker": "QCOM",
+        "reason": "Dragonfly 직접 주체"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Dragonfly 위탁생산 수혜"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Dragonfly HBM/메모리 탑재 가능성"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.23"
+  },
+  {
+    "date": "2026-06-23",
+    "title": "FOMC·채권 충격 소화 완료 — Micron $1,134 사상 최고권, 조용한 강세 지속",
+    "oneline": "SOX -5.7% 충격 완전 소화 — Micron $1,134·NVIDIA $205 공고화, 하반기 랠리 최종 신호탄 대기",
+    "summary": "6/22 기준 미국 반도체 섹터 FOMC 충격·NVIDIA 채권·SOX -5.7% 모두 소화. Micron $1,134 사상 최고권 유지. NVIDIA $205 공고화. 이란 MOU 후 에너지 안정→연준 금리인상 확률 하락 배경. 6/24 Micron 실적이 하반기 최종 신호탄.",
+    "keypoints": [
+      "충격 완전 소화 = 시장 회복력 확인·기저 수요 견고",
+      "Micron $1,134 = 실적 전 고점 형성·기대감 극도로 높음",
+      "하반기 랠리 신호탄 = 실적 확인 후 본격 진입 전략 권장"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Micron 고점 동반 수혜"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "하반기 장비 발주 재점화"
+      },
+      {
+        "name": "피에스케이",
+        "ticker": "319660",
+        "reason": "하반기 랠리 장비주 수혜"
+      }
+    ],
+    "tag": "시장동향",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.23"
   }
 ]
