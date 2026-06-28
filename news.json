@@ -3351,5 +3351,129 @@
     "tag": "지정학",
     "impact": "부정",
     "source": "반도체 AI 브리핑 2026.06.27"
+  },
+  {
+    "date": "2026-06-29",
+    "title": "삼성전자 HBM4 양산 130일 만에 $10억 돌파 — 연간 $97억 전망",
+    "oneline": "세계 최초 HBM4 양산 4개월 만에 $10억 — Vera Rubin 본격 출하 시 기하급수 성장 구조",
+    "summary": "삼성전자 HBM4 2/12 세계 최초 양산 시작, 130일 만에 누적 매출 $10억 돌파. 6월 말 $12억 예상. 연간 $97억 전망. AMD·NVIDIA에 HBM4E 동시 출하. Vera Rubin NVL72 1기당 HBM4 576개 탑재 = Vera Rubin 출하 증가 시 기하급수 성장.",
+    "keypoints": [
+      "HBM4 130일 $10억 = 신제품 최단 기간 누적 매출 기록",
+      "Vera Rubin NVL72 당 576개 탑재 = 플랫폼 확산 시 자동 성장 구조",
+      "삼성 HBM4 선제 양산 = SK 대비 점유율 회복 기반 마련"
+    ],
+    "stocks": [
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "HBM4 $10억 돌파·연간 $97억 전망"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "HBM4 TC본더 패키징 수혜"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "HBM4 레이저 장비 발주"
+      }
+    ],
+    "tag": "HBM",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.29"
+  },
+  {
+    "date": "2026-06-29",
+    "title": "NVIDIA 유럽 슈퍼컴 35개 구축 — '2027년 AI 인프라 $1조' 전망",
+    "oneline": "유럽 AI 주권 강화+NVIDIA 공략 — 35개 슈퍼컴·Vera CPU 투입·2027년 AI 인프라 $1조 선언",
+    "summary": "NVIDIA 유럽 전역 35개 슈퍼컴 신규 구축 발표. Vera CPU 과학 연구 워크로드 핵심 투입. 젠슨 황 '2027년까지 AI 인프라 $1조'. 프랑스·독일·영국·핀란드 Vera Rubin 기반 AI 팩토리 구축.",
+    "keypoints": [
+      "유럽 35개 슈퍼컴 = NVIDIA AI 인프라 지역 다변화 완성",
+      "2027년 $1조 = HBM·장비·소재 수요 구조적 확대 확인",
+      "Vera CPU = SK하이닉스 다년 파트너십 4개 플랫폼 중 하나"
+    ],
+    "stocks": [
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "reason": "유럽 슈퍼컴 직접 주체"
+      },
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Vera Rubin·CPU 메모리 공급"
+      },
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "글로벌 슈퍼컴 확장 장비 수혜"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.29"
+  },
+  {
+    "date": "2026-06-29",
+    "title": "TSMC·Amkor CoWoS 병목 해소 연합 — 이오테크닉스·한미반도체 수혜",
+    "oneline": "CoWoS 최대 병목 해소 총력 — TSMC+Amkor 미국+한국 패키징 용량 확대, 국내 장비주 수혜",
+    "summary": "TSMC·Amkor 미국 애리조나·한국 첨단패키징 용량 대폭 확대 전략 제휴. CoWoS 공급망 최대 병목 부상 배경. ASE도 경쟁 참여. 국내 수혜: 이오테크닉스·한미반도체·원익IPS 등 패키징 장비주.",
+    "keypoints": [
+      "CoWoS 병목 해소 = AI 서버 출하 속도 가속화 가능",
+      "한국 패키징 용량 확대 = 국내 장비·소재 발주 증가",
+      "이오테크닉스 레이저 장비·한미반도체 TC본더 직접 수혜"
+    ],
+    "stocks": [
+      {
+        "name": "이오테크닉스",
+        "ticker": "039030",
+        "reason": "CoWoS 패키징 레이저 장비 수혜"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "TC본더 CoWoS 패키징 핵심"
+      },
+      {
+        "name": "TSMC",
+        "ticker": "TSM",
+        "reason": "Amkor 연합 병목 해소 직접 주체"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.29"
+  },
+  {
+    "date": "2026-06-29",
+    "title": "Anthropic 연간 매출 $300억 돌파 — 4개월 만에 3배·AI SW가 반도체 수요 직접 견인",
+    "oneline": "Anthropic $90억→$300억 4개월 3배 — AI SW 폭발이 HBM·GPU 수요 직접 끌어올리는 구조 확인",
+    "summary": "Anthropic 연간 환산 매출 2026년 4월 기준 $300억(4개월 전 $90억 대비 3배↑). Micron-Anthropic 전략 공급 협약 맥락 확인. 하이퍼스케일러 5개사 CAPEX 합산 $7,000억.",
+    "keypoints": [
+      "$90억→$300억 4개월 3배 = AI SW 성장 속도 폭발적",
+      "Anthropic 성장 = Claude AI 모델 HBM 탑재 수요 직결",
+      "$7,000억 CAPEX = HBM·AI인프라 수요 하반기 지속 근거"
+    ],
+    "stocks": [
+      {
+        "name": "SK하이닉스",
+        "ticker": "000660",
+        "reason": "Anthropic Claude AI HBM 탑재"
+      },
+      {
+        "name": "삼성전자",
+        "ticker": "005930",
+        "reason": "Anthropic 메모리 복수 공급"
+      },
+      {
+        "name": "한미반도체",
+        "ticker": "042700",
+        "reason": "AI SW 성장→HBM 수요→TC본더"
+      }
+    ],
+    "tag": "AI인프라",
+    "impact": "긍정",
+    "source": "반도체 AI 브리핑 2026.06.29"
   }
 ]
