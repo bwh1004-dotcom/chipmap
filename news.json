@@ -78,5 +78,88 @@
     "tag": "실적",
     "impact": "positive",
     "source": "증권가"
+  },
+  {
+    "date": "2026-07-04",
+    "title": "7월 초 반도체 섹터 조정 — 밸류에이션 공포 재점화",
+    "oneline": "Micron -13%·AMD -7%·Intel -9%·SMH -5%, 3중 충격으로 단기 급락",
+    "summary": "HBM 공급 둔화 루머+연준 매파 강화+AI ROI 회의론 3중 충격. 10년물 4.48% 상승으로 성장주 할인율 압박. 전문가 다수는 구조적 하락보다 단기 과열 해소 조정으로 해석.",
+    "keypoints": [
+      "Micron -13%, 시총 $1,380억 증발",
+      "SOX YTD +47% 이후 자연스러운 조정",
+      "10년물 4.48% — 할인율 압박",
+      "연준 18명 중 9명 2026년 금리 인상 지지"
+    ],
+    "stocks": [
+      "삼성전자",
+      "SK하이닉스",
+      "Micron",
+      "AMD",
+      "Intel"
+    ],
+    "tag": "조정",
+    "impact": "negative",
+    "source": "Intellectia.AI"
+  },
+  {
+    "date": "2026-07-04",
+    "title": "AMD MI400 — HBM4 432GB, NVIDIA Vera Rubin 대비 50% 메모리 우위",
+    "oneline": "AMD MI400 HBM4 432GB 탑재, Oracle 5만 개·OpenAI $900억 딜 체결",
+    "summary": "AMD Instinct MI400이 NVIDIA 대비 50% 더 많은 메모리로 대형 멀티모달 모델 구동에 유리. 단, TSMC CoWoS 용량 11%만 확보로 시장 점유율 확대에 구조적 제약.",
+    "keypoints": [
+      "HBM4 432GB — Vera Rubin 대비 +50%",
+      "Oracle MI450 5만 개 선주문",
+      "OpenAI AMD $900억 데이터센터 딜",
+      "TSMC CoWoS 11% 할당 — 병목"
+    ],
+    "stocks": [
+      "AMD",
+      "SK하이닉스",
+      "TSMC"
+    ],
+    "tag": "AMD",
+    "impact": "positive",
+    "source": "Computing"
+  },
+  {
+    "date": "2026-07-04",
+    "title": "AWS Project Rainier — Trainium 50만 개 세계 최대 AI 클러스터",
+    "oneline": "AWS, 자체 칩 Trainium 50만 개 클러스터 구축, AI 즉시 수익화 확인",
+    "summary": "하이퍼스케일러 AI 투자 수익 실현이 실제 진행 중임을 확인. AWS 연환산 매출 $1,420억, AI 용량 설치 즉시 수익 전환.",
+    "keypoints": [
+      "Trainium 칩 50만 개 규모",
+      "AWS 연환산 $1,420억",
+      "AI 투자→즉시 수익화 확인",
+      "커스텀 ASIC 수익화 현실화"
+    ],
+    "stocks": [
+      "Amazon",
+      "NVIDIA",
+      "삼성전자"
+    ],
+    "tag": "빅테크",
+    "impact": "positive",
+    "source": "Computing"
+  },
+  {
+    "date": "2026-07-04",
+    "title": "AI 병목 전력→칩 전환 / 서버 CPU 대기 6개월·SSD 2배 급등",
+    "oneline": "샘 알트먼 '현재 병목은 다시 칩', 5대 빅테크 설비투자 $7,000억 vs 공급망 한계",
+    "summary": "2024~2025년 전력 병목에서 2026년 칩 생산 자체로 병목 전환. 서버 CPU 6개월 대기, 엔터프라이즈 SSD 2배 급등. MS·알파벳·아마존·메타·오라클 $7,000억 투자에도 공급망 미추종.",
+    "keypoints": [
+      "서버 CPU 대기 6개월 일반화",
+      "SSD 일부 제품 2배 급등",
+      "NAND 1Q +38% 추가 상승 전망",
+      "AI 데이터센터 전체 메모리 70% 소비"
+    ],
+    "stocks": [
+      "삼성전자",
+      "SK하이닉스",
+      "Micron",
+      "Intel"
+    ],
+    "tag": "공급망",
+    "impact": "positive",
+    "source": "CNAS"
   }
 ]
