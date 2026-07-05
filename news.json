@@ -161,5 +161,122 @@
     "tag": "공급망",
     "impact": "positive",
     "source": "CNAS"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "삼성·SK하이닉스·Micron — 메모리 가격 700% 담합 집단소송",
+    "oneline": "미국 법원에 메모리 3사 담합 집단소송 제기, 단기 심리적 악재",
+    "summary": "AI 메모리 가격 인위적 담합 주장. 실질 리스크보다 심리적 악재. HBM 공급 부족은 구조적 수급 현상으로 담합 입증 어려움. 소송 진행 중 변동성 확대 가능.",
+    "keypoints": [
+      "메모리 3사 대상 미국 집단소송",
+      "700% 가격 인상 담합 주장",
+      "실질 리스크보다 심리적 악재 성격",
+      "장기 소송 절차로 단기 주가 압박"
+    ],
+    "stocks": [
+      "삼성전자",
+      "SK하이닉스",
+      "Micron"
+    ],
+    "tag": "리스크",
+    "impact": "negative",
+    "source": "미국법원"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "NVIDIA — 클라우드 수익공유 모델 도입, 플랫폼 기업으로 재정의",
+    "oneline": "NVIDIA, GPU 판매 후 클라우드 운영 수익 일부 배분받는 Recurring Revenue 모델 전환",
+    "summary": "하드웨어 일회성 판매→반복 수익 구조 전환. 소프트웨어 기업 수준 PER 재평가 가능성. AI 인프라 플랫폼 기업으로 근본적 비즈니스 모델 전환.",
+    "keypoints": [
+      "GPU 판매 후 운영 수익 지속 배분",
+      "Recurring Revenue 구조 전환",
+      "소프트웨어 기업 수준 밸류에이션 재평가 가능",
+      "AI 인프라 플랫폼 기업으로 재정의"
+    ],
+    "stocks": [
+      "NVIDIA"
+    ],
+    "tag": "NVIDIA",
+    "impact": "positive",
+    "source": "NVIDIA"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "트럼프 — 인텔 지분 10% 요구, 산타클라라 팹 착공",
+    "oneline": "트럼프, 인텔에 지분 10% 요구·'8개월에 $700억 벌었다' 공개 발언",
+    "summary": "미국 정부의 반도체 기업 주주 직접 참여 전례 없는 개입. ASML 매출 가이던스 상향(AI 툴 수요 강세). AMD 영국 £20억 AI 슈퍼컴 투자 발표.",
+    "keypoints": [
+      "트럼프 인텔 지분 10% 요구",
+      "산타클라라 반도체 팹 착공",
+      "ASML 매출 가이던스 상향",
+      "AMD 영국 £20억 AI 슈퍼컴 투자"
+    ],
+    "stocks": [
+      "Intel",
+      "ASML",
+      "AMD"
+    ],
+    "tag": "정책",
+    "impact": "neutral",
+    "source": "트럼프 발언"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Qualcomm Dragonfly — HBM 없는 AI 데이터센터 칩, 2029년 $150억 목표",
+    "oneline": "퀄컴, HBM 미사용 AI 칩으로 NVIDIA 공급망 병목 우회 전략",
+    "summary": "HBM 공급 부족·고가격 병목 우회 아키텍처. 2029년 $150억 매출 목표 제시. NVIDIA 독점 구조에 균열 신호.",
+    "keypoints": [
+      "HBM 없이 작동하는 AI 데이터센터 칩",
+      "2029년 $150억 매출 목표",
+      "공급망 제약 우회 전략",
+      "NVIDIA 독점 균열 신호"
+    ],
+    "stocks": [
+      "Qualcomm",
+      "NVIDIA",
+      "SK하이닉스"
+    ],
+    "tag": "경쟁",
+    "impact": "neutral",
+    "source": "Qualcomm"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Supermicro 대만 급습 — NVIDIA 칩 중국 밀수 혐의, SMCI -8.1%",
+    "oneline": "대만 당국 SMCI 사무소 급습, NVIDIA 칩 대중 불법 수출 혐의 조사",
+    "summary": "대만 수출통제 강화 이후 첫 실제 단속 사례. 중국의 우회 칩 확보 루트 지속 시도 반증. SMCI 주가 -8.1% 급락.",
+    "keypoints": [
+      "대만 SMCI 사무소 급습",
+      "NVIDIA 칩 중국 밀수 혐의",
+      "SMCI -8.1% 급락",
+      "대만 AI 칩 수출통제 강화 이후 첫 단속"
+    ],
+    "stocks": [
+      "Supermicro",
+      "NVIDIA"
+    ],
+    "tag": "리스크",
+    "impact": "negative",
+    "source": "대만당국"
+  },
+  {
+    "date": "2026-07-06",
+    "title": "Micron — GM 장기공급계약 체결, 고객 딜 총액 $1,000억 돌파",
+    "oneline": "Micron, GM과 장기 메모리 공급계약·고객 딜 누적 $1,000억 달성",
+    "summary": "자동차 시장이 AI 반도체 대형 수요처로 공식 편입. SCA 16개 중 14개에서 $1,000억 최소 보장 구조 현실화.",
+    "keypoints": [
+      "GM 장기 메모리 공급계약 체결",
+      "고객 딜 총액 $1,000억 돌파",
+      "SCA 16개 중 14개 $1,000억 보장",
+      "자동차 시장 AI 반도체 수요처 편입"
+    ],
+    "stocks": [
+      "Micron",
+      "삼성전자",
+      "SK하이닉스"
+    ],
+    "tag": "실적",
+    "impact": "positive",
+    "source": "Micron"
   }
 ]
