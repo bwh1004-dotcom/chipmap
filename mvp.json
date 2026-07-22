@@ -8808,8 +8808,7 @@
         "fundamental": 96,
         "per": 14.5,
         "pbr": 2.6,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 2,
@@ -8822,8 +8821,7 @@
         "fundamental": 95,
         "per": 27.5,
         "pbr": 10.8,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 3,
@@ -8836,8 +8834,7 @@
         "fundamental": 85,
         "per": 56.0,
         "pbr": 6.0,
-        "roe": "10.8%",
-        "sector": ""
+        "roe": "10.8%"
       },
       {
         "rank": 4,
@@ -8850,8 +8847,7 @@
         "fundamental": 92,
         "per": 8.0,
         "pbr": 1.3,
-        "roe": "16.0%",
-        "sector": ""
+        "roe": "16.0%"
       },
       {
         "rank": 5,
@@ -8864,8 +8860,7 @@
         "fundamental": 95,
         "per": 21.7,
         "pbr": 1.5,
-        "roe": "6.8%",
-        "sector": ""
+        "roe": "6.8%"
       },
       {
         "rank": 6,
@@ -8878,8 +8873,7 @@
         "fundamental": 96,
         "per": 44.3,
         "pbr": 7.8,
-        "roe": "17.6%",
-        "sector": "반도체장비"
+        "roe": "17.6%"
       },
       {
         "rank": 7,
@@ -8892,8 +8886,7 @@
         "fundamental": 93,
         "per": 57.0,
         "pbr": 6.0,
-        "roe": "10.5%",
-        "sector": "반도체장비"
+        "roe": "10.5%"
       },
       {
         "rank": 8,
@@ -8906,8 +8899,7 @@
         "fundamental": 82,
         "per": 6.2,
         "pbr": 0.7,
-        "roe": "11.1%",
-        "sector": ""
+        "roe": "11.1%"
       },
       {
         "rank": 9,
@@ -8920,8 +8912,7 @@
         "fundamental": 85,
         "per": 10.6,
         "pbr": 1.6,
-        "roe": "14.9%",
-        "sector": ""
+        "roe": "14.9%"
       },
       {
         "rank": 10,
@@ -8934,8 +8925,7 @@
         "fundamental": 89,
         "per": 17.4,
         "pbr": 1.3,
-        "roe": "7.7%",
-        "sector": ""
+        "roe": "7.7%"
       },
       {
         "rank": 11,
@@ -8948,8 +8938,7 @@
         "fundamental": 88,
         "per": 6.7,
         "pbr": 2.2,
-        "roe": "33.6%",
-        "sector": ""
+        "roe": "33.6%"
       },
       {
         "rank": 12,
@@ -8962,8 +8951,7 @@
         "fundamental": 92,
         "per": 6.4,
         "pbr": 1.1,
-        "roe": "16.9%",
-        "sector": ""
+        "roe": "16.9%"
       },
       {
         "rank": 13,
@@ -8976,8 +8964,7 @@
         "fundamental": 82,
         "per": 16.9,
         "pbr": 3.1,
-        "roe": "18.4%",
-        "sector": ""
+        "roe": "18.4%"
       },
       {
         "rank": 14,
@@ -8990,8 +8977,7 @@
         "fundamental": 80,
         "per": 20.1,
         "pbr": 2.1,
-        "roe": "10.3%",
-        "sector": "반도체소재"
+        "roe": "10.3%"
       },
       {
         "rank": 15,
@@ -9004,8 +8990,7 @@
         "fundamental": 96,
         "per": 10.0,
         "pbr": 1.3,
-        "roe": "12.8%",
-        "sector": ""
+        "roe": "12.8%"
       },
       {
         "rank": 16,
@@ -9018,8 +9003,7 @@
         "fundamental": 91,
         "per": 10.3,
         "pbr": 3.7,
-        "roe": "35.9%",
-        "sector": "조선"
+        "roe": "35.9%"
       },
       {
         "rank": 17,
@@ -9032,8 +9016,7 @@
         "fundamental": 90,
         "per": 43.1,
         "pbr": 5.5,
-        "roe": "12.9%",
-        "sector": "반도체소켓"
+        "roe": "12.9%"
       },
       {
         "rank": 18,
@@ -9046,8 +9029,7 @@
         "fundamental": 97,
         "per": 21.4,
         "pbr": 3.0,
-        "roe": "14.0%",
-        "sector": "반도체장비"
+        "roe": "14.0%"
       },
       {
         "rank": 19,
@@ -9060,8 +9042,7 @@
         "fundamental": 85,
         "per": 10.0,
         "pbr": 1.7,
-        "roe": "16.5%",
-        "sector": ""
+        "roe": "16.5%"
       },
       {
         "rank": 20,
@@ -9074,8 +9055,7 @@
         "fundamental": 85,
         "per": 7.0,
         "pbr": 1.0,
-        "roe": "14.3%",
-        "sector": ""
+        "roe": "14.3%"
       }
     ]
   },
@@ -9094,8 +9074,7 @@
         "fundamental": 96,
         "per": 16.3,
         "pbr": 2.9,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 2,
@@ -9108,8 +9087,7 @@
         "fundamental": 91,
         "per": 11.6,
         "pbr": 4.2,
-        "roe": "35.9%",
-        "sector": "조선"
+        "roe": "35.9%"
       },
       {
         "rank": 3,
@@ -9122,8 +9100,7 @@
         "fundamental": 96,
         "per": 55.1,
         "pbr": 9.7,
-        "roe": "17.6%",
-        "sector": "반도체장비"
+        "roe": "17.6%"
       },
       {
         "rank": 4,
@@ -9136,8 +9113,7 @@
         "fundamental": 94,
         "per": 67.0,
         "pbr": 7.9,
-        "roe": "11.9%",
-        "sector": "반도체장비"
+        "roe": "11.9%"
       },
       {
         "rank": 5,
@@ -9150,8 +9126,7 @@
         "fundamental": 87,
         "per": 9.8,
         "pbr": 1.6,
-        "roe": "16.8%",
-        "sector": ""
+        "roe": "16.8%"
       },
       {
         "rank": 6,
@@ -9164,8 +9139,7 @@
         "fundamental": 79,
         "per": 72.1,
         "pbr": 5.7,
-        "roe": "7.9%",
-        "sector": ""
+        "roe": "7.9%"
       },
       {
         "rank": 7,
@@ -9178,8 +9152,7 @@
         "fundamental": 95,
         "per": 9.7,
         "pbr": 1.2,
-        "roe": "12.2%",
-        "sector": ""
+        "roe": "12.2%"
       },
       {
         "rank": 8,
@@ -9192,8 +9165,7 @@
         "fundamental": 89,
         "per": 10.1,
         "pbr": 1.7,
-        "roe": "17.1%",
-        "sector": ""
+        "roe": "17.1%"
       },
       {
         "rank": 9,
@@ -9206,8 +9178,7 @@
         "fundamental": 81,
         "per": 20.3,
         "pbr": 2.3,
-        "roe": "11.2%",
-        "sector": ""
+        "roe": "11.2%"
       },
       {
         "rank": 10,
@@ -9220,8 +9191,7 @@
         "fundamental": 93,
         "per": 9.8,
         "pbr": 1.6,
-        "roe": "16.4%",
-        "sector": ""
+        "roe": "16.4%"
       },
       {
         "rank": 11,
@@ -9234,8 +9204,7 @@
         "fundamental": 89,
         "per": 5.6,
         "pbr": 0.4,
-        "roe": "6.9%",
-        "sector": ""
+        "roe": "6.9%"
       },
       {
         "rank": 12,
@@ -9248,8 +9217,7 @@
         "fundamental": 98,
         "per": 12.3,
         "pbr": 1.0,
-        "roe": "8.3%",
-        "sector": ""
+        "roe": "8.3%"
       },
       {
         "rank": 13,
@@ -9262,8 +9230,7 @@
         "fundamental": 90,
         "per": 45.9,
         "pbr": 5.9,
-        "roe": "12.9%",
-        "sector": "반도체소켓"
+        "roe": "12.9%"
       },
       {
         "rank": 14,
@@ -9276,8 +9243,7 @@
         "fundamental": 85,
         "per": 60.5,
         "pbr": 6.5,
-        "roe": "10.8%",
-        "sector": ""
+        "roe": "10.8%"
       },
       {
         "rank": 15,
@@ -9290,8 +9256,7 @@
         "fundamental": 79,
         "per": 32.5,
         "pbr": 3.8,
-        "roe": "11.7%",
-        "sector": ""
+        "roe": "11.7%"
       },
       {
         "rank": 16,
@@ -9304,8 +9269,7 @@
         "fundamental": 87,
         "per": 6.0,
         "pbr": 0.8,
-        "roe": "13.9%",
-        "sector": ""
+        "roe": "13.9%"
       },
       {
         "rank": 17,
@@ -9318,8 +9282,7 @@
         "fundamental": 96,
         "per": 7.3,
         "pbr": 1.6,
-        "roe": "22.2%",
-        "sector": ""
+        "roe": "22.2%"
       },
       {
         "rank": 18,
@@ -9332,8 +9295,7 @@
         "fundamental": 81,
         "per": 18.1,
         "pbr": 1.1,
-        "roe": "6.3%",
-        "sector": ""
+        "roe": "6.3%"
       },
       {
         "rank": 19,
@@ -9346,8 +9308,7 @@
         "fundamental": 81,
         "per": 11.7,
         "pbr": 1.5,
-        "roe": "13.0%",
-        "sector": ""
+        "roe": "13.0%"
       },
       {
         "rank": 20,
@@ -9360,8 +9321,7 @@
         "fundamental": 84,
         "per": 2.9,
         "pbr": 0.4,
-        "roe": "15.0%",
-        "sector": ""
+        "roe": "15.0%"
       }
     ]
   },
@@ -9380,8 +9340,7 @@
         "fundamental": 85,
         "per": 20.7,
         "pbr": 3.0,
-        "roe": "14.8%",
-        "sector": "에너지"
+        "roe": "14.8%"
       },
       {
         "rank": 2,
@@ -9394,8 +9353,7 @@
         "fundamental": 94,
         "per": 7.7,
         "pbr": 0.7,
-        "roe": "9.7%",
-        "sector": ""
+        "roe": "9.7%"
       },
       {
         "rank": 3,
@@ -9408,8 +9366,7 @@
         "fundamental": 96,
         "per": 53.7,
         "pbr": 9.4,
-        "roe": "17.6%",
-        "sector": "반도체장비"
+        "roe": "17.6%"
       },
       {
         "rank": 4,
@@ -9422,8 +9379,7 @@
         "fundamental": 95,
         "per": 27.5,
         "pbr": 10.7,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 5,
@@ -9436,8 +9392,7 @@
         "fundamental": 93,
         "per": 59.8,
         "pbr": 6.3,
-        "roe": "10.5%",
-        "sector": "반도체장비"
+        "roe": "10.5%"
       },
       {
         "rank": 6,
@@ -9450,8 +9405,7 @@
         "fundamental": 93,
         "per": 8.9,
         "pbr": 0.5,
-        "roe": "6.1%",
-        "sector": ""
+        "roe": "6.1%"
       },
       {
         "rank": 7,
@@ -9464,8 +9418,7 @@
         "fundamental": 80,
         "per": 38.5,
         "pbr": 6.5,
-        "roe": "16.9%",
-        "sector": "반도체테스트"
+        "roe": "16.9%"
       },
       {
         "rank": 8,
@@ -9478,8 +9431,7 @@
         "fundamental": 95,
         "per": 9.6,
         "pbr": 1.2,
-        "roe": "12.2%",
-        "sector": ""
+        "roe": "12.2%"
       },
       {
         "rank": 9,
@@ -9492,8 +9444,7 @@
         "fundamental": 81,
         "per": 11.3,
         "pbr": 1.5,
-        "roe": "13.0%",
-        "sector": ""
+        "roe": "13.0%"
       },
       {
         "rank": 10,
@@ -9506,8 +9457,7 @@
         "fundamental": 90,
         "per": 46.6,
         "pbr": 6.0,
-        "roe": "12.9%",
-        "sector": "반도체소켓"
+        "roe": "12.9%"
       },
       {
         "rank": 11,
@@ -9520,8 +9470,7 @@
         "fundamental": 91,
         "per": 7.2,
         "pbr": 0.9,
-        "roe": "12.5%",
-        "sector": ""
+        "roe": "12.5%"
       },
       {
         "rank": 12,
@@ -9534,8 +9483,7 @@
         "fundamental": 87,
         "per": 9.5,
         "pbr": 1.6,
-        "roe": "16.8%",
-        "sector": ""
+        "roe": "16.8%"
       },
       {
         "rank": 13,
@@ -9548,8 +9496,7 @@
         "fundamental": 89,
         "per": 10.1,
         "pbr": 0.9,
-        "roe": "8.6%",
-        "sector": ""
+        "roe": "8.6%"
       },
       {
         "rank": 14,
@@ -9562,8 +9509,7 @@
         "fundamental": 81,
         "per": 18.8,
         "pbr": 2.1,
-        "roe": "11.2%",
-        "sector": ""
+        "roe": "11.2%"
       },
       {
         "rank": 15,
@@ -9576,8 +9522,7 @@
         "fundamental": 93,
         "per": 20.9,
         "pbr": 2.0,
-        "roe": "9.6%",
-        "sector": ""
+        "roe": "9.6%"
       },
       {
         "rank": 16,
@@ -9590,8 +9535,7 @@
         "fundamental": 96,
         "per": 15.3,
         "pbr": 2.7,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 17,
@@ -9604,8 +9548,7 @@
         "fundamental": 96,
         "per": 7.2,
         "pbr": 1.6,
-        "roe": "22.2%",
-        "sector": ""
+        "roe": "22.2%"
       },
       {
         "rank": 18,
@@ -9618,8 +9561,7 @@
         "fundamental": 98,
         "per": 6.3,
         "pbr": 1.6,
-        "roe": "25.8%",
-        "sector": ""
+        "roe": "25.8%"
       },
       {
         "rank": 19,
@@ -9632,8 +9574,7 @@
         "fundamental": 89,
         "per": 6.0,
         "pbr": 1.6,
-        "roe": "26.7%",
-        "sector": ""
+        "roe": "26.7%"
       },
       {
         "rank": 20,
@@ -9646,8 +9587,7 @@
         "fundamental": 99,
         "per": 12.0,
         "pbr": 0.6,
-        "roe": "5.4%",
-        "sector": ""
+        "roe": "5.4%"
       }
     ]
   },
@@ -9666,8 +9606,7 @@
         "fundamental": 93,
         "per": 59.4,
         "pbr": 6.2,
-        "roe": "10.5%",
-        "sector": "반도체장비"
+        "roe": "10.5%"
       },
       {
         "rank": 2,
@@ -9680,8 +9619,7 @@
         "fundamental": 96,
         "per": 15.5,
         "pbr": 2.8,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 3,
@@ -9694,8 +9632,7 @@
         "fundamental": 81,
         "per": 17.7,
         "pbr": 2.0,
-        "roe": "11.2%",
-        "sector": ""
+        "roe": "11.2%"
       },
       {
         "rank": 4,
@@ -9708,8 +9645,7 @@
         "fundamental": 83,
         "per": 13.8,
         "pbr": 1.2,
-        "roe": "9.0%",
-        "sector": ""
+        "roe": "9.0%"
       },
       {
         "rank": 5,
@@ -9722,8 +9658,7 @@
         "fundamental": 93,
         "per": 8.8,
         "pbr": 0.5,
-        "roe": "6.1%",
-        "sector": ""
+        "roe": "6.1%"
       },
       {
         "rank": 6,
@@ -9736,8 +9671,7 @@
         "fundamental": 89,
         "per": 9.7,
         "pbr": 1.7,
-        "roe": "17.1%",
-        "sector": ""
+        "roe": "17.1%"
       },
       {
         "rank": 7,
@@ -9750,8 +9684,7 @@
         "fundamental": 85,
         "per": 9.5,
         "pbr": 1.6,
-        "roe": "16.5%",
-        "sector": ""
+        "roe": "16.5%"
       },
       {
         "rank": 8,
@@ -9764,8 +9697,7 @@
         "fundamental": 85,
         "per": 10.3,
         "pbr": 1.5,
-        "roe": "14.9%",
-        "sector": ""
+        "roe": "14.9%"
       },
       {
         "rank": 9,
@@ -9778,8 +9710,7 @@
         "fundamental": 89,
         "per": 5.6,
         "pbr": 0.4,
-        "roe": "6.9%",
-        "sector": ""
+        "roe": "6.9%"
       },
       {
         "rank": 10,
@@ -9792,8 +9723,7 @@
         "fundamental": 88,
         "per": 6.8,
         "pbr": 2.3,
-        "roe": "33.6%",
-        "sector": ""
+        "roe": "33.6%"
       },
       {
         "rank": 11,
@@ -9806,8 +9736,7 @@
         "fundamental": 81,
         "per": 30.1,
         "pbr": 1.5,
-        "roe": "5.1%",
-        "sector": ""
+        "roe": "5.1%"
       },
       {
         "rank": 12,
@@ -9820,8 +9749,7 @@
         "fundamental": 100,
         "per": 20.5,
         "pbr": 2.6,
-        "roe": "12.8%",
-        "sector": ""
+        "roe": "12.8%"
       },
       {
         "rank": 13,
@@ -9834,8 +9762,7 @@
         "fundamental": 94,
         "per": 8.6,
         "pbr": 1.1,
-        "roe": "12.3%",
-        "sector": ""
+        "roe": "12.3%"
       },
       {
         "rank": 14,
@@ -9848,8 +9775,7 @@
         "fundamental": 95,
         "per": 27.3,
         "pbr": 10.7,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 15,
@@ -9862,8 +9788,7 @@
         "fundamental": 95,
         "per": 11.6,
         "pbr": 1.4,
-        "roe": "11.9%",
-        "sector": ""
+        "roe": "11.9%"
       },
       {
         "rank": 16,
@@ -9876,8 +9801,7 @@
         "fundamental": 92,
         "per": 38.8,
         "pbr": 4.4,
-        "roe": "11.3%",
-        "sector": "바이오"
+        "roe": "11.3%"
       },
       {
         "rank": 17,
@@ -9890,8 +9814,7 @@
         "fundamental": 85,
         "per": 58.7,
         "pbr": 6.3,
-        "roe": "10.8%",
-        "sector": ""
+        "roe": "10.8%"
       },
       {
         "rank": 18,
@@ -9904,8 +9827,7 @@
         "fundamental": 100,
         "per": 6.4,
         "pbr": 0.6,
-        "roe": "9.1%",
-        "sector": ""
+        "roe": "9.1%"
       },
       {
         "rank": 19,
@@ -9918,8 +9840,7 @@
         "fundamental": 96,
         "per": 59.2,
         "pbr": 10.4,
-        "roe": "17.6%",
-        "sector": "반도체장비"
+        "roe": "17.6%"
       },
       {
         "rank": 20,
@@ -9932,8 +9853,7 @@
         "fundamental": 92,
         "per": 6.2,
         "pbr": 1.0,
-        "roe": "16.9%",
-        "sector": ""
+        "roe": "16.9%"
       }
     ]
   },
@@ -9952,8 +9872,7 @@
         "fundamental": 92,
         "per": 7.1,
         "pbr": 1.2,
-        "roe": "16.9%",
-        "sector": ""
+        "roe": "16.9%"
       },
       {
         "rank": 2,
@@ -9966,8 +9885,7 @@
         "fundamental": 85,
         "per": 20.9,
         "pbr": 3.1,
-        "roe": "14.8%",
-        "sector": "에너지"
+        "roe": "14.8%"
       },
       {
         "rank": 3,
@@ -9980,8 +9898,7 @@
         "fundamental": 85,
         "per": 10.3,
         "pbr": 1.7,
-        "roe": "16.5%",
-        "sector": ""
+        "roe": "16.5%"
       },
       {
         "rank": 4,
@@ -9994,8 +9911,7 @@
         "fundamental": 96,
         "per": 59.5,
         "pbr": 10.4,
-        "roe": "17.6%",
-        "sector": "반도체장비"
+        "roe": "17.6%"
       },
       {
         "rank": 5,
@@ -10008,8 +9924,7 @@
         "fundamental": 85,
         "per": 71.6,
         "pbr": 7.7,
-        "roe": "10.8%",
-        "sector": ""
+        "roe": "10.8%"
       },
       {
         "rank": 6,
@@ -10022,8 +9937,7 @@
         "fundamental": 96,
         "per": 16.2,
         "pbr": 2.9,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 7,
@@ -10036,8 +9950,7 @@
         "fundamental": 79,
         "per": 71.1,
         "pbr": 5.6,
-        "roe": "7.9%",
-        "sector": ""
+        "roe": "7.9%"
       },
       {
         "rank": 8,
@@ -10050,8 +9963,7 @@
         "fundamental": 91,
         "per": 8.1,
         "pbr": 1.2,
-        "roe": "14.8%",
-        "sector": ""
+        "roe": "14.8%"
       },
       {
         "rank": 9,
@@ -10064,8 +9976,7 @@
         "fundamental": 91,
         "per": 11.0,
         "pbr": 4.0,
-        "roe": "35.9%",
-        "sector": "조선"
+        "roe": "35.9%"
       },
       {
         "rank": 10,
@@ -10078,8 +9989,7 @@
         "fundamental": 82,
         "per": 17.0,
         "pbr": 3.1,
-        "roe": "18.4%",
-        "sector": ""
+        "roe": "18.4%"
       },
       {
         "rank": 11,
@@ -10092,8 +10002,7 @@
         "fundamental": 95,
         "per": 27.3,
         "pbr": 10.7,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 12,
@@ -10106,8 +10015,7 @@
         "fundamental": 99,
         "per": 1.9,
         "pbr": 0.3,
-        "roe": "15.2%",
-        "sector": ""
+        "roe": "15.2%"
       },
       {
         "rank": 13,
@@ -10120,8 +10028,7 @@
         "fundamental": 87,
         "per": 10.1,
         "pbr": 1.7,
-        "roe": "16.8%",
-        "sector": ""
+        "roe": "16.8%"
       },
       {
         "rank": 14,
@@ -10134,8 +10041,7 @@
         "fundamental": 100,
         "per": 6.7,
         "pbr": 0.6,
-        "roe": "9.1%",
-        "sector": ""
+        "roe": "9.1%"
       },
       {
         "rank": 15,
@@ -10148,8 +10054,7 @@
         "fundamental": 94,
         "per": 7.9,
         "pbr": 0.8,
-        "roe": "9.7%",
-        "sector": ""
+        "roe": "9.7%"
       },
       {
         "rank": 16,
@@ -10162,8 +10067,7 @@
         "fundamental": 90,
         "per": 48.2,
         "pbr": 6.2,
-        "roe": "12.9%",
-        "sector": "반도체소켓"
+        "roe": "12.9%"
       },
       {
         "rank": 17,
@@ -10176,8 +10080,7 @@
         "fundamental": 97,
         "per": 26.9,
         "pbr": 3.8,
-        "roe": "14.0%",
-        "sector": "반도체장비"
+        "roe": "14.0%"
       },
       {
         "rank": 18,
@@ -10190,8 +10093,7 @@
         "fundamental": 95,
         "per": 12.1,
         "pbr": 1.4,
-        "roe": "11.9%",
-        "sector": ""
+        "roe": "11.9%"
       },
       {
         "rank": 19,
@@ -10204,8 +10106,7 @@
         "fundamental": 82,
         "per": 4.0,
         "pbr": 0.6,
-        "roe": "14.3%",
-        "sector": ""
+        "roe": "14.3%"
       },
       {
         "rank": 20,
@@ -10218,8 +10119,7 @@
         "fundamental": 81,
         "per": 32.7,
         "pbr": 1.7,
-        "roe": "5.1%",
-        "sector": ""
+        "roe": "5.1%"
       }
     ]
   },
@@ -10238,8 +10138,7 @@
         "fundamental": 95,
         "per": 28.7,
         "pbr": 11.2,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 2,
@@ -10252,8 +10151,7 @@
         "fundamental": 96,
         "per": 15.0,
         "pbr": 2.7,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 3,
@@ -10266,8 +10164,7 @@
         "fundamental": 83,
         "per": 14.1,
         "pbr": 1.3,
-        "roe": "9.0%",
-        "sector": ""
+        "roe": "9.0%"
       },
       {
         "rank": 4,
@@ -10280,8 +10177,7 @@
         "fundamental": 85,
         "per": 69.0,
         "pbr": 7.4,
-        "roe": "10.8%",
-        "sector": ""
+        "roe": "10.8%"
       },
       {
         "rank": 5,
@@ -10294,8 +10190,7 @@
         "fundamental": 93,
         "per": 57.3,
         "pbr": 6.0,
-        "roe": "10.5%",
-        "sector": "반도체장비"
+        "roe": "10.5%"
       },
       {
         "rank": 6,
@@ -10308,8 +10203,7 @@
         "fundamental": 95,
         "per": 9.8,
         "pbr": 1.2,
-        "roe": "12.2%",
-        "sector": ""
+        "roe": "12.2%"
       },
       {
         "rank": 7,
@@ -10322,8 +10216,7 @@
         "fundamental": 97,
         "per": 7.1,
         "pbr": 0.6,
-        "roe": "7.9%",
-        "sector": ""
+        "roe": "7.9%"
       },
       {
         "rank": 8,
@@ -10336,8 +10229,7 @@
         "fundamental": 95,
         "per": 7.8,
         "pbr": 0.6,
-        "roe": "7.2%",
-        "sector": ""
+        "roe": "7.2%"
       },
       {
         "rank": 9,
@@ -10350,8 +10242,7 @@
         "fundamental": 98,
         "per": 3.9,
         "pbr": 0.5,
-        "roe": "13.8%",
-        "sector": ""
+        "roe": "13.8%"
       },
       {
         "rank": 10,
@@ -10364,8 +10255,7 @@
         "fundamental": 96,
         "per": 7.1,
         "pbr": 1.6,
-        "roe": "22.2%",
-        "sector": ""
+        "roe": "22.2%"
       },
       {
         "rank": 11,
@@ -10378,8 +10268,7 @@
         "fundamental": 91,
         "per": 11.9,
         "pbr": 0.7,
-        "roe": "6.1%",
-        "sector": ""
+        "roe": "6.1%"
       },
       {
         "rank": 12,
@@ -10392,8 +10281,7 @@
         "fundamental": 96,
         "per": 7.9,
         "pbr": 0.7,
-        "roe": "8.3%",
-        "sector": ""
+        "roe": "8.3%"
       },
       {
         "rank": 13,
@@ -10406,8 +10294,7 @@
         "fundamental": 100,
         "per": 6.1,
         "pbr": 0.7,
-        "roe": "12.1%",
-        "sector": ""
+        "roe": "12.1%"
       },
       {
         "rank": 14,
@@ -10420,8 +10307,7 @@
         "fundamental": 89,
         "per": 17.9,
         "pbr": 1.4,
-        "roe": "7.7%",
-        "sector": ""
+        "roe": "7.7%"
       },
       {
         "rank": 15,
@@ -10434,8 +10320,7 @@
         "fundamental": 93,
         "per": 9.0,
         "pbr": 1.5,
-        "roe": "16.4%",
-        "sector": ""
+        "roe": "16.4%"
       },
       {
         "rank": 16,
@@ -10448,8 +10333,7 @@
         "fundamental": 91,
         "per": 5.5,
         "pbr": 1.1,
-        "roe": "20.1%",
-        "sector": ""
+        "roe": "20.1%"
       },
       {
         "rank": 17,
@@ -10462,8 +10346,7 @@
         "fundamental": 92,
         "per": 37.6,
         "pbr": 4.2,
-        "roe": "11.3%",
-        "sector": "바이오"
+        "roe": "11.3%"
       },
       {
         "rank": 18,
@@ -10476,8 +10359,7 @@
         "fundamental": 92,
         "per": 8.5,
         "pbr": 1.4,
-        "roe": "16.0%",
-        "sector": ""
+        "roe": "16.0%"
       },
       {
         "rank": 19,
@@ -10490,8 +10372,7 @@
         "fundamental": 91,
         "per": 7.6,
         "pbr": 1.1,
-        "roe": "14.8%",
-        "sector": ""
+        "roe": "14.8%"
       },
       {
         "rank": 20,
@@ -10504,8 +10385,7 @@
         "fundamental": 84,
         "per": 10.4,
         "pbr": 1.9,
-        "roe": "17.9%",
-        "sector": ""
+        "roe": "17.9%"
       }
     ]
   },
@@ -10524,8 +10404,7 @@
         "fundamental": 95,
         "per": 29.9,
         "pbr": 11.7,
-        "roe": "39.1%",
-        "sector": ""
+        "roe": "39.1%"
       },
       {
         "rank": 2,
@@ -10538,8 +10417,7 @@
         "fundamental": 96,
         "per": 14.5,
         "pbr": 2.6,
-        "roe": "17.7%",
-        "sector": ""
+        "roe": "17.7%"
       },
       {
         "rank": 3,
@@ -10552,8 +10430,7 @@
         "fundamental": 96,
         "per": 6.8,
         "pbr": 1.5,
-        "roe": "22.2%",
-        "sector": ""
+        "roe": "22.2%"
       },
       {
         "rank": 4,
@@ -10566,8 +10443,7 @@
         "fundamental": 85,
         "per": 9.2,
         "pbr": 1.5,
-        "roe": "16.5%",
-        "sector": ""
+        "roe": "16.5%"
       },
       {
         "rank": 5,
@@ -10580,8 +10456,7 @@
         "fundamental": 94,
         "per": 8.5,
         "pbr": 1.0,
-        "roe": "12.3%",
-        "sector": ""
+        "roe": "12.3%"
       },
       {
         "rank": 6,
@@ -10594,8 +10469,7 @@
         "fundamental": 89,
         "per": 16.7,
         "pbr": 1.3,
-        "roe": "7.7%",
-        "sector": ""
+        "roe": "7.7%"
       },
       {
         "rank": 7,
@@ -10608,8 +10482,7 @@
         "fundamental": 93,
         "per": 52.8,
         "pbr": 5.5,
-        "roe": "10.5%",
-        "sector": "반도체장비"
+        "roe": "10.5%"
       },
       {
         "rank": 8,
@@ -10622,8 +10495,7 @@
         "fundamental": 83,
         "per": 14.3,
         "pbr": 1.3,
-        "roe": "9.0%",
-        "sector": ""
+        "roe": "9.0%"
       },
       {
         "rank": 9,
@@ -10636,8 +10508,7 @@
         "fundamental": 94,
         "per": 5.0,
         "pbr": 0.4,
-        "roe": "9.1%",
-        "sector": ""
+        "roe": "9.1%"
       },
       {
         "rank": 10,
@@ -10650,8 +10521,7 @@
         "fundamental": 87,
         "per": 5.4,
         "pbr": 0.8,
-        "roe": "13.9%",
-        "sector": ""
+        "roe": "13.9%"
       },
       {
         "rank": 11,
@@ -10664,8 +10534,7 @@
         "fundamental": 95,
         "per": 11.4,
         "pbr": 1.4,
-        "roe": "11.9%",
-        "sector": ""
+        "roe": "11.9%"
       },
       {
         "rank": 12,
@@ -10678,8 +10547,7 @@
         "fundamental": 80,
         "per": 13.8,
         "pbr": 2.1,
-        "roe": "15.5%",
-        "sector": "게임"
+        "roe": "15.5%"
       },
       {
         "rank": 13,
@@ -10692,8 +10560,7 @@
         "fundamental": 96,
         "per": 7.7,
         "pbr": 0.6,
-        "roe": "8.3%",
-        "sector": ""
+        "roe": "8.3%"
       },
       {
         "rank": 14,
@@ -10706,8 +10573,7 @@
         "fundamental": 91,
         "per": 11.9,
         "pbr": 0.7,
-        "roe": "6.1%",
-        "sector": ""
+        "roe": "6.1%"
       },
       {
         "rank": 15,
@@ -10720,8 +10586,7 @@
         "fundamental": 92,
         "per": 8.1,
         "pbr": 1.3,
-        "roe": "16.0%",
-        "sector": ""
+        "roe": "16.0%"
       },
       {
         "rank": 16,
@@ -10734,8 +10599,7 @@
         "fundamental": 91,
         "per": 10.0,
         "pbr": 3.6,
-        "roe": "35.9%",
-        "sector": "조선"
+        "roe": "35.9%"
       },
       {
         "rank": 17,
@@ -10748,8 +10612,7 @@
         "fundamental": 89,
         "per": 8.7,
         "pbr": 0.7,
-        "roe": "8.6%",
-        "sector": ""
+        "roe": "8.6%"
       },
       {
         "rank": 18,
@@ -10762,8 +10625,7 @@
         "fundamental": 95,
         "per": 19.4,
         "pbr": 1.3,
-        "roe": "6.8%",
-        "sector": ""
+        "roe": "6.8%"
       },
       {
         "rank": 19,
@@ -10776,8 +10638,7 @@
         "fundamental": 100,
         "per": 19.4,
         "pbr": 2.5,
-        "roe": "12.8%",
-        "sector": ""
+        "roe": "12.8%"
       },
       {
         "rank": 20,
@@ -10790,8 +10651,273 @@
         "fundamental": 87,
         "per": 9.2,
         "pbr": 1.6,
-        "roe": "16.8%",
-        "sector": ""
+        "roe": "16.8%"
+      }
+    ]
+  },
+  {
+    "date": "2026-07-22",
+    "source": "아이투자",
+    "list": [
+      {
+        "rank": 1,
+        "name": "달바글로벌",
+        "price": "236,000",
+        "change": "+8.8%",
+        "mvp": 96,
+        "supply": 100,
+        "value": 95,
+        "fundamental": 95,
+        "per": 32.5,
+        "pbr": 12.7,
+        "roe": "39.1%"
+      },
+      {
+        "rank": 2,
+        "name": "DSC인베스트먼트",
+        "price": "7,410",
+        "change": "+0.4%",
+        "mvp": 91,
+        "supply": 87,
+        "value": 100,
+        "fundamental": 85,
+        "per": 9.3,
+        "pbr": 1.5,
+        "roe": "16.5%"
+      },
+      {
+        "rank": 3,
+        "name": "세보엠이씨",
+        "price": "21,950",
+        "change": "+3.5%",
+        "mvp": 91,
+        "supply": 88,
+        "value": 96,
+        "fundamental": 87,
+        "per": 5.6,
+        "pbr": 0.8,
+        "roe": "13.9%"
+      },
+      {
+        "rank": 4,
+        "name": "지앤비에스 에코",
+        "price": "4,005",
+        "change": "-1.0%",
+        "mvp": 89,
+        "supply": 80,
+        "value": 92,
+        "fundamental": 94,
+        "per": 8.4,
+        "pbr": 1.0,
+        "roe": "12.3%"
+      },
+      {
+        "rank": 5,
+        "name": "티디에스팜",
+        "price": "5,440",
+        "change": "-1.3%",
+        "mvp": 88,
+        "supply": 74,
+        "value": 98,
+        "fundamental": 93,
+        "per": 6.0,
+        "pbr": 0.7,
+        "roe": "11.5%"
+      },
+      {
+        "rank": 6,
+        "name": "미래에셋벤처투자",
+        "price": "13,330",
+        "change": "+0.1%",
+        "mvp": 87,
+        "supply": 86,
+        "value": 93,
+        "fundamental": 81,
+        "per": 16.2,
+        "pbr": 1.8,
+        "roe": "11.2%"
+      },
+      {
+        "rank": 7,
+        "name": "가비아",
+        "price": "47,500",
+        "change": "+7.8%",
+        "mvp": 87,
+        "supply": 94,
+        "value": 78,
+        "fundamental": 88,
+        "per": 36.5,
+        "pbr": 3.5,
+        "roe": "9.7%"
+      },
+      {
+        "rank": 8,
+        "name": "크래프톤",
+        "price": "234,500",
+        "change": "+5.4%",
+        "mvp": 87,
+        "supply": 66,
+        "value": 99,
+        "fundamental": 95,
+        "per": 12.3,
+        "pbr": 1.5,
+        "roe": "12.0%"
+      },
+      {
+        "rank": 9,
+        "name": "지투파워",
+        "price": "6,510",
+        "change": "+2.5%",
+        "mvp": 87,
+        "supply": 81,
+        "value": 97,
+        "fundamental": 82,
+        "per": 15.7,
+        "pbr": 2.9,
+        "roe": "18.4%"
+      },
+      {
+        "rank": 10,
+        "name": "월덱스",
+        "price": "29,450",
+        "change": "0.0%",
+        "mvp": 86,
+        "supply": 95,
+        "value": 68,
+        "fundamental": 96,
+        "per": 10.4,
+        "pbr": 1.3,
+        "roe": "12.8%"
+      },
+      {
+        "rank": 11,
+        "name": "피에스케이",
+        "price": "170,000",
+        "change": "-0.5%",
+        "mvp": 86,
+        "supply": 64,
+        "value": 98,
+        "fundamental": 96,
+        "per": 49.4,
+        "pbr": 8.7,
+        "roe": "17.6%"
+      },
+      {
+        "rank": 12,
+        "name": "제이엠티",
+        "price": "2,615",
+        "change": "-0.2%",
+        "mvp": 86,
+        "supply": 75,
+        "value": 99,
+        "fundamental": 83,
+        "per": 2.2,
+        "pbr": 0.3,
+        "roe": "12.9%"
+      },
+      {
+        "rank": 13,
+        "name": "HD현대마린엔진",
+        "price": "58,200",
+        "change": "+10.0%",
+        "mvp": 85,
+        "supply": 66,
+        "value": 99,
+        "fundamental": 91,
+        "per": 11.0,
+        "pbr": 4.0,
+        "roe": "35.9%"
+      },
+      {
+        "rank": 14,
+        "name": "에스앤디",
+        "price": "52,000",
+        "change": "+5.4%",
+        "mvp": 85,
+        "supply": 72,
+        "value": 83,
+        "fundamental": 98,
+        "per": 6.7,
+        "pbr": 1.7,
+        "roe": "25.8%"
+      },
+      {
+        "rank": 15,
+        "name": "파이버프로",
+        "price": "11,480",
+        "change": "+2.9%",
+        "mvp": 84,
+        "supply": 76,
+        "value": 90,
+        "fundamental": 88,
+        "per": 29.7,
+        "pbr": 7.9,
+        "roe": "26.6%"
+      },
+      {
+        "rank": 16,
+        "name": "아이티센씨티에스",
+        "price": "5,050",
+        "change": "+1.9%",
+        "mvp": 84,
+        "supply": 86,
+        "value": 89,
+        "fundamental": 77,
+        "per": 0.8,
+        "pbr": 0.2,
+        "roe": "30.8%"
+      },
+      {
+        "rank": 17,
+        "name": "펄어비스",
+        "price": "33,350",
+        "change": "+1.7%",
+        "mvp": 84,
+        "supply": 82,
+        "value": 90,
+        "fundamental": 80,
+        "per": 14.1,
+        "pbr": 2.2,
+        "roe": "15.5%"
+      },
+      {
+        "rank": 18,
+        "name": "대륙제관",
+        "price": "3,945",
+        "change": "+1.5%",
+        "mvp": 84,
+        "supply": 83,
+        "value": 80,
+        "fundamental": 89,
+        "per": 5.7,
+        "pbr": 0.4,
+        "roe": "6.9%"
+      },
+      {
+        "rank": 19,
+        "name": "케이씨텍",
+        "price": "100,300",
+        "change": "+7.4%",
+        "mvp": 84,
+        "supply": 55,
+        "value": 100,
+        "fundamental": 97,
+        "per": 25.7,
+        "pbr": 3.6,
+        "roe": "14.0%"
+      },
+      {
+        "rank": 20,
+        "name": "프로텍",
+        "price": "63,300",
+        "change": "+1.1%",
+        "mvp": 84,
+        "supply": 64,
+        "value": 100,
+        "fundamental": 87,
+        "per": 9.3,
+        "pbr": 1.6,
+        "roe": "16.8%"
       }
     ]
   }
