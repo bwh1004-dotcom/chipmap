@@ -4970,5 +4970,89 @@
       "이번주방향",
       "반도체"
     ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "반도체·AI",
+    "title": "AMD Q2 오늘 밤 발표 — EPS $1.61·매출 $113억 컨센서스, YTD +125% 후 하늘 높은 기대치",
+    "summary": "오늘(8/4) 장마감 후 발표. 컨센서스: 매출 $113.1억(YoY +47.3%), EPS(비GAAP) $1.61(YoY +235%), 총마진 56%. 자체 가이던스 $112억(±$3억). 8분기 연속 매출 컨센 초과 이력. Q2 2025 EPS -3.2% 미달 전례 주의. YTD +125% → 기대치 과열 구조.",
+    "importance": "★★★",
+    "tags": [
+      "AMD",
+      "Q2실적",
+      "EPS1.61",
+      "매출113억",
+      "데이터센터AI"
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "반도체·AI",
+    "title": "AMD Q2 5대 관전포인트 — 데이터센터 AI·MI400·Q3 가이던스·NVIDIA 추격",
+    "summary": "①데이터센터 매출 전분기 대비 성장률 ②MI400 Helios HBM4 432GB 출하 타임라인 ③Q3 가이던스 컨센서스 초과 여부 ④AI GPU 시장 NVIDIA 대비 점유율 추격 속도 ⑤TSMC CoWoS 할당 11% 유지 vs 확대 여부. Top10 슈퍼컴 4개 공급·OpenAI·Oracle 대형 계약 배경.",
+    "importance": "★★★",
+    "tags": [
+      "AMD",
+      "MI400",
+      "HBM4",
+      "CoWoS",
+      "NVIDIA추격"
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "반도체·AI",
+    "title": "SK하이닉스 Q2 후폭풍 분석 — HBM4 이연이 핵심, Q3 사상 최대 실적 토대 가능",
+    "summary": "매출 79.32조(컨센 -5.6%), 영업이익 60.54조(컨센 -5.6%). HBM4 출하 예상치 하회→이후 분기 이연. 그러나 DRAM 3Q 계약가격 +20~30% 상승 설정 중. 구글·메타 5년 LTA 체결. 2028년 전 신규 공급 없음. HBM4 이연 매출 Q3 집중 → Q3 사상 최대 실적 토대 가능성.",
+    "importance": "★★★",
+    "tags": [
+      "SK하이닉스",
+      "HBM4이연",
+      "Q3최대실적",
+      "DRAM계약가격",
+      "LTA5년"
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "반도체·AI",
+    "title": "코스피 6,023 저점 후 반등 — MS +15% 호재 등에 업은 회복, 패닉과 펀더멘털 괴리",
+    "summary": "7/28 코스피 -10.84%(6,023) 8번째 서킷브레이커 후 MS 어닝 서프라이즈로 반등. D.A. Davidson \"AI 투자 패닉이 실제와 괴리\" 지적. 메모리 가격 상승 중·5년 LTA 확보·2028년까지 공급 과잉 없음.",
+    "importance": "★★",
+    "tags": [
+      "코스피",
+      "6023저점",
+      "반등",
+      "MS호재",
+      "패닉괴리"
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "바이오·헬스케어",
+    "title": "Moderna mFlusiva FDA PDUFA 내일(8/5) — VRBPAC 만장일치 지지, 첫 mRNA 독감백신 승인 임박",
+    "summary": "Moderna mFlusiva(mRNA 독감 백신) FDA PDUFA 8/5. VRBPAC 만장일치 지지. 승인 시 세계 최초 mRNA 독감백신. NVIDIA BioNeMo 등 AI 바이오 칩 수요와 간접 연계.",
+    "importance": "★★",
+    "tags": [
+      "Moderna",
+      "mFlusiva",
+      "PDUFA",
+      "mRNA독감백신",
+      "FDA"
+    ]
+  },
+  {
+    "date": "2026-08-04",
+    "category": "반도체·AI",
+    "title": "이번 주 일정 — AMD 실적(8/4)·mFlusiva PDUFA(8/5)·Arm Q2(8/6)·미국 7월 고용(8/7)",
+    "summary": "8/4 AMD Q2 장마감 후. 8/5 AMD 반응+mFlusiva FDA PDUFA. 8/6 Arm Holdings Q2. 8/7 미국 7월 고용보고서. 이번 달 중 삼성전자 HBM4E 샘플 납품 예정.",
+    "importance": "★★",
+    "tags": [
+      "AMD",
+      "ArmHoldings",
+      "고용보고서",
+      "mFlusiva",
+      "HBM4E샘플"
+    ]
   }
 ]
