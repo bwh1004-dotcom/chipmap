@@ -5138,5 +5138,103 @@
       "HBM4E샘플",
       "30년물5.21%"
     ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "미국 7월 고용보고서 오늘 오후 9:30 발표 — 9월 FOMC 35일 전 최대 변수",
+    "summary": "컨센서스: 비농업 취업자 +83,000~120,000명(6월 +57,000 크게 하회), 실업률 4.2~4.3%, 시간당 평균 임금 +0.3%. 예상 하회 시 9월 금리 인하 기대 상승→반도체 단기 긍정. 상회 시 9월 인상 확률 재상승→반도체 추가 압박. Citi는 파격 아웃라이어로 연말까지 3회 인하 전망.",
+    "importance": "★★★",
+    "tags": [
+      "고용보고서",
+      "NFP",
+      "FOMC",
+      "9월인상",
+      "금리"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "이번 주 반도체 주간 결산 — 이란 협상 재개로 반등, AMD -8% 충격 흡수 중",
+    "summary": "트럼프 이란 공습 취소·협상 재개 발표로 NVIDIA 주도 반도체 서지. Brent -4.73%, WTI -5.11%. Arm Q1 FY2027 매출 $13억(YoY +22.4%) 로열티·라이선스 동반 강세. AMD 더블비트에도 -8% 어닝 역설 지속.",
+    "importance": "★★★",
+    "tags": [
+      "주간결산",
+      "이란협상재개",
+      "NVIDIA",
+      "AMD",
+      "Arm"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "NVIDIA 8/26 D-19 — 36명 애널리스트 전원 매수, Michael Burry $2,500억 수요 리스크 경고",
+    "summary": "36명 애널리스트 전원 강력 매수 vs Michael Burry $2,500억 수요 리스크 경고. SOXX 대비 상대강도 뒤처지나 기관 매집(Chaikin Money Flow) 지속. Vera Rubin 플랫폼 AWS·구글·MS·Oracle 본격 출하, RTX Spark AI PC 가을 출시, 유럽 슈퍼컴 35개 구축이 핵심 동력.",
+    "importance": "★★★",
+    "tags": [
+      "NVIDIA",
+      "8월26일",
+      "VeraRubin",
+      "MichaelBurry",
+      "36명전원매수"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "Broadcom 현 분기 AI 반도체 매출 +200% YoY·$160억 가이던스 — 커스텀 ASIC 최대 수혜",
+    "summary": "Q3 FY2026 AI 반도체 매출 +200%(YoY), $160억 가이던스(Q2 $108억 대비 +48%). 구글 TPU·AWS Trainium·메타 MTIA 등 커스텀 ASIC 확산에 핵심 수혜. NVIDIA 독주 구도 대비 보완재 구조 강화.",
+    "importance": "★★★",
+    "tags": [
+      "Broadcom",
+      "AI매출200%",
+      "커스텀ASIC",
+      "TPU",
+      "Trainium"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "Micron 최근 1개월 -24% — 52주 수익률 +663% 유지, Morgan Stanley 최선호 반도체 종목",
+    "summary": "7/30 이후 1개월 -24.21%(현재 $874.66). 그러나 52주 수익률 +663.53% 유지. Morgan Stanley 2026년 최선호 반도체 종목 유지. HBM4 NVIDIA Vera Rubin 플랫폼 고용량 출하 중. 클라우드 메모리 단독 분기 매출 $137.7억.",
+    "importance": "★★",
+    "tags": [
+      "Micron",
+      "52주663%",
+      "MorganStanley",
+      "HBM4",
+      "VeraRubin"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "8월 반도체 3대 매수 논거 vs 3대 리스크 — 15개월 연속 최고치 vs SOX -20%",
+    "summary": "매수 논거: ①글로벌 반도체 매출 15개월 연속 최고치 경신 ②Broadcom·Micron 가이던스 역대 최대 ③TSMC·Intel CAPEX 확대 장비 업사이클 가속. 리스크: ①SOX 고점 대비 -20% 기술적 약세 ②이란 MOU 만료(8/19) 지정학 ③30년물 5.21%(2007년 이후 최고) 성장주 압박.",
+    "importance": "★★★",
+    "tags": [
+      "반도체전망",
+      "15개월연속최고",
+      "SOX",
+      "이란MOU",
+      "장비업사이클"
+    ]
+  },
+  {
+    "date": "2026-08-07",
+    "category": "반도체·AI",
+    "title": "8월~9월 핵심 일정 — CPI(8/12)·이란MOU만료(8/19)·NVIDIA실적(8/26)·FOMC(9/16)",
+    "summary": "8/12 미국 7월 CPI. 8/19 이란 MOU 만료(D-12) — 전쟁 재개 vs 협상 연장 분기점. 8/26 NVIDIA Q2 FY2027 실적(하반기 반도체 랠리 최종 점화 여부). 이번 달 중 삼성전자 HBM4E 샘플 납품. 9/16 FOMC 9월 회의 — 금리 인상 vs 동결 최종 결정.",
+    "importance": "★★★",
+    "tags": [
+      "CPI",
+      "이란MOU8월19일",
+      "NVIDIA8월26일",
+      "HBM4E샘플",
+      "FOMC9월"
+    ]
   }
 ]
